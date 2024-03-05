@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@300&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Cairo', sans-serif;}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #dcd9cd;
+}
+
+#informationsContainer{
+  display: none;
+}
+#menuContainer {
+  position: relative;
+}
+#menuContainer  li {
+  list-style: none;
+  text-align: center;
+}
+#menuContainer  li a {
+  color: #333;
+  text-decoration: none;
+  font-size: 3em;
+  padding: 5px 20px;
+  display: inline-flex;
+  font-weight: 700;
+  transition: 0.5s;
+}
+#menuContainer:hover li a {
+  color: #0002;
+  cursor: pointer;
+}
+#menuContainer  li:hover a {
+  color: #000;
+  background: transparent;
+}
+#menuContainer  li a:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5em;
+  color: rgba(0, 0, 0, 0.1); /* opacity effect background */
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0;
+  font-weight: 900;
+  letter-spacing: 500px;
+  transition: letter-spacing 0.5s, left 0.5s;
+}
+#menuContainer  li a:hover:before {
+  content: attr(background-text);
+  opacity: 1;
+  left: 50%;
+  letter-spacing: 10px;
+  width: 1800px;
+  height: 1800px;
+}#menuContainerSmall {
+  position: relative;
+}
+#menuContainerSmall  li {
+  list-style: none;
+  text-align: center;
+}
+#menuContainerSmall  li a {
+  color: #333;
+  text-decoration: none;
+  font-size: 3em;
+  padding: 5px 20px;
+  display: inline-flex;
+  font-weight: 700;
+  transition: 0.5s;
+}
+#menuContainerSmall:hover li a {
+  color: #0002;
+}
+#menuContainerSmall li:hover a {
+  color: #000;
+  background: transparent;
+}
+#menuContainerSmall li a:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5em;
+  color: rgba(0, 0, 0, 0.1); /* opacity effect background */
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0;
+  font-weight: 900;
+  letter-spacing: 500px;
+  transition: letter-spacing 0.5s, left 0.5s;
+}
+.home-bg { background-image: url('https://source.unsplash.com/random/1920x1080?sky'); }
+.about-bg { background-image: url('https://source.unsplash.com/random/1920x1080?nature'); }
+.contact-bg { background-image: url('https://source.unsplash.com/random/1920x1080?city'); }
+
+#mainContainer{
+  display: grid;
+  text-align: center;
+  height: 100vh;
+  grid-template-columns: 100vw 0;
+  -o-transition: all 1s;
+  -moz-transition: all 1s;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  place-items: center; /* Shortcut for centering both horizontally and vertically */
+}
+/* Fade in funktioniert nicht -------------------------------------------------------------------*/
+.fade-in {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s, visibility 0s linear 0.5s; /* Verzögert die Änderung der Sichtbarkeit bis zum Ende des Übergangs */
+}
+
+.fade-in.visible {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 1s; /* Macht den Übergang sofort sichtbar */
+}
+#centered-Text{
+  text-align: center; /* Zentriert den Text horizontal */
+  font-family: Arial, sans-serif; /* Setzt die Schriftart */
+  font-size: 16px; /* Setzt die Schriftgröße */
+  color: #333; /* Setzt die Textfarbe */
+  line-height: 1.5; /* Setzt den Zeilenabstand */
+  margin: 20px 0; /* Fügt oberen und unteren Abstand hinzu */
+  padding: 10px; /* Fügt Innenabstand hinzu */
+  max-width: 80%; /* Begrenzt die maximale Breite des Absatzes */
+  border: 1px solid #ccc; /* Fügt einen Rahmen hinzu */
+  border-radius: 5px; /* Rundet die Ecken des Rahmens ab */
+  background-color: #f9f9f9; /* Setzt die Hintergrundfarbe */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Fügt einen leichten Schatten hinzu */
+  margin-left: auto; /* Zentriert den Block horizontal */
+  margin-right: auto; /* Zentriert den Block horizontal */
+}
