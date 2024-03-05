@@ -1,0 +1,19 @@
+h1.quote {
+    text-align: center; /* Centers the text */
+    font-style: italic; /* Makes the font italic */
+    padding: 20px 40px; /* Adds some padding for aesthetics */
+    position: relative; /* Required for pseudo-elements */
+    right: 7vw;
+}
+
+h1.quote:before, h1.quote:after {
+    content: open-quote; /* Uses the default quotation marks */
+    font-size: 2em; /* Adjusts the size of the quotes */
+    line-height: 0; /* Adjusts the line height to ensure alignment */
+    vertical-align: -0.4em; /* Aligns the quote marks */
+    color: #a6a1a1; /* Light color for the quotes */
+}
+
+h1.quote:after {
+    content: close-quote;
+}
