@@ -3,7 +3,7 @@
 <script>
     function login(){
         <?php
-            $person = FileManager::readPerson();
+            //$person = FileManager::readPerson();
         ?>
     }
 

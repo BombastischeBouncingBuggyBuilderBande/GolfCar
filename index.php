@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,11 +29,6 @@
         }
         for (let i = 0; i < background_text.length; i++) {
             let textPart = "" + background_text[i].toLowerCase() + "-display";
-
-            if(textPart === "contact-display"){
-
-                break;
-            }
 
             if(textPart !== but){
                 document.getElementById(background_text[i].toLowerCase() + "-display").style.display = "none";
@@ -112,7 +106,7 @@
     document.querySelectorAll('.nav-link').forEach(item => {
         item.addEventListener('click', function() {
             let link = this.getAttribute('data-text');
-            if(link === "Home" || link === "About" ||link === "Coding" ||link === "Live" ||link === "Diary"){ // alles außer Contact
+            if(link === "Home" || link === "About" ||link === "Coding" ||link === "Live" ||link === "Diary" || link === "Contact"){
                 activate_split_mode()
             }
         });
