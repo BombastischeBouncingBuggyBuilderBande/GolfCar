@@ -13,7 +13,6 @@
 
     }
 </script>
-
     <div id="vertContainer">
         <div id="loginContainer">
             <label for="account-selector"></label>
