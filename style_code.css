@@ -6,11 +6,13 @@
     padding: 40px;
     overflow: hidden;
 }
+
 .scrollable-content {
     height: 100%;
     overflow-y: auto;
     padding: 20px;
 }
+
 .top-fade, .bottom-fade {
     position: absolute;
     left: 0;
@@ -18,6 +20,7 @@
     height: 20px;
     pointer-events: none;
 }
+
 .top-fade {
     position: absolute;
     width: 68vw;
@@ -25,6 +28,7 @@
     height: 20vh;
     background: linear-gradient(to bottom, #dcd9cd, transparent);
 }
+
 .bottom-fade {
     position: absolute;
     width: 68vw;
@@ -32,6 +36,7 @@
     height: 20vh;
     background: linear-gradient(to top, #dcd9cd, transparent);
 }
+
 /* Scrollbar-Gesamtdesign für Webkit-Browser */
 ::-webkit-scrollbar {
     width: 15px; /* Breite der Scrollbar */
@@ -52,6 +57,7 @@
 ::-webkit-scrollbar-thumb:hover {
     background: #909090; /* Dunklere Farbe beim Hover */
 }
+
 /* Header Styles */
 .header {
     font-size: 24px;
@@ -82,6 +88,7 @@
 .keyword {
     color: #007bff; /* Example color for keywords */
 }
+
 .comment {
     color: #6c757d; /* Example color for comments */
 }
