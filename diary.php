@@ -22,5 +22,11 @@
             //echo $person2->getName();
             ?>
 
+            <div id=tb_uebersicht">
+                <!-- Tabelle von Einträgen -->
+            </div>
+            <div id="tb_Funktionen">
+                <!-- Eintrag hinzufügen -->
+            </div>
         </div>
     </div>
