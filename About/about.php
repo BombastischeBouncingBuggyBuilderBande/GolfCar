@@ -1,5 +1,5 @@
 <head>
-    <link rel="stylesheet" href="style_About.css">
+    <link rel="stylesheet" href="About/style_About.css">
 </head>
 <div class="main">
     <div class="centered-Text">
