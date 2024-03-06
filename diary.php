@@ -8,6 +8,8 @@
     }
 
     function set(){
+        document.getElementById("loginContainer").style.display = "none";
+        document.getElementById("infoContainer").style.display = "block";
 
     }
 </script>
