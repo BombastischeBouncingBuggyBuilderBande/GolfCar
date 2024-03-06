@@ -107,9 +107,6 @@ body {
   letter-spacing: 500px;
   transition: letter-spacing 0.5s, left 0.5s;
 }
-.home-bg { background-image: url('https://source.unsplash.com/random/1920x1080?sky'); }
-.about-bg { background-image: url('https://source.unsplash.com/random/1920x1080?nature'); }
-.contact-bg { background-image: url('https://source.unsplash.com/random/1920x1080?city'); }
 
 #mainContainer{
   display: grid;
@@ -150,13 +147,4 @@ body {
   margin-left: auto; /* Zentriert den Block horizontal */
   margin-right: auto; /* Zentriert den Block horizontal */
 }
-
-#home-display{
-  display: flex;
-  right: 50vw;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-
 
