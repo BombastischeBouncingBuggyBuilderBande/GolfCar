@@ -5,7 +5,7 @@
 </div>
 <div id="wave_CenterPixel"></div>
 
-<script src="funktionen.js"></script>
+<script src="../funktionen.js"></script>
 <script>
     let bt = document.getElementById("button");
     let quote = document.getElementById("quote")
