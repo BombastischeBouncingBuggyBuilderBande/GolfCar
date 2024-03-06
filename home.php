@@ -1,7 +1,9 @@
 <link rel="stylesheet" href="style_home.css">
+<div id="firstview">
     <h1 id="quote" class="fade-in"> What color is your Golf-Car?</h1>
     <button class="fade-in" id="button" onclick="show_more()">▼</button>
-    <div id="wave_CenterPixel"></div>
+</div>
+<div id="wave_CenterPixel"></div>
 
 <script src="funktionen.js"></script>
 <script>
@@ -12,8 +14,6 @@
 
     toggleFadeIn(quote);
     toggleFadeIn(bt);
-
-
 
     function show_more(){
         home_ic = document.getElementById("home_informationsContainer");
@@ -27,9 +27,6 @@
             quote.style.display = "none";
             bt.style.display = "none";
             wavep.style.display = "none"
-
-
-
         }, 1000);
 
     }

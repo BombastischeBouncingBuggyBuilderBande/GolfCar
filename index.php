@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -107,7 +106,7 @@
     document.querySelectorAll('.nav-link').forEach(item => {
         item.addEventListener('click', function() {
             let link = this.getAttribute('data-text');
-            if(link === "Home" || link === "About" ||link === "Coding" ||link === "Live" ||link === "Diary" || link === "Content"){
+            if(link === "Home" || link === "About" ||link === "Coding" ||link === "Live" ||link === "Diary" || link === "Contact"){
                 activate_split_mode()
             }
         });
