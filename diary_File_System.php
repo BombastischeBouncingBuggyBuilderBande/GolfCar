@@ -7,7 +7,7 @@ class FileManager
 
     public static function savePerson($person)
     {
-        $filename = self::$directory.$person->getName().'.json';
+        $filename = self::$directory . $person->getName() . '.json';
 
         $data = json_encode($person->toArray());
         file_put_contents($filename, $data);
@@ -40,4 +40,5 @@ class FileManager
         self::savePerson($person);
     }
 }
+
 ?>
