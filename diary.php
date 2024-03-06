@@ -22,7 +22,7 @@
                 <option value="alex">Alex</option>
                 <option value="rene">René</option>
             </select>
-            <input type="text" placeholder="password" id="password">
+        <label for="password"><input name="password" type="text" placeholder="password" id="password"></label>
             <button onclick="login()">Log In</button>
         </div>
         <div id="infoContainer">
