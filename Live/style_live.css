@@ -1,0 +1,20 @@
+#videoContainer {
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+video {
+    display: block; /* Remove default margin */
+    width: 100%; /* Responsive video size */
+    border-radius: 10px;
+}
+
+#fallbackMessage {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    margin: 30px;
+}
