@@ -1,0 +1,26 @@
+.centered-Text{
+    text-align: center; /* Zentriert den Text horizontal */
+    font-family: Arial, sans-serif; /* Setzt die Schriftart */
+    font-size: 16px; /* Setzt die Schriftgröße */
+    color: #333;
+    line-height: 1.5;
+    margin: 20px ;
+    padding: 20px;
+    max-width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #eae8df;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 50vw;
+}
+
+#loginContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+#vertContainer{
+    display: flex;
+    flex-direction: column;
+}
