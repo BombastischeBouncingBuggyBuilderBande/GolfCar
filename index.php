@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<script src="funktionen.js"></script>
 <script>
     let background_text = ["Home", "About", "Coding", "Live", "Diary", "Contact"];
     function deactivate_background_text() {
@@ -22,9 +23,13 @@
         }
     }
     function deactivate_all_but(but){
+        if(document.getElementById(but).style.display === "block"){
+            console.log("imhere------------------------------------------------------------");
+            deactivate_split_mode();
+            return 0;
+        }
         for (let i = 0; i < background_text.length; i++) {
             let textPart = "" + background_text[i].toLowerCase() + "-display";
-            console.log(textPart);
 
             if(textPart !== but){
                 document.getElementById(background_text[i].toLowerCase() + "-display").style.display = "none";
@@ -39,33 +44,21 @@
     function activate_split_mode(){
         document.getElementById("informationsContainer").style.display = "block";
         document.getElementById("mainContainer").style.gridTemplateColumns = "30vw 70vw";
+        deactivate_background_text();
 
     }
     function deactivate_split_mode(){
-        //document.getElementById("mainContainer").style.gridColumn = "100vw, 0vw";
         document.getElementById("informationsContainer").style.display = "none";
+        document.getElementById("mainContainer").style.gridTemplateColumns = "100vw 0vw";
+        activate_background_text();
+        deactivate_all_display();
     }
     function deactivate_all_display(){
         for (let i = 0; i < background_text.length; i++) {
-            //console.log(background_text[i].toLowerCase());
+            toggleFadeOut(document.getElementById((background_text[i].toLowerCase() + "-display").toString()));
             document.getElementById((background_text[i].toLowerCase() + "-display").toString()).style.display = "none";
         }
     }
-// Fade -------------------------------------------------------
-    function toggleFadeIn(element) {
-        element.style.display = 'block'; // Block setzen, bevor die Klasse hinzugefügt wird
-        requestAnimationFrame(() => {
-            element.classList.add('visible');
-        });
-    }
-    function toggleFadeOut(element) {
-        element.classList.remove('visible');
-        element.addEventListener('transitionend', function handleTransitionEnd() {
-            //element.style.display = 'none';
-            element.removeEventListener('transitionend', handleTransitionEnd);
-        });
-    }
-
 </script>
 <div id="mainContainer">
     <ul id="menuContainer">
@@ -114,24 +107,8 @@
     document.querySelectorAll('.nav-link').forEach(item => {
         item.addEventListener('click', function() {
             let link = this.getAttribute('data-text');
-            let container = document.getElementById("mainContainer");
-            if(link === "Home") {
-                container.style.display = "grid";
-            }if(link === "About") {
-                container.style.display = "grid";
-            }if(link === "Coding") {
-                container.style.display = "grid";
-            }if(link === "Live") {
-                container.style.display = "grid";
-            }if(link === "Diary") {
-                container.style.display = "grid";
-            }if(link === "Content") {
-                container.style.display = "grid";
-            }
             if(link === "Home" || link === "About" ||link === "Coding" ||link === "Live" ||link === "Diary" || link === "Content"){
-                deactivate_background_text();
                 activate_split_mode()
-                //deactivate_all_display()
             }
         });
     });

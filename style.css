@@ -150,3 +150,13 @@ body {
   margin-left: auto; /* Zentriert den Block horizontal */
   margin-right: auto; /* Zentriert den Block horizontal */
 }
+
+#home-display{
+  display: flex;
+  right: 50vw;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+
