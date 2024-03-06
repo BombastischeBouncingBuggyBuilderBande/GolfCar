@@ -8,7 +8,7 @@
 <body>
 <script src="funktionen.js"></script>
 <script>
-    let background_text = ["Home", "About", "Coding", "Live", "Diary", "Contact"];
+    let background_text = ["Home", "About", "Downloads", "Live", "Diary", "Contact"];
 
     function deactivate_background_text() {
         let allmenu = document.getElementsByClassName("nav-link");
@@ -71,8 +71,8 @@
                data-text="Home">Home</a></li>
         <li><a class="nav-link" id="About" onclick="deactivate_all_but('about-display')" background-text="About"
                data-text="About">About</a></li>
-        <li><a class="nav-link" id="Coding" onclick="deactivate_all_but('coding-display')" background-text="Coding"
-               data-text="Coding">Coding</a></li>
+        <li><a class="nav-link" id="Downloads" onclick="deactivate_all_but('downloads-display')" background-text="Downloads"
+               data-text="Downloads">Downloads</a></li>
         <li><a class="nav-link" id="Live" onclick="deactivate_all_but('live-display')" background-text="Live"
                data-text="Live">Live</a></li>
         <li><a class="nav-link" id="Diary" onclick="deactivate_all_but('diary-display')" background-text="Diary"
@@ -91,9 +91,9 @@
             include("about.php");
             ?>
         </div>
-        <div id="coding-display" class="fade-in">
+        <div id="downloads-display" class="fade-in">
             <?php
-            include("code.php");
+            include("Downloads/downloads.php");
             ?>
         </div>
         <div id="live-display" class="fade-in">
@@ -118,7 +118,7 @@
     document.querySelectorAll('.nav-link').forEach(item => {
         item.addEventListener('click', function () {
             let link = this.getAttribute('data-text');
-            if(link === "Home" || link === "About" ||link === "Coding" ||link === "Live" ||link === "Diary" || link === "Contact"){
+            if(link === "Home" || link === "About" ||link === "Downloads" ||link === "Live" ||link === "Diary" || link === "Contact"){
                 activate_split_mode()
             }
         });

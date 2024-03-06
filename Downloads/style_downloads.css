@@ -1,0 +1,42 @@
+.container {
+    width: 50vw;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #eae8df;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.downloads-list {
+    list-style: none;
+    padding: 0;
+}
+
+.download-link {
+    display: block;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.download-link:hover {
+    background-color: #e0e0e0;
+}
+
+.download-icon {
+    float: left;
+    margin-right: 10px;
+    width: 20px; /* Adjust the width as needed */
+    height: auto;
+}
