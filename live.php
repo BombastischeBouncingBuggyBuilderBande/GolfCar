@@ -2,11 +2,11 @@
 
 <div>
     <div id="videoContainer">
-        <video id="videoPlayer" width="640" height="360" controls>
-            <source src="path_to_your_video.mp4" type="video/mp4">
+        <video id="videoPlayer" controls>
+            <source src="video.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        <div id="fallbackMessage" class="hidden">Cam not currently available</div>
+        <div id="fallbackMessage">Cam not currently available</div>
     </div>
 </div>
 
@@ -16,13 +16,16 @@
         const fallbackMessage = document.getElementById('fallbackMessage');
 
         // Check if the video can be played
-        videoPlayer.onerror = function () {
-            showFallbackMessage();
-        };
-
+        setTimeout( function(){
+            console.log(videoPlayer.readyState)
+            if (videoPlayer.readyState === 0) {
+                showFallbackMessage();
+            }
+        }, 5000);
         function showFallbackMessage() {
             fallbackMessage.style.display = 'flex'; // Show the fallback message
             videoPlayer.style.display = 'none'; // Hide the video player
         }
+
     });
 </script>

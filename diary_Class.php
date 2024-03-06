@@ -2,12 +2,14 @@
 class Person{
     private $name;
     private $rolle;
+    private $password;
 
     public $message_list;
 
-    public function __construct($name, $rolle, $message_list=[]){
+    public function __construct($name, $rolle, $password, $message_list=[]){
         $this->message_list = $message_list;
         $this->name = $name;
+        $this->password = $password;
         $this->rolle = $rolle;
     }
     public function addEintrag($datum, $name, $beschreibung){
@@ -36,6 +38,12 @@ class Person{
             'rolle' => $this->rolle,
             'messageList' => $this->message_list,
         ];
+    }
+    public function loginChecker($password){
+        if($this->password === $password){
+            return true;
+        }else
+            return false;
     }
 }
 class Eintrag{
