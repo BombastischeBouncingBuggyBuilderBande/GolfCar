@@ -7,7 +7,9 @@
         ?>
     }
 
-    function set
+    function set(){
+
+    }
 </script>
 
     <div id="vertContainer">
