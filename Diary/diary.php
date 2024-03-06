@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="style_diary.css">
+<link rel="stylesheet" href="Diary/style_diary.css"> <!-- because diary is included in index.php it searches from there-->
 <script src="../funktionen.js"></script>
 <script>
     function login(){

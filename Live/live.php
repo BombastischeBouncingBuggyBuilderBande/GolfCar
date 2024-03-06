@@ -1,9 +1,9 @@
-<link rel="stylesheet" href="style_live.css">
+<link rel="stylesheet" href="Live/style_live.css">
 
 <div>
     <div id="videoContainer">
         <video id="videoPlayer" controls>
-            <source src="video.mp4" type="video/mp4">
+            <source src="Live/video.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <div id="fallbackMessage">Cam not currently available</div>

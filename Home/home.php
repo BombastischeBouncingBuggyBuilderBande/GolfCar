@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="style_home.css">
+<link rel="stylesheet" href="Home/style_home.css">
 <div id="firstview">
     <h1 id="quote" class="fade-in"> What color is your Golf-Car?</h1>
     <button class="fade-in" id="button" onclick="show_more()">▼</button>
