@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="style_diary.css">
-<script src="funktionen.js"></script>
+<script src="../funktionen.js"></script>
 <script>
     function login(){
         <?php

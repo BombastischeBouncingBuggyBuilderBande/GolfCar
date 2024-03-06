@@ -83,12 +83,12 @@
     <div id="informationsContainer">
         <div id="home-display" class="fade-in">
             <?php
-            include("home.php");
+            include("Home/home.php");
             ?>
         </div>
         <div id="about-display" class="fade-in">
             <?php
-            include("about.php");
+            include("About/about.php");
             ?>
         </div>
         <div id="downloads-display" class="fade-in">
@@ -98,17 +98,17 @@
         </div>
         <div id="live-display" class="fade-in">
             <?php
-            include("live.php");
+            include("Live/live.php");
             ?>
         </div>
         <div id="diary-display" class="fade-in">
             <?php
-            include("diary.php");
+            include("Diary/diary.php");
             ?>
         </div>
         <div id="contact-display" class="fade-in">
             <?php
-            include("contact.php");
+            include("Contact/contact.php");
             ?>
         </div>
 
