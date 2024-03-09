@@ -59,6 +59,15 @@
         </div>
     </div>
 </div>
+<div id="SponsorContainer">
+    <div id="SponsorButtonContainer">
+        <div></div>
+        <button id="SponsorButton" onclick="hideSponsor()">X</button>
+    </div>
+    <div>
+        <p>Inser Gigachad Sponsor (Placeholder)</p>
+    </div>
+</div>
 <script>
     // Array mit allen Elementen der Navbar (Hauptelemente der Website)
     let background_text = ["Home", "About", "Downloads", "Live", "Diary", "Control"];
@@ -126,8 +135,14 @@
     function deactivate_all_display() {
         for (let i = 0; i < background_text.length; i++) {
             toggleFadeOut(document.getElementById((background_text[i].toLowerCase() + "-display").toString()));
-            document.getElementById((background_text[i].toLowerCase() + "-display").toString()).style.display = "none";
+            setTimeout(function() {
+                document.getElementById((background_text[i].toLowerCase() + "-display").toString()).style.display = "none";
+            }, 1000);
         }
+    }
+
+    function hideSponsor(){
+        document.getElementById("SponsorContainer").style.display = "none";
     }
 </script>
 </body>

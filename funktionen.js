@@ -7,7 +7,9 @@ function toggleFadeIn(element) {
     });
 }
 function toggleFadeOut(element) {
-    element.classList.remove('visible');
+    requestAnimationFrame(() => {
+        element.classList.remove('visible');
+    });
     element.addEventListener('transitionend', function handleTransitionEnd() {
         element.removeEventListener('transitionend', handleTransitionEnd);
     });
