@@ -19,7 +19,6 @@ if(isset($_GET['page'])) {
 }
 ob_end_flush()
 ?>
-
 <div id="mainContainer">
     <!-- Navbar ------------------------------------------------------------------------------------------------------>
     <ul id="menuContainer">
