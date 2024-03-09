@@ -60,13 +60,8 @@
     </div>
 </div>
 <div id="SponsorContainer">
-    <div id="SponsorButtonContainer">
-        <div></div>
         <button id="SponsorButton" onclick="hideSponsor()">X</button>
-    </div>
-    <div>
         <p>Inser Gigachad Sponsor (Placeholder)</p>
-    </div>
 </div>
 <script>
     // Array mit allen Elementen der Navbar (Hauptelemente der Website)

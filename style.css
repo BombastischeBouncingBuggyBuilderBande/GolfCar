@@ -149,34 +149,29 @@ body {
 }
 /* Sponsor ----------------------------------------------------------------------------------------------------------*/
 #SponsorContainer{
-  /*
-  display: grid;
-  grid-template-rows: 10% 90%;
-   */
   position: absolute;
   width: 35vw;
-  height: 15vh;
-  place-items: center;
+  height: 10vh;
+  place-content: center;
   text-align: center;
-  top: 80%;
+  top: 85%;
   left: 0;
   right: 0;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
   border: 1px solid black
 }
 
 #SponsorButton{
   background-color: transparent;
+  position: absolute;
+  text-align: left;
+  right: 0;
+  top: 0;
   color: #000;
   border: none;
-  padding: 0;
+  padding-top: 0;
+  padding-right: 5px;
   margin: 0;
   cursor: pointer;
-  width: 5vw;
-}
-
-#SponsorButtonContainer{
-  display: grid;
-  grid-template-columns: 30vw 5vw;
+  width: 2vw;
 }
