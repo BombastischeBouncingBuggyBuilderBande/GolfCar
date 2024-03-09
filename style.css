@@ -119,7 +119,7 @@ body {
   transition: all 1s;
   place-items: center; /* Shortcut for centering both horizontally and vertically */
 }
-/* Fade in funktioniert nicht -------------------------------------------------------------------*/
+/* Fade -------------------------------------------------------------------------------------------------------------*/
 .fade-in {
   opacity: 0;
   visibility: hidden;
@@ -132,19 +132,46 @@ body {
   transition: opacity 1s; /* Macht den Übergang sofort sichtbar */
 }
 #centered-Text{
-  text-align: center; /* Zentriert den Text horizontal */
-  font-family: Arial, sans-serif; /* Setzt die Schriftart */
-  font-size: 16px; /* Setzt die Schriftgröße */
-  color: #333; /* Setzt die Textfarbe */
-  line-height: 1.5; /* Setzt den Zeilenabstand */
-  margin: 20px 0; /* Fügt oberen und unteren Abstand hinzu */
-  padding: 10px; /* Fügt Innenabstand hinzu */
-  max-width: 80%; /* Begrenzt die maximale Breite des Absatzes */
-  border: 1px solid #ccc; /* Fügt einen Rahmen hinzu */
-  border-radius: 5px; /* Rundet die Ecken des Rahmens ab */
-  background-color: #f9f9f9; /* Setzt die Hintergrundfarbe */
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Fügt einen leichten Schatten hinzu */
-  margin-left: auto; /* Zentriert den Block horizontal */
-  margin-right: auto; /* Zentriert den Block horizontal */
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #333;
+  line-height: 1.5;
+  margin: 20px 0;
+  padding: 10px;
+  max-width: 80%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Sponsor ----------------------------------------------------------------------------------------------------------*/
+#SponsorContainer{
+  position: absolute;
+  width: 35vw;
+  height: 10vh;
+  place-content: center;
+  text-align: center;
+  top: 85%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border: 1px solid black
 }
 
+#SponsorButton{
+  background-color: transparent;
+  position: absolute;
+  text-align: left;
+  right: 0;
+  top: 0;
+  color: #000;
+  border: none;
+  padding-top: 0;
+  padding-right: 5px;
+  margin: 0;
+  cursor: pointer;
+  width: 2vw;
+}
