@@ -2,6 +2,7 @@
 function toggleFadeIn(element) {
     //element.style.display = 'block'; // Block setzen, bevor die Klasse hinzugefügt
     // oberes ausgestellt wegen verursachten layoutproblemen
+    console.log("fade-in");
     requestAnimationFrame(() => {
         element.classList.add('visible');
     });
