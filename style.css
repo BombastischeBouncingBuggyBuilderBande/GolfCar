@@ -1,4 +1,4 @@
-  * {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -156,7 +156,7 @@ body {
 .animate-image {
   position: absolute;
   left: 100%;
-  transition: left 2s ease-out;
+  transition: left 1s ease-out;
 }
 
 /* Animation */
@@ -170,7 +170,7 @@ body {
 }
 
 .animate-image.start-animation {
-  animation: slideToLeft 1s ease-out;
+  animation: slideToLeft 1s ease;
 }
 /* Animation */
 @keyframes slideToRight {
@@ -183,5 +183,5 @@ body {
 }
 
 .animate-image.start-animation-reverse {
-  animation: slideToRight 1s ease-out;
+  animation: slideToRight 1s ease;
 }

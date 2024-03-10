@@ -1,13 +1,12 @@
 <?php
+require "diary_Classes.php";
 $username = isset($_POST['username']) ? $_POST['username'] : '';
 $password = isset($_POST['password']) ? $_POST['password'] : '';
 
-// Hier würden normalerweise die Login-Daten überprüft werden, z.B. mit einer Datenbank.
-// Zur Demonstration wird hier ein einfacher Check durchgeführt:
-echo "$username $password";
-if ($username === 'admin' && $password === 'password') {
-    echo "Erfolgreich eingeloggt!";
+// Hier die Login-Daten überprüfen mit Datenbank.
+if (FileManager::readPerson($username)->getPassword() === $password) {
+    echo "true";
 } else {
-    echo "Ungültige Anmeldedaten.";
+    echo "false";
 }
 ?>
