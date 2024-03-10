@@ -1,6 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@300&display=swap");
-
-* {
+  * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -148,30 +146,42 @@ body {
   margin-right: auto;
 }
 /* Sponsor ----------------------------------------------------------------------------------------------------------*/
-#SponsorContainer{
+#sponsorImg{
   position: absolute;
-  width: 35vw;
-  height: 10vh;
-  place-content: center;
-  text-align: center;
-  top: 85%;
-  left: 0;
-  right: 0;
-  margin: auto;
-  border: 1px solid black
+  padding: 20px;
+  bottom: 5px;
+  width: 20%;
+  left: calc(50% - (20%/2));
+}
+.animate-image {
+  position: absolute;
+  left: 100%;
+  transition: left 2s ease-out;
 }
 
-#SponsorButton{
-  background-color: transparent;
-  position: absolute;
-  text-align: left;
-  right: 0;
-  top: 0;
-  color: #000;
-  border: none;
-  padding-top: 0;
-  padding-right: 5px;
-  margin: 0;
-  cursor: pointer;
-  width: 2vw;
+/* Animation */
+@keyframes slideToLeft {
+  from {
+    left: calc(50% - (20%/2));
+  }
+  to {
+    left: 0;
+  }
+}
+
+.animate-image.start-animation {
+  animation: slideToLeft 1s ease-out;
+}
+/* Animation */
+@keyframes slideToRight {
+  from {
+    left: 0;
+  }
+  to {
+    left: calc(50% - (20%/2));
+  }
+}
+
+.animate-image.start-animation-reverse {
+  animation: slideToRight 1s ease-out;
 }

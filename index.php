@@ -70,23 +70,21 @@ ob_end_flush()
         </div>
     </div>
 </div>
-<div id="SponsorContainer">
-        <button id="SponsorButton" onclick="hideSponsor()">X</button>
-        <p>Inser Gigachad Sponsor (Placeholder)</p>
-</div>
-<script src="mainFunktionen.js"></script>
-<?php
-if(isset($_GET['page'])) {
-    $getted = $_GET['page'];
-    echo"<script>console.log('page Parameter: ' + '$getted')</script>";
+<img id="sponsorImg" class="animate-image" src="resources/ris_logo.png" alt="Our Sponsor">
 
-    if ($getted === "home" || $getted === "about" || $getted == "downloads" || $getted == "live" || $getted === "diary" || $getted === "control") {
-        echo "<script> 
+    <script src="mainFunktionen.js"></script>
+    <?php
+    if(isset($_GET['page'])) {
+        $getted = $_GET['page'];
+        echo"<script>console.log('page Parameter: ' + '$getted')</script>";
+
+        if ($getted === "home" || $getted === "about" || $getted == "downloads" || $getted == "live" || $getted === "diary" || $getted === "control") {
+            echo "<script> 
         deactivate_all_but('$getted' + '-display');
         activate_split_mode();
     </script>";
+        }
     }
-}
-?>
+    ?>
 </body>
 </html>

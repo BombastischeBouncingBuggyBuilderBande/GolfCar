@@ -46,6 +46,12 @@
         console.log("seitenverhältnis geändert");
         deactivate_background_text();
 
+        let sponsorImg = document.getElementById("sponsorImg");
+        sponsorImg.style.left = "0";
+        sponsorImg.classList.add("start-animation");
+        sponsorImg.classList.remove("start-animation-reverse");
+
+
     }
 
     // Generiert die Ursprungsform der Website, mit nur der Navbar in der Mitte
@@ -58,6 +64,11 @@
         setTimeout(function() {
             activate_background_text();
         }, 500);
+
+        let sponsorImg = document.getElementById("sponsorImg");
+        sponsorImg.style.left = "calc(50% - (20%/2))";
+        sponsorImg.classList.remove("start-animation");
+        sponsorImg.classList.add("start-animation-reverse");
     }
 
     // Deaktiviert das Display aller Informationen
