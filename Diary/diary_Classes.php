@@ -1,5 +1,6 @@
 <?php
 
+// FileManager Class ------------------------------------------------------------------------------------------------->
 class FileManager
 {
 // __DIR__ . ...
@@ -9,7 +10,7 @@ class FileManager
     {
         $filename = self::$directory . $person->getName() . '.json';
 
-        $data = json_encode($person->toArray());
+        $data = json_encode($person/*->toArray()*/);
         file_put_contents($filename, $data);
         echo "success";
     }
@@ -40,14 +41,13 @@ class FileManager
         self::savePerson($person);
     }
 }
-
+// Person Class ------------------------------------------------------------------------------------------------------>
 class Person
 {
     private $name;
     private $rolle;
     private $password;
-
-    public $message_list;
+    private $message_list;
 
     public function __construct($name, $rolle, $password, $message_list = [])
     {
@@ -57,10 +57,10 @@ class Person
         $this->rolle = $rolle;
     }
 
-    public function addEintrag($datum, $name, $beschreibung)
+    public function addEintrag($datum, $beschreibung)
     {
-        echo count($this->message_list);
-        $this->message_list[count($this->message_list)] = new Eintrag($datum, $name, $beschreibung);
+        $this->message_list[0] = new Eintrag($datum, $this->name, $beschreibung);
+        //FileManager::savePerson($this);
     }
 
     public function deleteEintrag($id)
@@ -71,6 +71,7 @@ class Person
                 break;
             }
             $this->message_list[$i] = $this->message_list[$i + 1];
+            FileManager::savePerson($this);
 
         }
     }
@@ -89,6 +90,10 @@ class Person
         return $this->rolle;
     }
 
+    public function getEntries(){
+        return $this->message_list;
+    }
+
     public function toArray()
     {
         return [
@@ -98,16 +103,38 @@ class Person
             'messageList' => $this->message_list,
         ];
     }
-
-    public function loginChecker($password)
+    function generateHTMLTable()
     {
-        if ($this->password === $password) {
-            return true;
-        } else
-            return false;
-    }
-}
+        $html = '<table border="1">';
+        $html .= '<tr><th>Datum</th><th>Name</th><th>Beschreibung</th></tr>';
 
+        foreach ($this->message_list as $eintrag) {
+            $html .= '<tr>';
+            $html .= '<td>' . htmlspecialchars($eintrag->getDatum()) . '</td>';
+            $html .= '<td>' . htmlspecialchars($eintrag->getName()) . '</td>';
+            $html .= '<td>' . htmlspecialchars($eintrag->getBeschreibung()) . '</td>';
+            $html .= '</tr>';
+        }
+
+        $html .= '</table>';
+        return $html;
+    }
+    function sortTo($param)
+    {
+        usort($this->message_list, function($a, $b) use ($param) {
+            if ($param == 'Datum') {
+                $this->message_list = strcmp($a->getDatum(), $b->getDatum());
+            } elseif ($param == 'name') {
+                $this->message_list = strcmp($a->getName(), $b->getName());
+            }
+            // Default to sorting by Datum if an unknown parameter is provided
+            $this->message_list = strcmp($a->getDatum(), $b->getDatum());
+        });
+    }
+
+
+}
+// Eintrag Class ----------------------------------------------------------------------------------------------------->
 class Eintrag
 {
     public $Datum;
@@ -117,8 +144,33 @@ class Eintrag
     public function __construct($datum, $name, $beschreibung)
     {
         $this->beschreibung = $beschreibung;
-        $this->Datum = $datum;
+        $this->Datum = strtotime($datum, "dd.mm-YYYY");
         $this->name = $name;
+    }
+
+    /**
+     * @author René
+     * @return mixed
+     */
+    public function getBeschreibung()
+    {
+        return $this->beschreibung;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDatum()
+    {
+        return $this->Datum;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 
 }

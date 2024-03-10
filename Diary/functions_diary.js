@@ -20,7 +20,8 @@ document.addEventListener("DOMContentLoaded", function() {
 function  processData(data){
     if(data === "true"){
         document.getElementById("loginForm").style.display = "none";
-        document.getElementById("diary-display").style.display = "block";
+        document.getElementById("diary-view").style.display = "block";
+        document.getElementById("diary-view").innerHTML = '<?php include("Diary/diary_view.php") ?>';
         //toggleFadeIn(document.getElementById("diary-display"));
         loadPerson();
     }else{

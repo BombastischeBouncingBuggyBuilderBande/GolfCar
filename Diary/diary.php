@@ -18,10 +18,5 @@
 </form>
 
 <!-- Diary View ------------------------------------------------------------------------------------------------------>
-<div id="diary-display" class="diary-container">
-    <div id='diary-table'>
-        abcdefg
-    </div>
-    <div id='diary-functions'>
-    </div>
+<div id="diary-view" class="diary-container">
 </div>
