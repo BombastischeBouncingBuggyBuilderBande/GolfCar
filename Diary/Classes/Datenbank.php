@@ -57,7 +57,8 @@ class Datenbank {
         $stmt->execute([$name, $rolle, $passwort]);
     }
 
-    public function addPerson_ifNotExist($personName, $rolle, $passwort){
+    public function addPerson_ifNotExist($personName, $rolle, $passwort)
+    {
         $existierendePerson = Person::loadPerson($personName);
         if (!$existierendePerson) {
             // Person nicht gefunden, erstelle Person
@@ -67,8 +68,70 @@ class Datenbank {
             // Person existiert bereits
             return false;
         }
-}
+    }
+    // Untere Funktionen müssen noch Getestet Werden!!!!----------------------------------------------------------------------------
+    // Bearbeitet einen Eintrag anhand der EintragID, ändert nur angegebene Attribute
+    public function editEintrag($eintragID, $name = null, $beschreibung = null, $arbeitsstunden = null, $datum = null) {
+        $sql = "UPDATE Einträge SET ";
+        $params = [];
+        if ($name !== null) {
+            $sql .= "Name = ?, ";
+            $params[] = $name;
+        }
+        if ($beschreibung !== null) {
+            $sql .= "beschreibung = ?, ";
+            $params[] = $beschreibung;
+        }
+        if ($arbeitsstunden !== null) {
+            $sql .= "arbeitsstunden = ?, ";
+            $params[] = $arbeitsstunden;
+        }
+        if ($datum !== null) {
+            $sql .= "Datum = ?, ";
+            $params[] = $datum;
+        }
+        $sql = rtrim($sql, ", ");
+        $sql .= " WHERE EintragID = ?";
+        $params[] = $eintragID;
 
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($params);
+    }
+    // Bearbeitet eine Person anhand des Namens, ändert nur angegebene Attribute
+    public function editPerson($originalName, $name = null, $rolle = null, $passwort = null) {
+        $sql = "UPDATE Person SET ";
+        $params = [];
+        if ($name !== null) {
+            $sql .= "name = ?, ";
+            $params[] = $name;
+        }
+        if ($rolle !== null) {
+            $sql .= "rolle = ?, ";
+            $params[] = $rolle;
+        }
+        if ($passwort !== null) {
+            $sql .= "passwort = ?, ";
+            $params[] = $passwort;
+        }
+        $sql = rtrim($sql, ", ");
+        $sql .= " WHERE name = ?";
+        $params[] = $originalName;
+
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($params);
+    }
+    // Löscht eine Person anhand des Namens
+    public function deletePerson($name) {
+        $sql = "DELETE FROM Person WHERE name = ?";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$name]);
+    }
+    // Löscht einen Eintrag anhand der EintragID
+    public function deleteEintrag($eintragID) {
+        $sql = "DELETE FROM Einträge WHERE EintragID = ?";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$eintragID]);
+    }
 }
 
 ?>
