@@ -15,6 +15,7 @@ $personName = "Julia Müller";
 $rolle = "Redakteurin";
 $passwort = "sehrSicheresPasswort456"; // später Hashing hinzufügen
 
+/*
 // Prüfen, ob die Person bereits existiert, und wenn nicht, hinzufügen
 $result = $db->addPerson_ifNotExist($personName, $rolle, $passwort);
 if($result){
@@ -23,6 +24,7 @@ if($result){
     echo "Person existiert bereits <br>";
 }
 
+//PErson ausprinten
 foreach($db->getPersonByName("Julia Müller") as $e){
     echo $e."<br>";
 };
@@ -37,3 +39,48 @@ echo "Ein neuer Tagebucheintrag für $personName wurde hinzugefügt.<br>";
 
 echo "Tagebucheinträge von $personName:<br>";
 Eintrag::zeigeEintraege($personName);
+
+echo "<h2>Edit and Delete testing</h2>";
+$db->editPerson("Julia Müller", "non", "password");
+
+//Person ausprinten
+foreach($db->getPersonByName("Julia Müller") as $e){
+    echo $e."<br>";
+};
+
+//$db->deleteEintrag("21");
+
+// Holt den zuletzt eingefügten Eintrag für diese Person, um die EintragID zu erhalten
+$eintraege = $db->getEintraegeByPerson($personName);
+$letzterEintrag = $eintraege[0];
+$eintragId = $letzterEintrag['EintragID'];
+
+// Ändere den Eintrag
+$neueBeschreibung = "Geänderte Beschreibung";
+$neueArbeitsstunden = 5;
+$neuesDatum = "2024-03-14";
+
+if ($db->editEintrag($eintragId, $neueArbeitsstunden, $neuesDatum, $neueBeschreibung)) {
+    echo "Eintrag erfolgreich aktualisiert.\n";
+} else {
+    echo "Fehler beim Aktualisieren des Eintrags.\n";
+}
+
+// Den geänderten Eintrag anzeigen, um die Änderung zu verifizieren
+$geaenderterEintrag = $db->getEintraegeByPerson($personName)[0];
+echo "Geänderter Eintrag: \n";
+print_r($geaenderterEintrag);
+Eintrag::zeigeEintraege($personName);
+*/
+$db->editPerson("Julia Müller", "nada");
+//PErson ausprinten
+foreach($db->getPersonByName("Julia Müller") as $e){
+    echo $e."<br>";
+};
+$eintrag = $db->getEintragByID("13");
+print_r($eintrag);
+echo "<br><br>";
+echo $eintrag['Datum'];
+$db->editEintrag(13, null, null, "nosaaaaaaaaaaaa");
+Eintrag::zeigeEintraege($personName);
+

@@ -17,6 +17,21 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById("deleteEintragForm");
+    form.onsubmit = function(e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+        fetch('Diary/diary_delete.php', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.text())
+            .then(data => processData(data))
+            .catch(error => console.error('Error:', error));
+    };
+});
+
 function  processData(data){
     if(data === "true"){
         document.getElementById("loginForm").style.display = "none";

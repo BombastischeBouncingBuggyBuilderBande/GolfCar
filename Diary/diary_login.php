@@ -1,5 +1,5 @@
 <?php
-require "diary_Classes.php";
+require "Diary/Classes/Datenbank.php";
 $username = isset($_POST['username']) ? $_POST['username'] : '';
 $password = isset($_POST['password']) ? $_POST['password'] : '';
 
