@@ -1,27 +1,50 @@
-<link rel="stylesheet" href="Diary/style_diary.css"> <!-- because diary is included in index.php it searches from there-->
-<script src="../funktionen.js"></script>
-<script src="Diary/functions_diary.js"></script>
-
-<!-- login Part ------------------------------------------------------------------------------------------------------>
-<form id="loginForm" class="diary-container">
-    <label for="account-selector"></label>
-    <select id="account-selector" name="username" required>
-        <option value="admin">Admin</option>
-        <option value="patrick">Patrick</option>
-        <option value="pillip">Pillip</option>
-        <option value="alex">Alex</option>
-        <option value="rene">René</option>
-    </select>
-    <label for="password"><input name="password" type="text" placeholder="password" id="password" required></label>
-    <button type="submit">Log In</button>
-    <div id="loginResult"></div>
-</form>
-
-<!-- Diary View ------------------------------------------------------------------------------------------------------>
-<div id="diary-display" class="diary-container">
-    <div id='diary-table'>
-        abcdefg
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style_diary.css">
+</head>
+<body>
+<div id="DiaryContainer">
+    <div id="loginForm">
+        <h2>Login</h2>
+        <form id="formLogin">
+            <input type="text" id="username" name="username" placeholder="Benutzername">
+            <input type="password" id="password" name="password" placeholder="Passwort">
+            <button type="submit">Anmelden</button>
+        </form>
     </div>
-    <div id='diary-functions'>
+
+    <div id="userEntries" style="display:none;">
+        <h2>Logged In</h2>
+        <div id="entries"></div>
     </div>
 </div>
+<script>
+    $(document).ready(function(){
+        $("#formLogin").on('submit', function(e){
+            e.preventDefault(); // Verhindert das Neuladen der Seite
+            $.ajax({
+                type: "POST",
+                url: "Diary/Form_login.php", // Der Pfad zum PHP-Skript, das die Anmeldung verarbeitet
+                data: $(this).serialize(),
+                success: function(response){
+                    // Die Antwort des Servers verarbeiten
+                    var jsonData = JSON.parse(response);
+
+                    if (jsonData.success == "1") {
+                        $("#loginForm").hide();
+                        $("#userEntries").show();
+                        $("#entries").html(jsonData.entries);
+                    } else {
+                        alert("Falsche Anmeldedaten.");
+                    }
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>
