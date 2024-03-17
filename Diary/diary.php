@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <title>Login</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style_diary.css">
 </head>
 <body>
-<div id="infoContainer">
+<div id="DiaryContainer">
     <div id="loginForm">
         <h2>Login</h2>
         <form id="formLogin">
@@ -17,7 +18,7 @@
     </div>
 
     <div id="userEntries" style="display:none;">
-        <h2>Einträge</h2>
+        <h2>Logged In</h2>
         <div id="entries"></div>
     </div>
 </div>
@@ -45,6 +46,5 @@
         });
     });
 </script>
-
 </body>
 </html>
