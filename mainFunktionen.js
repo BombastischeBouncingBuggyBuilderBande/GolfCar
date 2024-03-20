@@ -19,7 +19,7 @@
 
     // Deaktiviert jeden Infotext (Information die auf der linken Seite angezeigt wird), außer den der ausgewählt wird
     function deactivate_all_but(but) {
-        if (document.getElementById(but).style.display === "block") {
+        if (document.getElementById(but).style.display === "flex") {
             deactivate_split_mode();
             return 0;
         }else{
@@ -32,7 +32,7 @@
                 document.getElementById(background_text[i].toLowerCase() + "-display").style.display = "none";
                 toggleFadeOut(document.getElementById(background_text[i].toLowerCase() + "-display"));
             } else {
-                document.getElementById(background_text[i].toLowerCase() + "-display").style.display = "block";
+                document.getElementById(background_text[i].toLowerCase() + "-display").style.display = "flex";
                 console.log(textPart);
                 toggleFadeIn(document.getElementById(background_text[i].toLowerCase() + "-display"));
             }

@@ -185,3 +185,9 @@ body {
 .animate-image.start-animation-reverse {
   animation: slideToRight 1s ease;
 }
+#home-display{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
