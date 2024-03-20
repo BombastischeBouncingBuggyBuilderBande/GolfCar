@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="Downloads/style_downloads.css">
 </head>
 <body>
-    <div class="container">
+    <div class="download_container">
         <h1>Downloads</h1>
         <ul class="downloads-list">
             <?php
