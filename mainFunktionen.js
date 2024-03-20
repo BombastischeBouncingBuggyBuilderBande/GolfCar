@@ -1,5 +1,5 @@
     // Array mit allen Elementen der Navbar (Hauptelemente der Website)
-    let background_text = ["Home", "About", "Downloads", "Live", "Diary", "Control"];
+    let background_text = ["Home", "About", "Downloads", "Live", "Teamspace", "Control", "Bauteile"];
 
     // Deaktiviert den Text der Hinter der Navbar erscheint, wenn man darüberhovert
     function deactivate_background_text() {

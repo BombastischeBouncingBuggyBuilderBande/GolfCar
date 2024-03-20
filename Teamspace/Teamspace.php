@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <title>Login</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="Diary/style_diary.css">
+    <link rel="stylesheet" href="Teamspace/style_Teamspace.css">
 </head>
 <body>
-<div id="DiaryContainer">
+<div id="TeamspaceContainer">
     <div id="loginForm">
         <h2>Login</h2>
         <form id="formLogin">
@@ -36,7 +36,7 @@
             e.preventDefault(); // Verhindert das Neuladen der Seite
             $.ajax({
                 type: "POST",
-                url: "Diary/Form_login.php", // Der Pfad zum PHP-Skript, das die Anmeldung verarbeitet
+                url: "Teamspace/Form_login.php", // Der Pfad zum PHP-Skript, das die Anmeldung verarbeitet
                 data: $(this).serialize(),
                 success: function(response){
                     // Die Antwort des Servers verarbeiten
