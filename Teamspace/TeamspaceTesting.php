@@ -6,7 +6,7 @@ require_once 'Eintrag.php';
 error_reporting(E_ALL);
 ini_set ('display_errors', 'On');
 
-echo "Begin DiaryTesting<br>";
+echo "Begin TeamspaceTesting<br>";
 
 $db = new Datenbank();
 

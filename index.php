@@ -12,7 +12,7 @@
 ob_start();
 if(isset($_GET['page'])) {
     $getted = $_GET['page'];
-    if (!($getted === "home" || $getted === "about" || $getted == "downloads" || $getted == "live" || $getted === "diary" || $getted === "control")) {
+    if (!($getted === "home" || $getted === "about" || $getted == "downloads" || $getted == "live" || $getted === "teamspace" || $getted === "control" || $getted === "bauteile")) {
         header('Location: pageException.php');
         exit;
     }
@@ -28,12 +28,12 @@ ob_end_flush()
                data-text="About">About</a></li>
         <li><a class="nav-link" id="Downloads" onclick="deactivate_all_but('downloads-display')" background-text="Downloads"
                data-text="Downloads">Downloads</a></li>
+        <li><a class="nav-link" id="Bauteile" onclick="deactivate_all_but('bauteile-display')" background-text="Bauteile"
+               data-text="Bauteile">Bauteile</a></li>
         <li><a class="nav-link" id="Live" onclick="deactivate_all_but('live-display')" background-text="Live"
                data-text="Live">Live</a></li>
-        <li><a class="nav-link" id="Diary" onclick="deactivate_all_but('diary-display')" background-text="Diary"
-               data-text="Diary">Diary</a></li>
-        <li><a class="nav-link" id="Control" onclick="deactivate_all_but('control-display')" background-text="Control"
-               data-text="Control">Control</a></li>
+        <li><a class="nav-link" id="Teamspace" onclick="deactivate_all_but('teamspace-display')" background-text="Teamspace"
+               data-text="Teamspace">Teamspace</a></li>
     </ul>
 
     <!-- Linker Informationsteil der Website ------------------------------------------------------------------------->
@@ -53,14 +53,19 @@ ob_end_flush()
             include("Downloads/downloads.php");
             ?>
         </div>
+        <div id="bauteile-display" class="fade-in">
+            <?php
+            include("Bauteile/bauteile.php");
+            ?>
+        </div>
         <div id="live-display" class="fade-in">
             <?php
             include("Live/live.php");
             ?>
         </div>
-        <div id="diary-display" class="fade-in">
+        <div id="teamspace-display" class="fade-in">
             <?php
-            include("Diary/diary.php");
+            include("Teamspace/Teamspace.php");
             ?>
         </div>
         <div id="control-display" class="fade-in">
@@ -78,7 +83,7 @@ ob_end_flush()
         $getted = $_GET['page'];
         echo"<script>console.log('page Parameter: ' + '$getted')</script>";
 
-        if ($getted === "home" || $getted === "about" || $getted == "downloads" || $getted == "live" || $getted === "diary" || $getted === "control") {
+        if ($getted === "home" || $getted === "about" || $getted == "downloads" || $getted == "live" || $getted === "teamspace" || $getted === "control" || $getted === "bauteile") {
             echo "<script> 
         deactivate_all_but('$getted' + '-display');
         activate_split_mode();

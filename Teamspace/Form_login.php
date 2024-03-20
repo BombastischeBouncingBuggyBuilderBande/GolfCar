@@ -1,6 +1,6 @@
 <?php
 require 'Datenbank.php'; // Datenbankklasse
-require 'diary_PHPFunctions.php'; // Dateiübergreifende Funktionen
+require 'Teamspace_PHPFunctions.php'; // Dateiübergreifende Funktionen
 
 $db = new Datenbank();
 
@@ -13,7 +13,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     $user = $db->getPersonByName($username);
     if($user && $user['passwort'] === $password){
         // Passwort überprüfen (Hier sollte ein sicheres Verfahren wie password_hash und password_verify verwenden)
-        echo json_encode(array('success' => 1, 'entries' => createInformationBox(createDiaryTable($db, $username, 1), $username))); // Functions of diary_PHPFunctions.php
+        echo json_encode(array('success' => 1, 'entries' => createInformationBox(createTeamspaceTable($db, $username, 1), $username))); // Functions of Teamspace_PHPFunctions.php
     } else {
         echo json_encode(array('success' => 0));
     }

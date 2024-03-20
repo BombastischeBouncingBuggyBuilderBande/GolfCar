@@ -1,16 +1,23 @@
-.centered-Text{
+.about_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center; /* Zentriert den Text horizontal */
     font-family: Arial, sans-serif; /* Setzt die Schriftart */
     font-size: 16px; /* Setzt die Schriftgröße */
     color: #333;
     line-height: 1.5;
-    margin: 20px 0;
-    padding: 10px;
+    margin: 20px;
+    padding: 20px;
     max-width: 80%;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #eae8df;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.about_container > *{
+    margin: 1vh 3vw;
 }
 .main{
     display: grid;
@@ -21,12 +28,15 @@
 .main > div{
     padding: 10px;
     margin: 20px;
-    height: 30vh;
-    width: 20vw;
 }
 p.rolle {
+    padding: 0;
+    margin: 0;
     color: #808080;
     opacity: 0.7;
     font-family: Arial, sans-serif;
     background-color: transparent;
+}
+.about_name{
+    padding-bottom: 0;
 }

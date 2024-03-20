@@ -1,5 +1,5 @@
 //import("../funktionen.js")
-//document.getElementById("diary-display").classList.add("fade-in");
+//document.getElementById("Teamspace-display").classList.add("fade-in");
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
     form.onsubmit = function(e) {
         e.preventDefault();
         const formData = new FormData(form);
-        fetch('Diary/diary_login.php', {
+        fetch('Teamspace/Teamspace_login.php', {
             method: 'POST',
             body: formData
         })
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
     form.onsubmit = function(e) {
         e.preventDefault();
         const formData = new FormData(form);
-        fetch('Diary/diary_delete.php', {
+        fetch('Teamspace/Teamspace_delete.php', {
             method: 'POST',
             body: formData
         })
@@ -35,9 +35,9 @@ document.addEventListener("DOMContentLoaded", function() {
 function  processData(data){
     if(data === "true"){
         document.getElementById("loginForm").style.display = "none";
-        document.getElementById("diary-view").style.display = "block";
-        document.getElementById("diary-view").innerHTML = '<?php include("Diary/diary_view.php") ?>';
-        //toggleFadeIn(document.getElementById("diary-display"));
+        document.getElementById("Teamspace-view").style.display = "block";
+        document.getElementById("Teamspace-view").innerHTML = '<?php include("Teamspace/Teamspace_view.php") ?>';
+        //toggleFadeIn(document.getElementById("Teamspace-display"));
         loadPerson();
     }else{
         document.getElementById("loginResult").innerHTML = "wrong username or password";
