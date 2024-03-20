@@ -50,7 +50,7 @@ function createDiaryPartTable($entries, $page, $shownPerPage){
                 <td>
                 <form class='deleteForm'>
                 <input style='display: none' name='EintragID' type='text' value='".$entry['EintragID']."'>
-                <button type='submit'>-</button>
+                <button class='deletebutton' type='submit'>-</button>
                 </form>
                 </td>
                 </tr>";
@@ -61,13 +61,19 @@ function createDiaryPartTable($entries, $page, $shownPerPage){
     return $entriesHtml;
 }
 
-function createInformationBox($table, $username){
+function createInformationBox($table, $username, $page = 1){
     return "
+            <link rel='stylesheet' href='Diary/style_diary.css'>
             <div id='Diary_Base_View'> <!-- Diary Base View -->
                 <div id='Diary_Table'>
                     $table
                 </div>
                 <div id='Diary_Functions'>
+                    <div id='nextprePage'>
+                        <form id='Diary_PrevPage'><input style='display: none' name='username' value='$username' type='text'><input style='display: none' name='CurrentPage' value='$page' type='text'><button class='DiarynextprePage' type='submit'><</button></form>
+                        <form id='Diary_NextPage'><input style='display: none' name='username' value='$username' type='text'><input style='display: none' name='CurrentPage' value='$page' type='text'><button class='DiarynextprePage' type='submit'>></button></form>
+                    </div>
+
                         <button onclick='openAddEntry()'>Add Entry</button>
                         <script>
                             function openAddEntry(){
@@ -85,9 +91,9 @@ function createInformationBox($table, $username){
                 <button onclick='closeAddEntry()'>back</button>
                 <form id='Diary_addEntry'>
                     <input name='name' value='$username' style='display: none;'>
-                    <input name='datum' type='date'>
-                    <input placeholder='Arbeitsstunden' name='as' type='number'>
-                    <input placeholder='Beschreibung' name='beschreibung' type='text'>
+                    <input class='input-modern' id='addEntryDate' name='datum' type='date'>
+                    <input class='input-modern' id='addEntryAs' placeholder='Arbeitsstunden' name='as' type='number'>
+                    <textarea class='input-modern' id='button-input-modern' placeholder='Beschreibung' name='beschreibung'></textarea>
                     <button type='submit'>add Entry</button>
                 </form>
             </div>
@@ -110,6 +116,52 @@ function createInformationBox($table, $username){
                         closeAddEntry();
                     } else {
                         alert('Fehler im AddEntry Form');
+                    }
+                }
+            });
+        });
+    });
+    $(document).ready(function(){
+        $('#Diary_PrevPage').on('submit', function(e){
+            e.preventDefault(); // Verhindert das Neuladen der Seite
+            $.ajax({
+                type: 'POST',
+                url: 'Diary/Form_PrevPage.php', // Der Pfad zum PHP-Skript, das die Anmeldung verarbeitet
+                data: $(this).serialize(),
+                success: function(response){
+                    // Die Antwort des Servers verarbeiten
+                    console.log(response);
+            
+                    var jsonData = JSON.parse(response);
+            
+                    if (jsonData.success === 1) {
+                        $('#entries').html(jsonData.entries);
+                        closeAddEntry();
+                    } else {
+                        alert('Fehler im PrevPage Form');
+                    }
+                }
+            });
+        });
+    });
+    $(document).ready(function(){
+        $('#Diary_NextPage').on('submit', function(e){
+            e.preventDefault(); // Verhindert das Neuladen der Seite
+            $.ajax({
+                type: 'POST',
+                url: 'Diary/Form_NextPage.php', // Der Pfad zum PHP-Skript, das die Anmeldung verarbeitet
+                data: $(this).serialize(),
+                success: function(response){
+                    // Die Antwort des Servers verarbeiten
+                    console.log(response);
+            
+                    var jsonData = JSON.parse(response);
+            
+                    if (jsonData.success === 1) {
+                        $('#entries').html(jsonData.entries);
+                        closeAddEntry();
+                    } else {
+                        alert('Fehler im PrevPage Form');
                     }
                 }
             });

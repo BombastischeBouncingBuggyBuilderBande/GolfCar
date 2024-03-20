@@ -70,7 +70,7 @@ ob_end_flush()
         </div>
     </div>
 </div>
-<img id="sponsorImg" class="animate-image" src="resources/ris_logo.png" alt="Our Sponsor">
+<a href="https://www.ris.bz.it/de/"  target="_blank"><img id="sponsorImg" class="animate-image" src="resources/ris_logo.png" alt="Our Sponsor"></a>
 
     <script src="mainFunktionen.js"></script>
     <?php

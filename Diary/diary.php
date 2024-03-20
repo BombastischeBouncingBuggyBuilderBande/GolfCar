@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Login</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="style_diary.css">
+    <link rel="stylesheet" href="Diary/style_diary.css">
 </head>
 <body>
 <div id="DiaryContainer">
@@ -18,11 +18,19 @@
     </div>
 
     <div id="userEntries" style="display:none;">
-        <h2>Logged In</h2>
+        <button id="logoutButton" onclick="logout()">Log out</button>
+        <h2 id="welcomeText">Logged In</h2>
         <div id="entries"></div>
     </div>
 </div>
 <script>
+    function logout(){
+        console.log("log out");
+        $("#loginForm").show();
+        $("#userEntries").hide();
+        document.getElementById("username").value = "";
+        document.getElementById("password").value = "";
+    }
     $(document).ready(function(){
         $("#formLogin").on('submit', function(e){
             e.preventDefault(); // Verhindert das Neuladen der Seite
@@ -34,10 +42,11 @@
                     // Die Antwort des Servers verarbeiten
                     var jsonData = JSON.parse(response);
 
-                    if (jsonData.success == "1") {
+                    if (jsonData.success === 1) {
                         $("#loginForm").hide();
                         $("#userEntries").show();
                         $("#entries").html(jsonData.entries);
+                        document.getElementById("welcomeText").innerText = "Welcome, " + document.getElementById("username").value;
                     } else {
                         alert("Falsche Anmeldedaten.");
                     }

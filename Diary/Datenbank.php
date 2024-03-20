@@ -1,6 +1,6 @@
     <?php
     /**
-     * Datenbankverwaltung für ein Tagebuch.
+     * Datenbankverwaltung für das Tagebuch.
      *
      * @author René
      */
@@ -66,7 +66,6 @@
             $sql = "SELECT * FROM Eintrag WHERE Name = ? ORDER BY Datum DESC";
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute([$name]);
-            //return $stmt->fetchAll(PDO::FETCH_CLASS, "Eintrag");
             return $stmt->fetchAll();
         }
 
