@@ -19,6 +19,7 @@
 
     <div id="userEntries" style="display:none;">
         <button id="logoutButton" onclick="logout()">Log out</button>
+        <button id="controlButton" onclick="show_control()">Control</button>
         <h2 id="welcomeText">Logged In</h2>
         <div id="entries"></div>
     </div>
@@ -54,6 +55,9 @@
             });
         });
     });
+    function show_control(){
+
+    }
 </script>
 </body>
 </html>

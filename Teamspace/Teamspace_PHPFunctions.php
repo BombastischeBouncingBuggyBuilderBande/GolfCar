@@ -2,13 +2,12 @@
 error_reporting(E_ALL);
 ini_set ('display_errors', 'On');
 function createTeamspaceTable($db, $username, $page){
-    if($username != "admin") {
-        $entries = $db->getEintraegeByPerson($username);
+    $entries = $db->getEintraegeByPerson($username);
+    if($username !== "admin") {
+        $entriesHtml = createTeamspacePartTable($entries, $page, 5);
     }else{
-        // get all Entries
-        return 0;
+        $entriesHtml = createTeamspacePartTable($entries, $page, 5, $username);
     }
-    $entriesHtml = createTeamspacePartTable($entries, $page, 5);
 
     // Adding button for Teamspace Pages
     $entriesHtml.= "
@@ -38,18 +37,33 @@ function createTeamspaceTable($db, $username, $page){
     return $entriesHtml;
 }
 
-function createTeamspacePartTable($entries, $page, $shownPerPage){
-    $count = 0;
-    $entriesHtml = "<table><tr><th>Beschreibung</th><th>Arbeitsstunden</th><th>Datum</th></tr>";
+function createTeamspacePartTable($entries, $page, $shownPerPage, $username = false){
+    $start = ($page - 1) * $shownPerPage; // Startindex für die aktuelle Seite
+    $end = $start + $shownPerPage; // Endindex für die aktuelle Seite
+    $count = 0; // Gesamtzähler für alle Einträge
+    if($username !== false){
+        $entriesHtml = "<table class='Diarytable'><tr><th>User</th><th>Beschreibung</th><th>Arbeitsstunden</th><th>Datum</th></tr>";
+    }else {
+        $entriesHtml = "<table class='Diarytable'><tr><th>Beschreibung</th><th>Arbeitsstunden</th><th>Datum</th></tr>";
+    }
+
     foreach($entries as $entry){
-        $as = $entry['arbeitsstunden'];
-        $beschreibung = $entry['beschreibung'];
-        $datum = $entry['Datum'];
-        $eintragID = $entry['EintragID'];
-        $parameters = $eintragID.','.$as.',"'.$beschreibung.'","'.$datum.'"';
-        if(($page*$shownPerPage)-$shownPerPage <= $count && $page*$shownPerPage > $count) {
-            $entriesHtml .= "<tr>
-                <td>".$beschreibung."</td>
+        if($count >= $start && $count < $end) {
+            // Extrahieren der Daten aus $entry
+            $as = $entry['arbeitsstunden'];
+            $beschreibung = $entry['beschreibung'];
+            $datum = $entry['Datum'];
+            $eintragID = $entry['EintragID'];
+            $parameters = $eintragID.','.$as.',"'.$beschreibung.'","'.$datum.'"';
+
+            // Hinzufügen des Eintrags zum HTML-String
+            if($username !== false){
+                $entriesHtml .= "<tr><td>".$entry['Name']."</td>";
+            }else{
+                $entriesHtml .= "<tr>";
+            }
+            $entriesHtml .= "
+                <td class='leftText'>".$beschreibung."</td>
                 <td>".$as."</td>
                 <td>".$datum."</td>
                 <td>
@@ -60,25 +74,16 @@ function createTeamspacePartTable($entries, $page, $shownPerPage){
                 </td>
                 <td>
                     <button id='editbutton' onclick='openEditEntry(".$parameters.")'>edit</button>
-                    <script>
-                        function openEditEntry(id, as, beschreibung, datum){
-                            document.getElementById('Teamspace_Base_View').style.display = 'none';
-                            document.getElementById('Teamspace_editEntry').style.display = 'block';
-                            document.getElementById('editEintragID').value = id;
-                            document.getElementById('editEntryBeschreibung').value = beschreibung;
-                            document.getElementById('editEntryAs').value = as;
-                            document.getElementById('editEntryDatum').value = datum;
-                            return true;
-                        }     
-                    </script>
                 </td>
                 </tr>";
-            $count += 1;
         }
+        if($count >= $end) break; // Wenn der Zähler den Endindex erreicht, die Schleife abbrechen
+        $count++;
     }
     $entriesHtml.="</table>";
     return $entriesHtml;
 }
+
 
 function createInformationBox($table, $username, $page = 1){
     return "
@@ -90,6 +95,7 @@ function createInformationBox($table, $username, $page = 1){
                 <div id='Teamspace_Functions'>
                     <div id='nextprePage'>
                         <form id='Teamspace_PrevPage'><input style='display: none' name='username' value='$username' type='text'><input style='display: none' name='CurrentPage' value='$page' type='text'><button class='TeamspacenextprePage' type='submit'><</button></form>
+                        <a>".$page."</a>
                         <form id='Teamspace_NextPage'><input style='display: none' name='username' value='$username' type='text'><input style='display: none' name='CurrentPage' value='$page' type='text'><button class='TeamspacenextprePage' type='submit'>></button></form>
                     </div>
                         <button onclick='openAddEntry()'>Add Entry</button>
@@ -163,7 +169,6 @@ function createInformationBox($table, $username, $page = 1){
                 data: $(this).serialize(),
                 success: function(response){
                     // Die Antwort des Servers verarbeiten
-                    console.log(response);
             
                     var jsonData = JSON.parse(response);
             
@@ -186,7 +191,6 @@ function createInformationBox($table, $username, $page = 1){
                 data: $(this).serialize(),
                 success: function(response){
                     // Die Antwort des Servers verarbeiten
-                    console.log(response);
             
                     var jsonData = JSON.parse(response);
             
@@ -209,7 +213,6 @@ function createInformationBox($table, $username, $page = 1){
                 data: $(this).serialize(),
                 success: function(response){
                     // Die Antwort des Servers verarbeiten
-                    console.log(response);
             
                     var jsonData = JSON.parse(response);
             
