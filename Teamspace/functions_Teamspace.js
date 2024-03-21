@@ -3,14 +3,6 @@ function openAddEntry(){
     document.getElementById('Teamspace_Base_View').style.display = 'none';
     document.getElementById('Teamspace_Entry_View').style.display = 'block';
 }
-function closeAddEntry(){
-    document.getElementById('Teamspace_Base_View').style.display = 'block';
-    document.getElementById('Teamspace_Entry_View').style.display = 'none';
-}
-function closeEditEntry(){
-    document.getElementById('Teamspace_Base_View').style.display = 'block';
-    document.getElementById('Teamspace_editEntry').style.display = 'none';
-}
 function openEditEntry(id, as, beschreibung, datum){
     document.getElementById('Teamspace_Base_View').style.display = 'none';
     document.getElementById('Teamspace_editEntry').style.display = 'block';
@@ -20,6 +12,16 @@ function openEditEntry(id, as, beschreibung, datum){
     document.getElementById('editEntryDatum').value = datum;
     return true;
 }
+function closeAddEntry(){
+    document.getElementById('Teamspace_Base_View').style.display = 'block';
+    document.getElementById('Teamspace_Entry_View').style.display = 'none';
+}
+function closeEditEntry(){
+    document.getElementById('Teamspace_Base_View').style.display = 'block';
+    document.getElementById('Teamspace_editEntry').style.display = 'none';
+}
+
+// Multiple "on Submit" functions to react to certain buttons
 $(document).ready(function(){
     $('#Teamspace_addEntry').on('submit', function(e){
         e.preventDefault(); // Verhindert das Neuladen der Seite
