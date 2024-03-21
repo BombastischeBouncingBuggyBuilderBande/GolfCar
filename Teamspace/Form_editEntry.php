@@ -16,8 +16,7 @@ if(isset($_POST['name']) && isset($_POST['datum']) && isset($_POST['as']) && iss
     echo json_encode(array('success' => 1, 'entries' => createInformationBox(createTeamspaceTable($db, $name, 1), $name))); // Functions of Teamspace_PHPFunctions.php
 
 } else {
-    $resultString = "name: ".isset($_POST['name'])."   datum: ".isset($_POST['datum'])."   as: ".isset($_POST['as'])."   beschreibung:".isset($_POST['beschreibung']);
+    $resultString = "name: ".$_POST['name']."   datum: ".$_POST['datum']."   as: ".$_POST['as']."   beschreibung:".$_POST['beschreibung'];
     echo json_encode(array('success' => 0, 'entries' => $resultString));
 }
 ?>
-
