@@ -9,6 +9,9 @@ button:hover{
     cursor: pointer;
     background-color: #e1dfd5;
 }
+.leftText{
+    text-align: left;
+}
 
 #vertContainer{
     display: flex;
@@ -147,6 +150,13 @@ input.input-modern:focus {
     width: 10vw;
 
 }
+#controlButton{
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 10px;
+    width: 10vw;
+}
 #editbutton{
     width: 50px;
     height: 20px;
@@ -163,4 +173,41 @@ input.input-modern:focus {
 #editEntryBeschreibung{
     width: calc(40vw + 10px);
     height: 20vh;
+}
+.Diarytable {
+    margin: 10px;
+    padding: 0;
+    width: 100%;
+    border-collapse: separate; /* Erlaubt die Nutzung von border-spacing */
+    border-spacing: 0 0; /* 0 vertikale Abstand, 10px horizontaler Abstand zwischen Zellen */
+}
+
+.Diarytable td {
+    border-right: 2px solid #666; /* Fügt eine rechte Grenze für jede Zelle hinzu */
+    padding: 8px;
+    background-color: transparent;
+}
+.Diarytable tr{
+    background-clip: padding-box; /* Verhindert, dass Hintergrundfarben und Bilder in die Rahmen und den Abstand eindringen */
+}
+
+.Diarytable th:last-child, .Diarytable td:last-child {
+    border-right: none;
+}
+/* Anpassung für die letzten beiden Spalten */
+.Diarytable th:nth-last-child(-n+2), .Diarytable td:nth-last-child(-n+2){
+    border-right: none; /* Entfernt die schwarze Linie */
+}
+
+/* Entfernt den Abstand zwischen den letzten beiden Spalten */
+.Diarytable td:nth-last-child(-n+2) {
+    column-gap: 0; /* Spacing between columns */
+}
+
+/* Stil für die Kopfzeile der Tabelle */
+.Diarytable tr:nth-child(1) {
+    font-size: 20px;
+}
+#welcomeText{
+    margin-top: 7%;
 }

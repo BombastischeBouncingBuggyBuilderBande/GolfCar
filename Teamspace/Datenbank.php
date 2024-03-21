@@ -63,9 +63,17 @@
          * @return array Die Einträge der Person.
          */
         public function getEintraegeByPerson($name) {
-            $sql = "SELECT * FROM Eintrag WHERE Name = ? ORDER BY Datum DESC";
-            $stmt = $this->pdo->prepare($sql);
-            $stmt->execute([$name]);
+
+            if($name !== "admin") {
+                $sql = "SELECT * FROM Eintrag WHERE Name = ? ORDER BY Datum DESC";
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->execute([$name]);
+            }else{
+                $sql = "SELECT * FROM Eintrag ORDER BY Datum DESC";
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->execute(); // Keine Parameter erforderlich, da wir keine spezifischen Einträge filtern
+
+            }
             return $stmt->fetchAll();
         }
 
