@@ -74,6 +74,18 @@ function createTeamspacePartTable($entries, $page, $shownPerPage, $username = fa
                 </td>
                 <td>
                     <button id='editbutton' onclick='openEditEntry(".$parameters.")'>edit</button>
+                    
+                    <script>
+                        function openEditEntry(id, as, beschreibung, datum){
+                            document.getElementById('Teamspace_Base_View').style.display = 'none';
+                            document.getElementById('Teamspace_editEntry').style.display = 'block';
+                            document.getElementById('editEintragID').value = id;
+                            document.getElementById('editEntryBeschreibung').value = beschreibung;
+                            document.getElementById('editEntryAs').value = as;
+                            document.getElementById('editEntryDatum').value = datum;
+                            return true;
+                        }    
+                    </script>
                 </td>
                 </tr>";
         }
