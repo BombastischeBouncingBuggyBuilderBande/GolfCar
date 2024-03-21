@@ -8,7 +8,7 @@ function createTeamspaceTable($db, $username, $page){
         // get all Entries
         return 0;
     }
-    $entriesHtml = createTeamspacePartTable($entries, $page, 10);
+    $entriesHtml = createTeamspacePartTable($entries, $page, 5);
 
     // Adding button for Teamspace Pages
     $entriesHtml.= "
@@ -46,7 +46,7 @@ function createTeamspacePartTable($entries, $page, $shownPerPage){
         $beschreibung = $entry['beschreibung'];
         $datum = $entry['Datum'];
         $eintragID = $entry['EintragID'];
-
+        $parameters = $eintragID.','.$as.',"'.$beschreibung.'","'.$datum.'"';
         if(($page*$shownPerPage)-$shownPerPage <= $count && $page*$shownPerPage > $count) {
             $entriesHtml .= "<tr>
                 <td>".$beschreibung."</td>
@@ -59,17 +59,15 @@ function createTeamspacePartTable($entries, $page, $shownPerPage){
                 </form>
                 </td>
                 <td>
-                    <button id='editbutton' onclick='openEditEntry(".$eintragID.",".$as.",".$beschreibung.",".$datum.")'>edit</button>
+                    <button id='editbutton' onclick='openEditEntry(".$parameters.")'>edit</button>
                     <script>
                         function openEditEntry(id, as, beschreibung, datum){
                             document.getElementById('Teamspace_Base_View').style.display = 'none';
                             document.getElementById('Teamspace_editEntry').style.display = 'block';
-                            document.getElementById('EintragID').innerHTML = id;
-                            document.getElementById('editEntryBeschreibung').innerHTML = beschreibung;
-                            document.getElementById('editEntryAs').innerHTML = as;
-                            document.getElementById('editEntryDatum').innerHTML = datum;
-
-
+                            document.getElementById('editEintragID').value = id;
+                            document.getElementById('editEntryBeschreibung').value = beschreibung;
+                            document.getElementById('editEntryAs').value = as;
+                            document.getElementById('editEntryDatum').value = datum;
                             return true;
                         }     
                     </script>
@@ -123,10 +121,10 @@ function createInformationBox($table, $username, $page = 1){
             </div>
             <div id='Teamspace_editEntry' style='display: none'> <!-- Add Entry View -->
                 <button onclick='closeEditEntry()'>back</button>
-                <form id='Teamspace_editEntry'>
-                    <input name='ID' id='eintragID' type='text' style='display: none;'>
+                <form id='Teamspace_editEntryForm'>
+                    <input name='ID' id='editEintragID' type='text' style='display: none;'>
                     <input name='name' value='$username' style='display: none;'>
-                    <input class='input-modern' id='editEntryDate' name='datum' type='date'>
+                    <input class='input-modern' id='editEntryDatum' name='datum' type='date'>
                     <input class='input-modern' id='editEntryAs' placeholder='Arbeitsstunden' name='as' type='number'>
                     <textarea class='input-modern' id='editEntryBeschreibung' placeholder='Beschreibung' name='beschreibung'></textarea>
                     <button type='submit'>Save Entry</button>
@@ -157,7 +155,7 @@ function createInformationBox($table, $username, $page = 1){
         });
     });
     $(document).ready(function(){
-        $('#Teamspace_editEntry').on('submit', function(e){
+        $('#Teamspace_editEntryForm').on('submit', function(e){
             e.preventDefault(); // Verhindert das Neuladen der Seite
             $.ajax({
                 type: 'POST',
@@ -173,7 +171,7 @@ function createInformationBox($table, $username, $page = 1){
                         $('#entries').html(jsonData.entries);
                         closeEditEntry();
                     } else {
-                        alert('Fehler im AddEntry Form');
+                        alert('Fehler im editEntry Form');
                     }
                 }
             });

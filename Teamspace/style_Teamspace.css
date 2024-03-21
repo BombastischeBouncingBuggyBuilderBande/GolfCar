@@ -160,3 +160,7 @@ input.input-modern:focus {
     cursor: pointer;
     background-color: #ccc;
 }
+#editEntryBeschreibung{
+    width: calc(40vw + 10px);
+    height: 20vh;
+}
