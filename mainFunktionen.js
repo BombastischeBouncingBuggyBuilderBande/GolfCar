@@ -63,7 +63,7 @@ function deactivate_all_but(but) {
  */
 function activate_split_mode() {
     document.getElementById("informationsContainer").style.display = "block";
-    document.getElementById("mainContainer").style.gridTemplateColumns = "30vw 70vw";
+    document.getElementById("mainContainer").style.gridTemplateColumns = "20vw 70vw";
     console.log("seitenverhältnis geändert");
     deactivate_background_text();
 

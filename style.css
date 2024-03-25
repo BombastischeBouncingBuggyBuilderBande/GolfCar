@@ -111,11 +111,13 @@ body {
   text-align: center;
   height: 100vh;
   grid-template-columns: 100vw 0;
+  grid-template-rows: auto;
   -o-transition: all 1s;
   -moz-transition: all 1s;
   -webkit-transition: all 1s;
   transition: all 1s;
   place-items: center; /* Shortcut for centering both horizontally and vertically */
+  margin: auto;
 }
 /* Fade -------------------------------------------------------------------------------------------------------------*/
 .fade-in {
