@@ -21,7 +21,7 @@ if(isset($_GET['page'])) {
     $getted = $_GET['page'];
     // Überprüft den Wert des 'page'-Parameters gegen eine Liste gültiger Seiten
     // Leitet den Benutzer um, falls der Wert nicht in der Liste ist
-    if (!($getted === "home" || $getted === "about" || $getted == "downloads" || $getted == "live" || $getted === "teamspace" || $getted === "control" || $getted === "bauteile")) {
+    if (!($getted === "home" || $getted === "about" || $getted == "downloads" || $getted == "live" || $getted === "teamspace" || $getted === "bauteile")) {
         header('Location: pageException.php');
         exit;
     }
@@ -62,9 +62,6 @@ ob_end_flush();
         <div id="teamspace-display" class="fade-in">
             <?php include("Teamspace/Teamspace.php"); ?>
         </div>
-        <div id="control-display" class="fade-in">
-            <?php include("Control/control.php"); ?>
-        </div>
     </div>
 </div>
 
@@ -79,7 +76,7 @@ if(isset($_GET['page'])) {
     echo "<script>console.log('page Parameter: ' + '$getted')</script>";
 
     // Ruft JavaScript-Funktionen auf, um den richtigen Inhaltsteil zu aktivieren und den Split-Modus zu aktivieren
-    if ($getted === "home" || $getted === "about" || $getted == "downloads" || $getted == "live" || $getted === "teamspace" || $getted === "control" || $getted === "bauteile") {
+    if ($getted === "home" || $getted === "about" || $getted == "downloads" || $getted == "live" || $getted === "teamspace" || $getted === "bauteile") {
         echo "<script> 
         deactivate_all_but('$getted' + '-display');
         activate_split_mode();
