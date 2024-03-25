@@ -109,3 +109,8 @@ h1#quote:after {
     align-items: center;
     justify-content: center;
 }
+#wave_holder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

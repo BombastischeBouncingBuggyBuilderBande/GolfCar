@@ -211,3 +211,25 @@ input.input-modern:focus {
 #welcomeText{
     margin-top: 7%;
 }
+
+/* Control Part ---------------------------------------------------------------------------------------------*/
+#Teamspace-Car-Control{
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: auto auto auto;
+}
+#Teamspace-videoPlayer{
+    height: 10vh;
+    width: 10vw;
+    margin: 20px;
+}
+.Control-Button{
+    height: 10%;
+    width: 10%;
+}
+#Teamspace-CarInterface{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

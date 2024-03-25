@@ -3,9 +3,11 @@
     <h1 id="quote" class="fade-in"> What color is your Golf-Car?</h1>
     <button class="fade-in" id="button" onclick="show_more()">▼</button>
 </div>
-<div id="wave_CenterPixel"></div>
-
+<div id="wave_holder">
+    <div id="wave_CenterPixel"></div>
+</div>
 <script src="../funktionen.js"></script>
+<script src="/Home/home_script.js"></script>
 <script>
     let bt = document.getElementById("button");
     let quote = document.getElementById("quote")
@@ -32,22 +34,18 @@
     }
 </script>
 <div class="fade-in" id="home_informationsContainer">
-    <!-- Abschnitt 1 -->
-    <h2>Dolor Sit Amet</h2>
-    <p>Dolor sit amet, consectetur adipiscing elit. <a href="https://example.com">Beispiel-Link</a>.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    <br>
-    <!-- Abschnitt 2 -->
-    <section id="abschnitt2">
-        <h2>Consectetur Adipiscing</h2>
-        <p>Elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <br>Ut enim ad minim veniam, quis
-            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <section id="home-info-1">
+
     </section>
-    <br>
-    <!-- Abschnitt 3 -->
-    <section id="abschnitt3">
-        <h2>Labore et Dolore</h2>
-        <p>Magna aliqua. Ut enim ad minim veniam, <a href="https://example.com">ein weiterer Link</a> quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <section id="home-info-2">
+
     </section>
+    <section id="home-info-3">
+
+    </section>
+    <div>
+        <button onclick="change_home_info()"></button>
+        <button></button>
+        <button></button>
+    </div>
 </div>
