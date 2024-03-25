@@ -7,63 +7,13 @@
     <link rel="stylesheet" href="Bauteile/style_bauteile.css">
 </head>
 <body>
-    <div class="product-scroll-container">
-        <div class="product-card">
-            <img src="resources/resources_bauteile/exampleImg2.png" alt="Produktname">
-            <div class="product-info">
-                <h2>Produktname</h2>
-                <p class="price">99,99 €</p>
-                <p class="description">Eine kurze Beschreibung des Produkts, wo der Nutzen beschrieben wird.</p>
-                <a href="link/to/purchase-location" target="_blank">Kaufen</a>
-            </div>
-        </div>
-        <div class="product-card">
-            <img src="resources/resources_bauteile/exampleImg2.png" alt="Produktname">
-            <div class="product-info">
-                <h2>Produktname</h2>
-                <p class="price">99,99 €</p>
-                <p class="description">Eine kurze Beschreibung des Produkts, wo der Nutzen beschrieben wird.</p>
-                <a href="link/to/purchase-location" target="_blank">Kaufen</a>
-            </div>
-        </div>
-        <div class="product-card">
-            <img src="resources/resources_bauteile/exampleImg2.png" alt="Produktname">
-            <div class="product-info">
-                <h2>Produktname</h2>
-                <p class="price">99,99 €</p>
-                <p class="description">Eine kurze Beschreibung des Produkts, wo der Nutzen beschrieben wird.</p>
-                <a href="link/to/purchase-location" target="_blank">Kaufen</a>
-            </div>
-        </div>
-        <div class="product-card">
-            <img src="resources/resources_bauteile/exampleImg2.png" alt="Produktname">
-            <div class="product-info">
-                <h2>Produktname</h2>
-                <p class="price">99,99 €</p>
-                <p class="description">Eine kurze Beschreibung des Produkts, wo der Nutzen beschrieben wird.</p>
-                <a href="link/to/purchase-location" target="_blank">Kaufen</a>
-            </div>
-        </div>
-        <div class="product-card">
-            <img src="resources/resources_bauteile/exampleImg2.png" alt="Produktname">
-            <div class="product-info">
-                <h2>Produktname</h2>
-                <p class="price">99,99 €</p>
-                <p class="description">Eine kurze Beschreibung des Produkts, wo der Nutzen beschrieben wird.</p>
-                <a href="link/to/purchase-location" target="_blank">Kaufen</a>
-            </div>
-        </div>
-        <div class="product-card">
-            <img src="resources/resources_bauteile/exampleImg2.png" alt="Produktname">
-            <div class="product-info">
-                <h2>Produktname</h2>
-                <p class="price">99,99 €</p>
-                <p class="description">Eine kurze Beschreibung des Produkts, wo der Nutzen beschrieben wird.</p>
-                <a href="link/to/purchase-location" target="_blank">Kaufen</a>
-            </div>
-        </div>
-
+<div class="container">
+    <button class="buttons" id="prevBtn">◄</button>
+    <div class="product-scroll-container" id="product-scroll-container">
+        <!-- Product cards will be dynamically added here -->
     </div>
-    <script src="Bauteile/script_bauteile.js"></script>
+    <button class="buttons" id="nextBtn">►</button>
+</div>
+<script src="Bauteile/script_bauteile.js"></script>
 </body>
 </html>
