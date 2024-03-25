@@ -46,7 +46,6 @@ $db->addEintrag($personName, $beschreibung, $arbeitsstunden, $datum);
 echo "Ein neuer Tagebucheintrag für $personName wurde hinzugefügt.<br>";
 
 echo "Tagebucheinträge von $personName:<br>";
-Eintrag::zeigeEintraege($personName);
 /*
 echo "<h2>Edit and Delete testing</h2>";
 $db->editPerson("Julia Müller", "non", "password");
