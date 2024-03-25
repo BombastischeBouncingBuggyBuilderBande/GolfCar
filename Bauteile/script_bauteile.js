@@ -2,80 +2,88 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const productData = [
         {
-            name: "Raspberry Pi 4 Modello B (8GB)",
+            name: "Raspberry Pi 4",
             price: "90,00 €",
-            description: "Eine kurze Beschreibung des Produkts 1, wo der Nutzen beschrieben wird.",
+            description: "Der Raspberry Pi fungiert als zentrale Steuereinheit.",
             img: 'Bauteile/src/Raspberry.png',
-            link: "https://shorturl.at/PUZ16"
-            //https://www.amazon.it/RASPBERRY-PI-RPI4-MODBP-8GB-Raspberry-Modello/dp/B09TTKT94J/ref=sr_1_5?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=335VPT7C4UGEH&dib=eyJ2IjoiMSJ9.6L0DUDUKuOMNsAEY7aHC_S_Kln7Bzf9lXmPQyUeLEUu1Dt35l7e7m7F4oa6XpBcehB1G6gwykFsrIZS1R-Yu25PStZ16EqH4Zgs_ajwKxUYwmVj2hQwAkSy4POdaqeC9BCioyCT-AeBkIKOPxBDICFDEKOeIXzIZ_jIKksjtwNwh2LhMTAU94M6ONGwaPaQQUJ9OlZJZhLbxWm9ufvbOohJCPfDp7od8CPRHkq0X229516DazqDDy1cxiUUfbxovXD3v213Xzo2hl8DmI5Vly8A4NTcggBoDwfZpdHfjBrY.FMPWpHpbl-qsUMIlkMW7ng-yQtXeAsWwDkXI-afIpcQ&dib_tag=se&keywords=raspberry+pi+4+8gb&qid=1708894480&sprefix=raspberry+pi+4+8g%2Caps%2C124&sr=8-5
+            link: "https://amzn.eu/d/3wYcVzR"
         },
         {
-            name: "Ultraschall-Sensor",
+            name: "Ultraschall-Sensoren",
             price: "11,19 €",
-            description: "Eine kurze Beschreibung des Produkts 1, wo der Nutzen beschrieben wird.",
+            description: "Der Ultraschallsensor ermöglicht dem Fahrzeug die Erkennung von Hindernissen im Spielfeld.",
             img: 'Bauteile/src/Ultraschall.png',
-            link: "https://shorturl.at/gLTV7"
-            //https://www.amazon.it/AZDelivery-fotoresistenti-LDR5528-compatibili-Arduino/dp/B089YNCYG4/ref=sr_1_6?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=L0DK76OTWFPL&keywords=photoresistor&qid=1707295933&sprefix=photoresistor%2Caps%2C198&sr=8-6&th=1
+            link: "https://amzn.eu/d/9WexASp"
         },
         {
-            name: "Produktname 1",
-            price: "99,99 €",
-            description: "Eine kurze Beschreibung des Produkts 1, wo der Nutzen beschrieben wird.",
-            link: "link/to/purchase-location"
+            name: "Fotowiderstände",
+            price: "5,99 €",
+            description: "Der Fotoresistor erkennt ob es dunkel ist, dann wird der Nachtmodus aktiviert",
+            img: 'Bauteile/src/Fotoresistor.png',
+            link: "https://amzn.eu/d/cGOM9i2"
         },
         {
-            name: "Produktname 1",
-            price: "99,99 €",
-            description: "Eine kurze Beschreibung des Produkts 1, wo der Nutzen beschrieben wird.",
-            link: "link/to/purchase-location"
+            name: "Motoren - Reifen",
+            price: "11,99 €",
+            description: "Die Motoren sorgen für die Fortbewegung des Fahrzeugs.",
+            img: 'Bauteile/src/Motor.png',
+            link: "https://amzn.eu/d/hxOoEGC"
         },
         {
-            name: "Produktname 1",
-            price: "99,99 €",
-            description: "Eine kurze Beschreibung des Produkts 1, wo der Nutzen beschrieben wird.",
-            link: "link/to/purchase-location"
+            name: "9V Batterieclip",
+            price: "6,99 €",
+            description: "Die 9V-Batteriehalterung ermöglicht die Verwendung von 9V-Batterien.",
+            img: 'Bauteile/src/Batterieclip.png',
+            link: "https://amzn.eu/d/iSDs2j1"
         },
         {
-            name: "Produktname 1",
-            price: "99,99 €",
-            description: "Eine kurze Beschreibung des Produkts 1, wo der Nutzen beschrieben wird.",
-            link: "link/to/purchase-location"
+            name: "9V Batterien",
+            price: "9,99 €",
+            description: "Die Batterien versorgen die Motoren mit Strom",
+            img: 'Bauteile/src/Batterie.png',
+            link: "https://amzn.eu/d/1RhHeWc"
         },
         {
-            name: "Produktname 1",
-            price: "99,99 €",
-            description: "Eine kurze Beschreibung des Produkts 1, wo der Nutzen beschrieben wird.",
-            link: "link/to/purchase-location"
+            name: "Kabel Einpolig",
+            price: "9,99 €",
+            description: "Verbinden kleinere Distanzen auf den Steckbrett",
+            img: 'Bauteile/src/Kabel.png',
+            link: "https://amzn.eu/d/1RhHeWc"
         },
         {
-            name: "Produktname 1",
-            price: "99,99 €",
-            description: "Eine kurze Beschreibung des Produkts 1, wo der Nutzen beschrieben wird.",
-            link: "link/to/purchase-location"
+            name: "Ansteuerung Motor",
+            price: "10,59 €",
+            description: "H-Bridge die die Motoren mit Strom von den Batterien versorgt",
+            img: 'Bauteile/src/AnsteuerungMotor.png',
+            link: "https://amzn.eu/d/1RhHeWc"
         },
         {
-            name: "Produktname 1",
-            price: "99,99 €",
-            description: "Eine kurze Beschreibung des Produkts 1, wo der Nutzen beschrieben wird.",
-            link: "link/to/purchase-location"
+            name: "Encoder",
+            price: "9,49 €",
+            description: "Kontrolliert die zurückgelegte Distanz jedes Reifens",
+            img: 'Bauteile/src/Encoder.png',
+            link: "https://amzn.eu/d/bsT8Z4n"
         },
         {
-            name: "Produktname 1",
-            price: "99,99 €",
-            description: "Eine kurze Beschreibung des Produkts 1, wo der Nutzen beschrieben wird.",
-            link: "link/to/purchase-location"
+            name: "Jumper Wire",
+            price: "10,00 €",
+            description: "Verbinden größere Distanzen auf den Steckbrett",
+            img: 'Bauteile/src/JumperWire.png',
+            link: "https://amzn.eu/d/bsT8Z4n"
         },
         {
-            name: "Produktname 1",
-            price: "99,99 €",
-            description: "Eine kurze Beschreibung des Produkts 1, wo der Nutzen beschrieben wird.",
-            link: "link/to/purchase-location"
+            name: "Steckbrett",
+            price: "6,99 €",
+            description: "Einfache Verbindung von Komponenten",
+            img: 'Bauteile/src/Steckbrett.png',
+            link: "https://amzn.eu/d/h4YKr6N"
         },
         {
-            name: "Produktname 2131",
-            price: "99,99 €",
-            description: "Eine kurze Beschreibung des Produkts 1, wo der Nutzen beschrieben wird.",
-            link: "link/to/purchase-location"
+            name: "Kamera",
+            price: "44,99 €",
+            description: "Zum erkennen des Balles",
+            img: 'Bauteile/src/Kamera.png',
+            link: "https://amzn.eu/d/8qxDuHg"
         },
         // Add more products here as needed
     ];
@@ -94,26 +102,34 @@ document.addEventListener('DOMContentLoaded', () => {
         const productsToDisplay = productData.slice(startIndex, endIndex);
 
         productsToDisplay.forEach(product => {
-            const productCard = `
-                <div class="product-card">
-                    <img src="${product.img}" alt="${product.name}">
-                    <div class="product-info">
-                        <h2>${product.name}</h2>
-                        <p class="price">${product.price}</p>
-                        <p class="description">${product.description}</p>
-                        <a href="${product.link}" target="_blank">Kaufen</a>
-                    </div>
+            const productCard = document.createElement('div');
+            productCard.classList.add('product-card');
+            productCard.innerHTML = `
+                <img src="${product.img}" alt="${product.name}">
+                <div class="product-info">
+                    <h2>${product.name}</h2>
+                    <p class="price">${product.price}</p>
+                    <p class="description">${product.description}</p>
+                    <a href="${product.link}" target="_blank">Kaufen</a>
                 </div>
             `;
-            productContainer.innerHTML += productCard;
+            productCard.addEventListener('click', () => {
+                window.open(product.link, '_blank');
+            });
+            productContainer.appendChild(productCard);
         });
     }
+
+    prevBtn.style.visibility = "hidden";
 
     prevBtn.addEventListener('click', () => {
         if (currentPage > 0) {
             currentPage--;
             displayProducts();
         }
+
+        prevBtn.style.visibility = "hidden";
+        nextBtn.style.visibility = "visible";
     });
 
     nextBtn.addEventListener('click', () => {
@@ -121,6 +137,10 @@ document.addEventListener('DOMContentLoaded', () => {
             currentPage++;
             displayProducts();
         }
+
+        nextBtn.style.visibility = "hidden";
+        prevBtn.style.visibility = "visible";
+
     });
 
     // Initial display of products
