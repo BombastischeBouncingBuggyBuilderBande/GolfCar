@@ -1,9 +1,13 @@
+:root{
+    --basecolor: #a6a1a1;
+    --buttoncolor: #858181;
+}
+
 h1#quote {
     text-align: center; /* Centers the text */
     font-style: italic; /* Makes the font italic */
     padding: 20px 40px; /* Adds some padding for aesthetics */
 }
-
 h1#quote:before, h1.quote:after {
     content: open-quote; /* Uses the default quotation marks */
     font-size: 2em; /* Adjusts the size of the quotes */
@@ -11,12 +15,11 @@ h1#quote:before, h1.quote:after {
     vertical-align: -0.4em; /* Aligns the quote marks */
     color: #a6a1a1; /* Light color for the quotes */
 }
-
 h1#quote:after {
     content: close-quote;
 }
-#button {
-    display: inline-block;
+#home-1-button  {
+    display: block;
     padding: 20px;
     border-radius: 100%;
     text-align: center;
@@ -28,24 +31,21 @@ h1#quote:after {
     right: 7vw;
     user-select: none; /* Disables text selection */
 }
-
 /* Shadow and Scale on Hover */
-#button:hover {
+#home-1-button:hover {
     transform: scale(1.1); /* Slightly enlarges the button */
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Adds depth with shadow */
 }
-
 /* Optional: Press-down Animation */
-#button:active {
+#home-1-button:active {
     transform: scale(0.9); /* Mimics a press-down effect */
 }
 #wave_CenterPixel{
-    position: absolute;
-    top: 50vh;
-    margin: 175px auto;
+    position: relative;
+    /*top: 50vh;
+    margin: 175px auto;*/
 
 }
-
 /* Wave-------------------------------------------------------------------------------------------------------------- */
 .wave {
     opacity: 0;
@@ -58,7 +58,6 @@ h1#quote:after {
     animation-duration: 2s;
     animation-iteration-count: 1;
 }
-
 @keyframes ripple {
     from {
         opacity: 1;
@@ -71,13 +70,11 @@ h1#quote:after {
         opacity: 0;
     }
 }
-
 .fade-in {
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.5s, visibility 0s linear 0.5s; /* Verzögert die Änderung der Sichtbarkeit bis zum Ende des Übergangs */
 }
-
 .fade-in.visible {
     opacity: 1;
     visibility: visible;
@@ -85,9 +82,19 @@ h1#quote:after {
 }
 #home_informationsContainer{
     display: none;
+    grid-template-rows: 80% 20%;
+    align-items: center;
+    justify-content: space-around;
+    width: 50vw;
+    margin: auto;
+    position: relative;
+    height: 50vh;
+    padding: 20px;
+    padding-bottom: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    background-color: #eae8df;
 }
-
-
 /* new Styles------------------------------------------------------------------- */
 .Home_container {
     width: 50vw;
@@ -97,7 +104,6 @@ h1#quote:after {
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
 .Home_h1 {
     text-align: center;
     color: #333;
@@ -110,7 +116,61 @@ h1#quote:after {
     justify-content: center;
 }
 #wave_holder{
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    margin: auto;
+}
+.homeButtons{
+    display: block;
+    width: 50px;
+    height: 1px;
+    background-color: var(--buttoncolor);
+    border-radius: 20px;
+    bottom: 0;
+    padding: 7px;
+    margin: 5px;
+    margin-top: 15px;
+}
+.homeButtons:hover{
+    background-color: #333333;
+}
+#buttonHolder{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
+    padding: 0;
+    margin: 0;
+}
+
+/* side buttons of second display */
+.home-side-Button{
+    background-color: var(--buttoncolor);
+    color: white;
+    padding: 0;
+    margin: 0;
+    top: 15%;
+    position: absolute;
+    height: 70%;
+    width: 1vw;
+}
+.home-side-Button:hover{
+    background-color: #333333;
+}
+#home-right-button{
+    border-right: 50px;
+    right: 0;
+}
+#home-left-button{
+    border-left: 50px;
+    left: 0;
+}
+
+.homeButtons.underlined{
+    box-shadow: 0 13px 1px -6px var(--buttoncolor);
 }
