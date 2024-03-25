@@ -1,3 +1,8 @@
+:root{
+    --basecolor: #a6a1a1;
+    --buttoncolor: #858181;
+}
+
 h1#quote {
     text-align: center; /* Centers the text */
     font-style: italic; /* Makes the font italic */
@@ -13,8 +18,8 @@ h1#quote:before, h1.quote:after {
 h1#quote:after {
     content: close-quote;
 }
-#button {
-    display: inline-block;
+#home-1-button  {
+    display: block;
     padding: 20px;
     border-radius: 100%;
     text-align: center;
@@ -27,12 +32,12 @@ h1#quote:after {
     user-select: none; /* Disables text selection */
 }
 /* Shadow and Scale on Hover */
-#button:hover {
+#home-1-button:hover {
     transform: scale(1.1); /* Slightly enlarges the button */
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Adds depth with shadow */
 }
 /* Optional: Press-down Animation */
-#button:active {
+#home-1-button:active {
     transform: scale(0.9); /* Mimics a press-down effect */
 }
 #wave_CenterPixel{
@@ -77,16 +82,15 @@ h1#quote:after {
 }
 #home_informationsContainer{
     display: none;
-    flex-direction: row;
+    grid-template-rows: 80% 20%;
     align-items: center;
     justify-content: space-around;
     width: 50vw;
     margin: auto;
     position: relative;
-    top: 50%;
-    left: 60%;
-    transform: translate(-50%, -50%);
+    height: 50vh;
     padding: 20px;
+    padding-bottom: 5px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     border-radius: 8px;
     background-color: #eae8df;
@@ -124,8 +128,12 @@ h1#quote:after {
     display: block;
     width: 50px;
     height: 1px;
-    background-color: #504f4f;
+    background-color: var(--buttoncolor);
     border-radius: 20px;
+    bottom: 0;
+    padding: 7px;
+    margin: 5px;
+    margin-top: 15px;
 }
 .homeButtons:hover{
     background-color: #333333;
@@ -135,4 +143,34 @@ h1#quote:after {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    bottom: 0;
+    padding: 0;
+    margin: 0;
+}
+
+/* side buttons of second display */
+.home-side-Button{
+    background-color: var(--buttoncolor);
+    color: white;
+    padding: 0;
+    margin: 0;
+    top: 15%;
+    position: absolute;
+    height: 70%;
+    width: 1vw;
+}
+.home-side-Button:hover{
+    background-color: #333333;
+}
+#home-right-button{
+    border-right: 50px;
+    right: 0;
+}
+#home-left-button{
+    border-left: 50px;
+    left: 0;
+}
+
+.homeButtons.underlined{
+    box-shadow: 0 13px 1px -6px var(--buttoncolor);
 }
