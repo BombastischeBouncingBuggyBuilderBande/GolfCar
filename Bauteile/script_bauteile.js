@@ -48,14 +48,14 @@ document.addEventListener('DOMContentLoaded', () => {
             price: "9,99 €",
             description: "Verbinden kleinere Distanzen auf den Steckbrett",
             img: 'Bauteile/src/Kabel.png',
-            link: "https://amzn.eu/d/1RhHeWc"
+            link: "https://amzn.eu/d/2BazaTy"
         },
         {
             name: "Ansteuerung Motor",
             price: "10,59 €",
             description: "H-Bridge die die Motoren mit Strom von den Batterien versorgt",
             img: 'Bauteile/src/AnsteuerungMotor.png',
-            link: "https://amzn.eu/d/1RhHeWc"
+            link: "https://amzn.eu/d/92yuoz7"
         },
         {
             name: "Encoder",
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
             price: "10,00 €",
             description: "Verbinden größere Distanzen auf den Steckbrett",
             img: 'Bauteile/src/JumperWire.png',
-            link: "https://amzn.eu/d/bsT8Z4n"
+            link: "https://amzn.eu/d/9lYomze"
         },
         {
             name: "Steckbrett",
@@ -130,6 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         prevBtn.style.visibility = "hidden";
         nextBtn.style.visibility = "visible";
+
     });
 
     nextBtn.addEventListener('click', () => {
@@ -147,3 +148,25 @@ document.addEventListener('DOMContentLoaded', () => {
     displayProducts();
 
 });
+
+
+
+function toggleFadeIn(element) {
+    // Ursprünglich dazu gedacht, das Element-Display auf 'block' zu setzen, bevor die Klasse hinzugefügt wird.
+    // Auskommentiert aufgrund von Layout-Problemen, die dadurch verursacht wurden.
+    console.log("fade-in"); // Loggen des Fade-In Vorgangs für Debugging-Zwecke.
+    requestAnimationFrame(() => {
+        element.classList.add('visible'); // Hinzufügen der Klasse 'visible' für den Fade-In-Effekt.
+    });
+}
+
+function toggleFadeOut(element) {
+    requestAnimationFrame(() => {
+        element.classList.remove('visible'); // Entfernen der Klasse 'visible' für den Fade-Out-Effekt.
+    });
+    // Hinzufügen eines EventListeners für das Ende der Transition.
+    element.addEventListener('transitionend', function handleTransitionEnd() {
+        // Entfernen des EventListeners, um sauberes Garbage Collection zu gewährleisten.
+        element.removeEventListener('transitionend', handleTransitionEnd);
+    });
+}
