@@ -1,11 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <!-- Setzt den Titel der Webseite im Browser-Tab -->
     <title>Bombastic</title>
     <!-- Verknüpft ein externes CSS-Stylesheet für das Styling der Webseite -->
     <link rel="stylesheet" href="style.css">
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="description" content="Schulprojekt Golfcar der Gruppe 6B-Engineering. D
+    as Ziel: Ein selbstfahrendes Auto zu bauen, das einen Golfball automatisch in eine Box befördert">
+    <meta name="robots" content="Golfcar, Car, Automatic Driving, School Project, 6B-Engineering">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Patrick Priller">
+
+    <!-- Open Graph Tags (Facebook und andere Social media) -->
+    <meta property="og:title" content="6B-Engineering">
+    <meta property="og:description" content="Schulprojekt Golfcar der Gruppe 6B-Engineering. D
+    as Ziel: Ein selbstfahrendes Auto zu bauen, das einen Golfball automatisch in eine Box befördert">
+    <meta property="og:image" content="icon.jpg">
+    <meta property="og:url" content="10.10.30.14"> <!-- to insert ---------------------------------------------------->
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="6B-Engineering">
+    <meta name="twitter:description" content="Schulprojekt Golfcar der Gruppe 6B-Engineering. D
+    as Ziel: Ein selbstfahrendes Auto zu bauen, das einen Golfball automatisch in eine Box befördert">
+    <meta name="twitter:image" content="icon.jpg">
+    <meta name="twitter:card" content="toinsert"> <!-- to insert ----------------------------------------------------->
+
 </head>
 <body>
 <!-- Einbindung der JavaScript-Datei mit grundlegenden Funktionen -->
