@@ -122,7 +122,6 @@ body {
   letter-spacing: 500px;
   transition: letter-spacing 0.5s, left 0.5s;
 }
-
 #mainContainer{
   display: grid;
   text-align: center;
@@ -177,7 +176,6 @@ body {
   left: 100%;
   transition: left 1s ease-out;
 }
-
 /* Animation */
 @keyframes slideToLeft {
   from {
@@ -187,7 +185,6 @@ body {
     left: 0;
   }
 }
-
 .animate-image.start-animation {
   animation: slideToLeft 1s ease;
 }
