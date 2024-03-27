@@ -106,15 +106,6 @@ td{
     cursor: pointer;
     background-color: #c9c6be;
 }
-#addEntryDate{
-
-}
-#addEntryAs{
-
-}
-#addEntryBeschreibung{
-
-}
 
 .input-modern {
     width: 20vw;
@@ -152,16 +143,20 @@ input.input-modern:focus {
     position: absolute;
     left: 0;
     top: 0;
-    margin: 10px;
+    margin: 1vw;
+    padding: 0;
     width: 10vw;
+    font-size: 1.2vw;
 
 }
 #controlButton{
     position: absolute;
     right: 0;
     top: 0;
-    margin: 10px;
+    padding: 0;
+    margin: 1vw;
     width: 10vw;
+    font-size: 1.2vw;
 }
 #editbutton{
     width: 3.5vw;
@@ -219,17 +214,22 @@ input.input-modern:focus {
     font-size: 20px;
 }
 #welcomeText{
-    margin-top: 7%;
+    margin-top: 7vh;
+    font-size: 2vw;
 }
-
+#Teamspace-openaddentry{
+    font-size: 1.3vw;
+    width: 20vw;
+}
 /* Control Part ---------------------------------------------------------------------------------------------*/
 #Control-information{
     width: 100%;
+    margin-top: 6vh;
 }
 #Teamspace-videoPlayer{
-    height: 10vh;
-    width: 10vw;
-    margin: 20px;
+    height: 20vh;
+    width: 20vw;
+    margin: 2vw;
 }
 .Control-Button{
     height: 10%;
