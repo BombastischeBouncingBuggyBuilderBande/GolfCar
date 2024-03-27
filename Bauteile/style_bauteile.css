@@ -28,7 +28,7 @@
     bottom: 0;
     background: #e1dfd5;
     color: #000000;
-    padding: 20px;
+    padding: 2vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -44,20 +44,25 @@
     opacity: 0.3;
 }
 .bauteile-price {
-    font-size: 20px;
+    font-size: 1.5vw;
     font-weight: bold;
-    margin: 10px 0;
+    margin: 0.5vw 0;
 }
 .bauteile-description {
-    margin-bottom: 15px;
+    margin-bottom: 1vh;
     text-align: center;
+    font-size: 1vw;
 }
 .bauteile-bauteile a {
     text-decoration: none;
     background-color: #e1dfd5;
     color: white;
-    padding: 10px 20px;
+    padding: 1vh 2vw;
+    font-size: 1vw;
     border-radius: 5px;
+}
+.bauteile-product-link{
+    font-size: 1.5vw;
 }
 .bauteile-container {
     display: flex;
@@ -82,7 +87,10 @@
     margin: 0;
     padding: 0;
 }
-
+.bauteile-product-header{
+    font-size: 2vw;
+    margin: 1vw;
+}
 #bauteile-prevBtn{
     margin: 2vw;
 }
