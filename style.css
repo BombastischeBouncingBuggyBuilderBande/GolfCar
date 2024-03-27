@@ -206,7 +206,7 @@ body {
   align-items: center;
   justify-content: center;
 }
-#about-display{
+#team-display{
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -42,7 +42,7 @@ if(isset($_GET['page'])) {
     $getted = $_GET['page'];
     // Überprüft den Wert des 'page'-Parameters gegen eine Liste gültiger Seiten
     // Leitet den Benutzer um, falls der Wert nicht in der Liste ist
-    if (!($getted === "home" || $getted === "about" || $getted == "downloads" || $getted == "live" || $getted === "teamspace" || $getted === "bauteile")) {
+    if (!($getted === "home" || $getted === "team" || $getted == "downloads" || $getted == "live" || $getted === "teamspace" || $getted === "bauteile")) {
         header('Location: pageException.php');
         exit;
     }
@@ -56,11 +56,12 @@ ob_end_flush();
     <ul id="menuContainer">
         <!-- Jeder Link ruft eine JavaScript-Funktion auf, um nur den entsprechenden Inhaltsteil anzuzeigen -->
         <li><a class="nav-link" id="Home" onclick="deactivate_all_but('home-display')" background-text="Home" data-text="Home">Home</a></li>
-        <li><a class="nav-link" id="About" onclick="deactivate_all_but('about-display')" background-text="About" data-text="About">About</a></li>
+        <li><a class="nav-link" id="Team" onclick="deactivate_all_but('team-display')" background-text="Team" data-text="Team">Team</a></li>
         <li><a class="nav-link" id="Downloads" onclick="deactivate_all_but('downloads-display')" background-text="Downloads" data-text="Downloads">Downloads</a></li>
         <li><a class="nav-link" id="Bauteile" onclick="deactivate_all_but('bauteile-display')" background-text="Bauteile" data-text="Bauteile">Bauteile</a></li>
         <li><a class="nav-link" id="Live" onclick="deactivate_all_but('live-display')" background-text="Live" data-text="Live">Live</a></li>
         <li><a class="nav-link" id="Teamspace" onclick="deactivate_all_but('teamspace-display')" background-text="Teamspace" data-text="Teamspace">Teamspace</a></li>
+        <li><a class="nav-link" id="Contact" onclick="deactivate_split_mode()" href="mailto:stweiren@bx.fallmerayer.it?subject=Contact" background-text="Contact" data-text="Contact">Contact</a></li>
     </ul>
 
     <!-- Bereich für die Anzeige von Inhalten basierend auf der Auswahl in der Navigation -->
@@ -68,8 +69,8 @@ ob_end_flush();
         <div id="home-display" class="fade-in">
             <?php include("Home/home.php"); ?>
         </div>
-        <div id="about-display" class="fade-in">
-            <?php include("About/about.php"); ?>
+        <div id="team-display" class="fade-in">
+            <?php include("Team/team.php"); ?>
         </div>
         <div id="downloads-display" class="fade-in">
             <?php include("Downloads/downloads.php"); ?>
@@ -83,6 +84,11 @@ ob_end_flush();
         <div id="teamspace-display" class="fade-in">
             <?php include("Teamspace/Teamspace.php"); ?>
         </div>
+        <!--
+        <div id="Contact" class="fade-in">
+            <?php include("Contact/Contact.php"); ?>
+        </div>
+        -->
     </div>
 </div>
 
@@ -97,7 +103,7 @@ if(isset($_GET['page'])) {
     echo "<script>console.log('page Parameter: ' + '$getted')</script>";
 
     // Ruft JavaScript-Funktionen auf, um den richtigen Inhaltsteil zu aktivieren und den Split-Modus zu aktivieren
-    if ($getted === "home" || $getted === "about" || $getted == "downloads" || $getted == "live" || $getted === "teamspace" || $getted === "bauteile") {
+    if ($getted === "home" || $getted === "team" || $getted == "downloads" || $getted == "live" || $getted === "teamspace" || $getted === "bauteile") {
         echo "<script> 
         deactivate_all_but('$getted' + '-display');
         activate_split_mode();
