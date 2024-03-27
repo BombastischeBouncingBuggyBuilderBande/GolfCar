@@ -220,6 +220,7 @@ input.input-modern:focus {
 #Teamspace-openaddentry{
     font-size: 1.3vw;
     width: 20vw;
+    padding: 0;
 }
 /* Control Part ---------------------------------------------------------------------------------------------*/
 #Control-information{
