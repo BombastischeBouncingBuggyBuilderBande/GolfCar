@@ -200,7 +200,6 @@ body {
     left: calc(50% - (20%/2));
   }
 }
-
 .animate-image.start-animation-reverse {
   animation: slideToRight 1s ease;
 }
