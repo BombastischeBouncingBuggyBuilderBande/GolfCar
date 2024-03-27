@@ -34,7 +34,6 @@ body {
 }
 #menuContainer {
   position: relative;
-  overflow: hidden;
 }
 #menuContainer  li {
   list-style: none;
