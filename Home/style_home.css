@@ -176,3 +176,12 @@ h1#quote:after {
 .homeButtons.underlined{
     box-shadow: 0 13px 1px -6px var(--buttoncolor);
 }
+
+@keyframes FadeOut {
+    0%{ opacity: inherit;}
+    100%{opacity: 0;}
+}
+@keyframes FadeIn {
+    0%{ opacity: 0;}
+    100%{opacity: 1;}
+}
