@@ -11,12 +11,30 @@ body {
   overflow: hidden;
   background: #dcd9cd;
 }
-
+#mainContainer{
+  display: grid;
+  text-align: center;
+  height: 90vh;
+  grid-template-columns: 100vw 0;
+  grid-template-rows: auto;
+  -o-transition: all 1s;
+  -moz-transition: all 1s;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  place-items: center; /* Shortcut for centering both horizontally and vertically */
+  margin: auto;
+}
 #informationsContainer{
   display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  width: 100%;
 }
 #menuContainer {
   position: relative;
+  overflow: hidden;
 }
 #menuContainer  li {
   list-style: none;
@@ -192,4 +210,12 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+#about-display{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
 }
