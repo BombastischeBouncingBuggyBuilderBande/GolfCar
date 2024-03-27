@@ -129,7 +129,7 @@ function createInformationBox($table, $username, $page = 1){
                 <form id='Teamspace_addEntry'>
                     <input name='name' value='$username' style='display: none;'>
                     <input class='input-modern' id='addEntryDate' name='datum' type='date'>
-                    <input class='input-modern' id='addEntryAs' placeholder='Arbeitsstunden' name='as' type='number'>
+                    <input class='input-modern' id='addEntryAs' placeholder='Arbeitsstunden' name='as' min='0' type='number' step='0.1'>
                     <textarea class='input-modern' id='button-input-modern' placeholder='Beschreibung' name='beschreibung'></textarea>
                     <button type='submit'>add Entry</button>
                 </form>
@@ -140,7 +140,7 @@ function createInformationBox($table, $username, $page = 1){
                     <input name='ID' id='editEintragID' type='text' style='display: none;'>
                     <input name='name' value='$username' style='display: none;'>
                     <input class='input-modern' id='editEntryDatum' name='datum' type='date'>
-                    <input class='input-modern' id='editEntryAs' placeholder='Arbeitsstunden' name='as' type='number'>
+                    <input class='input-modern' id='editEntryAs' placeholder='Arbeitsstunden' name='as' min='0' type='number' step='0.1'>
                     <textarea class='input-modern' id='editEntryBeschreibung' placeholder='Beschreibung' name='beschreibung'></textarea>
                     <button type='submit'>Save Entry</button>
                 </form>

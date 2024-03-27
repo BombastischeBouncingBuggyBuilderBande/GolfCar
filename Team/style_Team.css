@@ -1,4 +1,4 @@
-.about_main{
+.team_main{
     display: grid;
     grid-template-columns: auto auto;
     grid-template-rows: auto auto;
@@ -8,7 +8,7 @@
     width: auto;
     margin: auto;
 }
-.about_container{
+.team_container{
     display: grid;
     overflow: hidden;
     grid-template-rows: 5% 10% 10% 65% 5%;
@@ -29,10 +29,10 @@
     height: 80%;
     width: 80%;
 }
-.about_container > *{
+.team_container > *{
     margin: 1vh 3vw;
 }
-p.about_rolle {
+p.team_rolle {
     padding: 0;
     margin: 0;
     color: #808080;
@@ -40,16 +40,16 @@ p.about_rolle {
     font-family: Arial, sans-serif;
     background-color: transparent;
 }
-.about_name{
+.team_name{
     padding-bottom: 0;
 }
-.about_image_container{
+.team_image_container{
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
 }
-.about_image{
+.team_image{
     overflow: hidden;
 }

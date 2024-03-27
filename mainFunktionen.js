@@ -1,5 +1,5 @@
 // Definiert ein Array mit den Namen der Hauptnavigationselemente der Website.
-let background_text = ["Home", "About", "Downloads", "Bauteile", "Live", "Teamspace"];
+let background_text = ["Home", "Team", "Downloads", "Bauteile", "Live", "Teamspace"];
 
 /**
  * Deaktiviert den Hintergrundtext der Navbar-Links.
