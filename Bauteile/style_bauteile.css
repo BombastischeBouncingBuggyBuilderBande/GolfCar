@@ -5,8 +5,6 @@
     overflow: hidden;
     scroll-behavior: smooth;
 }
-
-
 .bauteile-product-card {
     position: relative;
     margin: 10px;
@@ -15,7 +13,6 @@
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     transition: transform 0.5s ease;
 }
-
 .bauteile-product-card img {
     width: 100%;
     height: 100%;
@@ -23,7 +20,6 @@
     padding: 3vw;
     transition: opacity 1s ease;
 }
-
 .bauteile-product-info {
     position: absolute;
     top: 0;
@@ -40,27 +36,22 @@
     opacity: 0;
     transition: opacity 0.5s ease;
 }
-
 .bauteile-product-card:hover .bauteile-product-info {
     opacity: 0.7;
     cursor:pointer
 }
-
 .bauteile-product-card:hover img {
     opacity: 0.3;
 }
-
 .bauteile-price {
     font-size: 20px;
     font-weight: bold;
     margin: 10px 0;
 }
-
 .bauteile-description {
     margin-bottom: 15px;
     text-align: center;
 }
-
 .bauteile-bauteile a {
     text-decoration: none;
     background-color: #e1dfd5;
@@ -68,7 +59,6 @@
     padding: 10px 20px;
     border-radius: 5px;
 }
-
 .bauteile-container {
     display: flex;
     flex-direction: row;
@@ -76,7 +66,6 @@
     justify-content: center;
     width: 100%;
 }
-
 .bauteile-buttons{
     width: 5%;
     height: auto;
@@ -92,7 +81,6 @@
     cursor: pointer;
     margin: 0;
     padding: 0;
-
 }
 
 #bauteile-prevBtn{
@@ -101,13 +89,10 @@
 #bauteile-nextBtn{
     margin: 2vw;
 }
-
 .bauteile-buttons:hover{
     background-color: transparent;
     animation: textShadowAnimation 400ms forwards;
 }
-
-
 @keyframes textShadowAnimation {
     0% {
         text-shadow: none;
@@ -119,4 +104,3 @@
         0px 17px 30px rgba(0,0,0,0.1);
     }
 }
-
