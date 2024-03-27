@@ -114,7 +114,7 @@
          */
         public function addPerson_ifNotExist($personName, $rolle, $passwort)
         {
-            $existierendePerson = Person::loadPerson($personName);
+            $existierendePerson = $this->getPersonByName($personName);
             if (!$existierendePerson) {
                 // Person nicht gefunden, erstelle Person
                 $this::addPerson($personName, $rolle, $passwort);

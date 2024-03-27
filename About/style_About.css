@@ -8,9 +8,8 @@
     font-size: 16px; /* Setzt die Schriftgröße */
     color: #333;
     line-height: 1.5;
-    margin: 20px;
-    padding: 20px;
-    max-width: 80%;
+    margin: 5%;
+    padding: 5%;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #eae8df;
@@ -22,8 +21,6 @@
 .main{
     display: grid;
     grid-template-columns: auto auto;
-    right: 7vw;
-
 }
 .main > div{
     padding: 10px;

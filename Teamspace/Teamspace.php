@@ -35,13 +35,15 @@
                     </video>
                     <div id="fallbackMessage">Cam not currently available</div>
                 </div>
-                <div id="Teamspace-Car-Control">
-                    <div></div>
-                    <button class="Control-Button">W</button>
-                    <div></div>
-                    <button class="Control-Button">A</button>
-                    <button class="Control-Button">S</button>
-                    <button class="Control-Button">D</button>
+                <div class="Teamspace-Car-Control">
+                    <div class="control-GridItem1 control-gridPH"></div>
+                    <div class="control-GridItem2 control-gridPH"></div>
+                    <div class="control-GridItem3 control-gridPH"></div>
+                    <div class="control-GridItem4 control-gridPH"></div>
+                    <div class="control-GridItem5 control-gridColor">&#8592</div>
+                    <div class="control-GridItem6 control-gridColor">&#8594</div>
+                    <div class="control-GridItem7 control-gridColor">&#8593</div>
+                    <div class="control-GridItem8 control-gridColor">&#8595</div>
                 </div>
             </div>
             <div id="Teamspace-Settings" style="display: none">

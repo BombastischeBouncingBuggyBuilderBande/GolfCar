@@ -33,15 +33,17 @@ button:hover{
     align-items: center;
     justify-content: space-around;
     width: 50vw;
-    margin: auto;
-    position: absolute;
-    top: 50%;
-    left: 60%;
-    transform: translate(-50%, -50%);
+    position: relative;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     border-radius: 8px;
     background-color: #eae8df;
+}
+#Diary-part{
+    width: 100%;
+}
+#Control-part{
+    width: 100%;
 }
 
 h2{
@@ -213,10 +215,8 @@ input.input-modern:focus {
 }
 
 /* Control Part ---------------------------------------------------------------------------------------------*/
-#Teamspace-Car-Control{
-    display: grid;
-    grid-template-rows: auto auto;
-    grid-template-columns: auto auto auto;
+#Control-information{
+    width: 100%;
 }
 #Teamspace-videoPlayer{
     height: 10vh;
@@ -228,8 +228,53 @@ input.input-modern:focus {
     width: 10%;
 }
 #Teamspace-CarInterface{
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    grid-template-columns: 50% 50%;
 }
+
+.Teamspace-Car-Control {
+    display: grid;
+    grid-template-areas:
+            'p1 up p2'
+            'left up right'
+            'left down right'
+            'p3 down p4';
+    column-gap: 4px;
+    row-gap: 4px;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    text-align: center;
+}
+.Teamspace-Car-Control > div{;
+    margin: 0;
+}
+.control-gridPH{
+    height: 100%;
+    width: 100%;
+}
+.control-gridColor {
+    background-color: rgba(145, 129, 129, 0.8);
+    text-align: center;
+    padding: 0;
+    font-size: 20px;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+}
+.control-GridItem1 { grid-area: p1; }
+.control-GridItem2 { grid-area: p2; }
+.control-GridItem3 { grid-area: p3; }
+.control-GridItem4 { grid-area: p4; }
+.control-GridItem5 {
+    grid-area: left;
+    width: 100%;
+}
+.control-GridItem6 {
+    grid-area: right;
+    width: 100%;
+}
+.control-GridItem7 { grid-area: up; }
+.control-GridItem8 { grid-area: down; }
