@@ -62,7 +62,7 @@ function deactivate_all_but(but) {
  * Diese Funktion verändert das Layout, um einen Bereich für Infotexte neben der Navbar freizugeben.
  */
 function activate_split_mode() {
-    document.getElementById("informationsContainer").style.display = "block";
+    document.getElementById("informationsContainer").style.display = "flex";
     document.getElementById("mainContainer").style.gridTemplateColumns = "20vw 70vw";
     console.log("seitenverhältnis geändert");
     deactivate_background_text();
