@@ -88,9 +88,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // Add more products here as needed
     ];
 
-    const productContainer = document.getElementById('product-scroll-container');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
+    const productContainer = document.getElementById('bauteile-product-scroll-container');
+    const prevBtn = document.getElementById('bauteile-prevBtn');
+    const nextBtn = document.getElementById('bauteile-nextBtn');
 
     const productsPerPage = 6; // Number of products to display per page
     let currentPage = 0;
@@ -103,14 +103,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         productsToDisplay.forEach(product => {
             const productCard = document.createElement('div');
-            productCard.classList.add('product-card');
+            productCard.classList.add('bauteile-product-card');
             productCard.innerHTML = `
-                <img src="${product.img}" alt="${product.name}">
-                <div class="product-info">
-                    <h2>${product.name}</h2>
-                    <p class="price">${product.price}</p>
-                    <p class="description">${product.description}</p>
-                    <a href="${product.link}" target="_blank">Kaufen</a>
+                <img id="bauteile-product-img" src="${product.img}" alt="${product.name}">
+                <div class="bauteile-product-info">
+                    <h2 class="bauteile-product-header">${product.name}</h2>
+                    <p class="bauteile-price">${product.price}</p>
+                    <p class="bauteile-description">${product.description}</p>
+                    <a class="bauteile-product-link" href="${product.link}" target="_blank">Kaufen</a>
                 </div>
             `;
             productCard.addEventListener('click', () => {

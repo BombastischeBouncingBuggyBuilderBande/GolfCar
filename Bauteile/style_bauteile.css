@@ -1,30 +1,26 @@
-.product-scroll-container {
+.bauteile-product-scroll-container {
     display: grid;
     grid-template-columns: auto auto auto;
     grid-template-rows: auto auto;
     overflow: hidden;
     scroll-behavior: smooth;
 }
-
-
-.product-card {
+.bauteile-product-card {
     position: relative;
     margin: 10px;
-    width: 300px;
+    width: 100%;
     background-color: #e1dfd5;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     transition: transform 0.5s ease;
 }
-
-.product-card img {
+.bauteile-product-card img {
     width: 100%;
     height: 100%;
     display: block;
-    padding: 50px;
+    padding: 3vw;
     transition: opacity 1s ease;
 }
-
-.product-info {
+.bauteile-product-info {
     position: absolute;
     top: 0;
     left: 0;
@@ -32,7 +28,7 @@
     bottom: 0;
     background: #e1dfd5;
     color: #000000;
-    padding: 20px;
+    padding: 2vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -40,49 +36,45 @@
     opacity: 0;
     transition: opacity 0.5s ease;
 }
-
-.product-card:hover .product-info {
+.bauteile-product-card:hover .bauteile-product-info {
     opacity: 0.7;
     cursor:pointer
 }
-
-.product-card:hover img {
+.bauteile-product-card:hover img {
     opacity: 0.3;
 }
-
-.price {
-    font-size: 20px;
+.bauteile-price {
+    font-size: 1.5vw;
     font-weight: bold;
-    margin: 10px 0;
+    margin: 0.5vw 0;
 }
-
-.description {
-    margin-bottom: 15px;
+.bauteile-description {
+    margin-bottom: 1vh;
     text-align: center;
+    font-size: 1vw;
 }
-
-.bauteile a {
+.bauteile-bauteile a {
     text-decoration: none;
     background-color: #e1dfd5;
     color: white;
-    padding: 10px 20px;
+    padding: 1vh 2vw;
+    font-size: 1vw;
     border-radius: 5px;
 }
-
-.container {
+.bauteile-product-link{
+    font-size: 1.5vw;
+}
+.bauteile-container {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-
     width: 100%;
-
 }
-
-.buttons{
+.bauteile-buttons{
     width: 5%;
     height: auto;
-    font-size: 75px;
+    font-size: 5vw;
 
     display: flex;
     justify-content: center;
@@ -94,22 +86,21 @@
     cursor: pointer;
     margin: 0;
     padding: 0;
-
 }
-
-#prevBtn{
-    margin: 25px;
+.bauteile-product-header{
+    font-size: 2vw;
+    margin: 1vw;
 }
-#nextBtn{
-    margin: 25px;
+#bauteile-prevBtn{
+    margin: 2vw;
 }
-
-.buttons:hover{
+#bauteile-nextBtn{
+    margin: 2vw;
+}
+.bauteile-buttons:hover{
     background-color: transparent;
     animation: textShadowAnimation 400ms forwards;
 }
-
-
 @keyframes textShadowAnimation {
     0% {
         text-shadow: none;
@@ -121,4 +112,3 @@
         0px 17px 30px rgba(0,0,0,0.1);
     }
 }
-

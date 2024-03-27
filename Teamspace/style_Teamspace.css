@@ -21,8 +21,8 @@ button:hover{
 #account-selector, #username, #password, button{
     width: 20vw;
     height: 5vh;
-    padding: 10px;
-    margin: 20px;
+    padding: 1vw;
+    margin: 2vw;
     border-radius: 5px;
     border: 1px solid #ccc;
 }
@@ -34,7 +34,7 @@ button:hover{
     justify-content: space-around;
     width: 50vw;
     position: relative;
-    padding: 20px;
+    padding: 2vw;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     border-radius: 8px;
     background-color: #eae8df;
@@ -72,12 +72,14 @@ h2{
 }
 
 td{
-    margin: 5px;
+    margin: 0.4vw;
 }
 
 .deletebutton{
-    width: 20px;
-    height: 20px;
+    width: 1vw;
+    height: 1vw;
+    min-height: 20px;
+    min-width: 20px;
     padding: 0;
     margin: 5px;
     border: 1px solid black;
@@ -89,8 +91,10 @@ td{
     background-color: #c9c6be;
 }
 .TeamspacenextprePage{
-    width: 20px;
-    height: 20px;
+    width: 1vw;
+    height: 1vw;
+    min-height: 20px;
+    min-width: 20px;
     padding: 0;
     margin: 5px;
     border: 1px solid black;
@@ -101,15 +105,6 @@ td{
 .TeamspacenextprePage:hover{
     cursor: pointer;
     background-color: #c9c6be;
-}
-#addEntryDate{
-
-}
-#addEntryAs{
-
-}
-#addEntryBeschreibung{
-
 }
 
 .input-modern {
@@ -148,22 +143,27 @@ input.input-modern:focus {
     position: absolute;
     left: 0;
     top: 0;
-    margin: 10px;
+    margin: 1vw;
+    padding: 0;
     width: 10vw;
+    font-size: 1.2vw;
 
 }
 #controlButton{
     position: absolute;
     right: 0;
     top: 0;
-    margin: 10px;
+    padding: 0;
+    margin: 1vw;
     width: 10vw;
+    font-size: 1.2vw;
 }
 #editbutton{
-    width: 50px;
-    height: 20px;
+    width: 3.5vw;
+    height: 2.3vh;
+    font-size: 1vw;
     padding: 0;
-    margin: 5px;
+    margin: 0.4vw;
     border: 1px solid black;
     background-color: transparent;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -177,7 +177,8 @@ input.input-modern:focus {
     height: 20vh;
 }
 .Diarytable {
-    margin: 10px;
+    font-size: 1.2vw;
+    margin: 1vw;
     padding: 0;
     width: 100%;
     border-collapse: separate; /* Erlaubt die Nutzung von border-spacing */
@@ -192,7 +193,9 @@ input.input-modern:focus {
 .Diarytable tr{
     background-clip: padding-box; /* Verhindert, dass Hintergrundfarben und Bilder in die Rahmen und den Abstand eindringen */
 }
-
+.Diarytable th{
+    font-size: 1.4vw;
+}
 .Diarytable th:last-child, .Diarytable td:last-child {
     border-right: none;
 }
@@ -211,17 +214,22 @@ input.input-modern:focus {
     font-size: 20px;
 }
 #welcomeText{
-    margin-top: 7%;
+    margin-top: 7vh;
+    font-size: 2vw;
 }
-
+#Teamspace-openaddentry{
+    font-size: 1.3vw;
+    width: 20vw;
+}
 /* Control Part ---------------------------------------------------------------------------------------------*/
 #Control-information{
     width: 100%;
+    margin-top: 6vh;
 }
 #Teamspace-videoPlayer{
-    height: 10vh;
-    width: 10vw;
-    margin: 20px;
+    height: 20vh;
+    width: 20vw;
+    margin: 2vw;
 }
 .Control-Button{
     height: 10%;

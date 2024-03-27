@@ -121,7 +121,7 @@ function createInformationBox($table, $username, $page = 1){
                         <a id='Teamspace-page'>".$page."</a>
                         <form id='Teamspace_NextPage'><input style='display: none' name='username' value='$username' type='text'><input style='display: none' name='CurrentPage' value='$page' type='text'><button class='TeamspacenextprePage' type='submit'>></button></form>
                     </div>
-                        <button onclick='openAddEntry()'>Add Entry</button>
+                        <button id='Teamspace-openaddentry' onclick='openAddEntry()'>Add Entry</button>
                 </div>
             </div>
             <div id='Teamspace_Entry_View' style='display: none'> <!-- Ansicht zum Hinzufügen eines Eintrags -->
