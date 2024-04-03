@@ -52,6 +52,14 @@ function createTeamspacePartTable($entries, $page, $shownPerPage, $username = fa
     $end = $start + $shownPerPage;
     // Initialisierung des Zählers
     $count = 0;
+    $entry_in_Table_count = 0;
+
+
+    // Wenn Seite leer, dann soll die vorherige angezeigt werden
+    if($count >= $end){
+        $page -= 1;
+        $start = ($page - 1) * $shownPerPage;
+    }   $end = $start + $shownPerPage;
 
     // Aufbau des Tabellenkopfes abhängig von der Sicht (Admin/Nutzer)
     if($username !== false){
@@ -63,6 +71,7 @@ function createTeamspacePartTable($entries, $page, $shownPerPage, $username = fa
     // Durchlaufen der Einträge und Hinzufügen zur Tabelle
     foreach($entries as $entry){
         if($count >= $start && $count < $end) {
+            $entry_in_Table_count += 1;
             // Extrahieren der Eintragsdaten
             $as = $entry['arbeitsstunden'];
             $beschreibung = $entry['beschreibung'];
@@ -83,6 +92,7 @@ function createTeamspacePartTable($entries, $page, $shownPerPage, $username = fa
                 <td>".$datum."</td>
                 <td>
                 <form class='deleteForm'>
+                    <input style='display: none' name='currentPage' value='".$page."'>
                     <input style='display: none' name='EintragID' type='text' value='".$eintragID."'>
                     <button class='deletebutton' type='submit'>-</button>
                 </form>
@@ -96,7 +106,11 @@ function createTeamspacePartTable($entries, $page, $shownPerPage, $username = fa
         $count++;
     }
     $entriesHtml .= "</table>";
-    return $entriesHtml;
+    if($entry_in_Table_count > 0) {
+        return $entriesHtml;
+    }else {
+        return "page empty";
+    }
 }
 
 /**
@@ -125,24 +139,26 @@ function createInformationBox($table, $username, $page = 1){
                 </div>
             </div>
             <div id='Teamspace_Entry_View' style='display: none'> <!-- Ansicht zum Hinzufügen eines Eintrags -->
-                <button onclick='closeAddEntry()'>back</button>
+                <button class='Teamspace-Buttons' onclick='closeAddEntry()'>back</button>
                 <form id='Teamspace_addEntry'>
+                    <input style='display: none;' name='currentPage' value='$page'>
                     <input name='name' value='$username' style='display: none;'>
                     <input class='input-modern' id='addEntryDate' name='datum' type='date'>
                     <input class='input-modern' id='addEntryAs' placeholder='Arbeitsstunden' name='as' min='0' type='number' step='0.1'>
                     <textarea class='input-modern' id='button-input-modern' placeholder='Beschreibung' name='beschreibung'></textarea>
-                    <button type='submit'>add Entry</button>
+                    <button class='Teamspace-Buttons' type='submit'>add Entry</button>
                 </form>
             </div>
             <div id='Teamspace_editEntry' style='display: none'> <!-- Add Entry View -->
-                <button onclick='closeEditEntry()'>back</button>
+                <button class='Teamspace-Buttons' onclick='closeEditEntry()'>back</button>
                 <form id='Teamspace_editEntryForm'>
+                    <input style='display: none;' name='currentPage' value='$page'>
                     <input name='ID' id='editEintragID' type='text' style='display: none;'>
                     <input name='name' value='$username' style='display: none;'>
                     <input class='input-modern' id='editEntryDatum' name='datum' type='date'>
                     <input class='input-modern' id='editEntryAs' placeholder='Arbeitsstunden' name='as' min='0' type='number' step='0.1'>
                     <textarea class='input-modern' id='editEntryBeschreibung' placeholder='Beschreibung' name='beschreibung'></textarea>
-                    <button type='submit'>Save Entry</button>
+                    <button class='Teamspace-Buttons' type='submit'>Save Entry</button>
                 </form>
             </div>
             ";
