@@ -61,7 +61,7 @@ ob_end_flush();
         <li><a class="nav-link" id="Bauteile" onclick="deactivate_all_but('bauteile-display')" background-text="Bauteile" data-text="Bauteile">Bauteile</a></li>
         <li><a class="nav-link" id="Live" onclick="deactivate_all_but('live-display')" background-text="Live" data-text="Live">Live</a></li>
         <li><a class="nav-link" id="Teamspace" onclick="deactivate_all_but('teamspace-display')" background-text="Teamspace" data-text="Teamspace">Teamspace</a></li>
-        <li><a class="nav-link" id="Contact" onclick="deactivate_split_mode()" href="mailto:stweiren@bx.fallmerayer.it?subject=Contact" background-text="Contact" data-text="Contact">Contact</a></li>
+        <li><a class="nav-link" id="Contact" onclick="deactivate_split_mode()" background-text="Contact" data-text="Contact" href="mailto:stweiren@bx.fallmerayer.it?subject=Contact">Contact</a></li>
     </ul>
 
     <!-- Bereich für die Anzeige von Inhalten basierend auf der Auswahl in der Navigation -->
