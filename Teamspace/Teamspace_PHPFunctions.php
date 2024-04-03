@@ -139,18 +139,18 @@ function createInformationBox($table, $username, $page = 1){
                 </div>
             </div>
             <div id='Teamspace_Entry_View' style='display: none'> <!-- Ansicht zum Hinzufügen eines Eintrags -->
-                <button onclick='closeAddEntry()'>back</button>
+                <button class='Teamspace-Buttons' onclick='closeAddEntry()'>back</button>
                 <form id='Teamspace_addEntry'>
                     <input style='display: none;' name='currentPage' value='$page'>
                     <input name='name' value='$username' style='display: none;'>
                     <input class='input-modern' id='addEntryDate' name='datum' type='date'>
                     <input class='input-modern' id='addEntryAs' placeholder='Arbeitsstunden' name='as' min='0' type='number' step='0.1'>
                     <textarea class='input-modern' id='button-input-modern' placeholder='Beschreibung' name='beschreibung'></textarea>
-                    <button type='submit'>add Entry</button>
+                    <button class='Teamspace-Buttons' type='submit'>add Entry</button>
                 </form>
             </div>
             <div id='Teamspace_editEntry' style='display: none'> <!-- Add Entry View -->
-                <button onclick='closeEditEntry()'>back</button>
+                <button class='Teamspace-Buttons' onclick='closeEditEntry()'>back</button>
                 <form id='Teamspace_editEntryForm'>
                     <input style='display: none;' name='currentPage' value='$page'>
                     <input name='ID' id='editEintragID' type='text' style='display: none;'>
@@ -158,7 +158,7 @@ function createInformationBox($table, $username, $page = 1){
                     <input class='input-modern' id='editEntryDatum' name='datum' type='date'>
                     <input class='input-modern' id='editEntryAs' placeholder='Arbeitsstunden' name='as' min='0' type='number' step='0.1'>
                     <textarea class='input-modern' id='editEntryBeschreibung' placeholder='Beschreibung' name='beschreibung'></textarea>
-                    <button type='submit'>Save Entry</button>
+                    <button class='Teamspace-Buttons' type='submit'>Save Entry</button>
                 </form>
             </div>
             ";

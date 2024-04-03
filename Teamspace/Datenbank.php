@@ -35,13 +35,12 @@ class Datenbank extends \PDO
      *
      * @param string $oldName Der alte Name der Person.
      * @param string $name Der neue Name der Person.
-     * @param string $rolle Die Rolle der Person.
      * @param string $passwort Das Passwort der Person.
      */
-    public function updatePerson($oldName, $name, $rolle, $passwort) {
-        $sql = "INSERT INTO Person (name, rolle, passwort) VALUES (?, ?, ?) ON DUPLICATE KEY UPDATE rolle = ?, passwort = ?";
+    public function updatePerson($oldName, $name, $passwort) {
+        $sql = "INSERT INTO Person (name, passwort) VALUES (?, ?) ON DUPLICATE KEY UPDATE, passwort = ?";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$name, $rolle, $passwort, $rolle, $passwort]);
+        $stmt->execute([$name, $passwort, $passwort]);
     }
 
     /**
@@ -99,29 +98,27 @@ class Datenbank extends \PDO
      * Fügt eine neue Person hinzu.
      *
      * @param string $name Der Name der Person.
-     * @param string $rolle Die Rolle der Person.
      * @param string $passwort Das Passwort der Person.
      */
-    public function addPerson($name, $rolle, $passwort) {
-        $sql = "INSERT INTO Person (name, rolle, passwort) VALUES (?, ?, ?)";
+    public function addPerson($name, $passwort) {
+        $sql = "INSERT INTO Person (name, passwort) VALUES (?, ?)";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$name, $rolle, $passwort]);
+        $stmt->execute([$name, $passwort]);
     }
 
     /**
      * Fügt eine neue Person hinzu, wenn sie noch nicht existiert.
      *
      * @param string $personName Der Name der Person.
-     * @param string $rolle Die Rolle der Person.
      * @param string $passwort Das Passwort der Person.
      * @return bool True, wenn hinzugefügt, false, wenn schon existiert.
      */
-    public function addPerson_ifNotExist($personName, $rolle, $passwort)
+    public function addPerson_ifNotExist($personName, $passwort)
     {
         $existierendePerson = $this->getPersonByName($personName);
         if (!$existierendePerson) {
             // Person nicht gefunden, erstelle Person
-            $this::addPerson($personName, $rolle, $passwort);
+            $this::addPerson($personName, $passwort);
             return true;
         } else {
             // Person existiert bereits
@@ -222,25 +219,19 @@ class Datenbank extends \PDO
      * Funktion zum Bearbeiten einer Person in der Datenbank.
      *
      * @param string $name Der Name der Person, die bearbeitet werden soll
-     * @param string $neueRolle Die neue Rolle der Person
      * @param string $neuesPasswort Das neue Passwort der Person
      *
      * @return bool Gibt true zurück, wenn das Update erfolgreich war, sonst false
      */
-    function editPerson($name, $neueRolle = null, $neuesPasswort = null)
+    function editPerson($name, $neuesPasswort = null)
     {
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $query = "UPDATE Person SET rolle = :neueRolle, passwort = :neuesPasswort WHERE name = :name";
+        $query = "UPDATE Person SET passwort = :neuesPasswort WHERE name = :name";
 
         $oldParams = $this->getPersonByName($name);
         try {
             $stmt = $this->pdo->prepare($query);
-            if($neueRolle != null) {
-                $stmt->bindParam(':neueRolle', $neueRolle);
-            }else{
-                $stmt->bindParam(':neueRolle', $oldParams['rolle']);
-            }
             if($neuesPasswort != null) {
                 $stmt->bindParam(':neuesPasswort', $neuesPasswort);
             }else{

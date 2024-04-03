@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <title>Login</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <script src="functions_Teamspace.js"></script>
+    <script src="Teamspace/functions_Teamspace.js"></script>
     <link rel="stylesheet" href="Teamspace/style_Teamspace.css">
 </head>
 <body>
@@ -27,7 +30,8 @@
     </div>
     <div id="Control-part" style="display: none">
         <div id="Control-information">
-            <div id="Teamspace-CarInterface">
+            <section id="Teamspace-ControlPage-1">
+                <h2>Car Control</h2>
                 <div id="Control-Car-VideoContainer">
                     <video id="Teamspace-videoPlayer" controls>
                         <source src="Live/video.mp4" type="video/mp4">
@@ -36,23 +40,58 @@
                     <div id="fallbackMessage">Cam not currently available</div>
                 </div>
                 <div class="Teamspace-Car-Control">
-                    <div class="control-GridItem1 control-gridPH"></div>
-                    <div class="control-GridItem2 control-gridPH"></div>
-                    <div class="control-GridItem3 control-gridPH"></div>
-                    <div class="control-GridItem4 control-gridPH"></div>
+                    <div class="control-GridItem1 control-gridSpecial">grab</div>
+                    <div class="control-GridItem2 control-gridSpecial">release</div>
+                    <div class="control-GridItem3 control-gridPH" style="visibility: hidden;">a</div>
+                    <div class="control-GridItem4 control-gridPH" style="visibility: hidden;">b</div>
                     <div class="control-GridItem5 control-gridColor">&#8592</div>
                     <div class="control-GridItem6 control-gridColor">&#8594</div>
                     <div class="control-GridItem7 control-gridColor">&#8593</div>
                     <div class="control-GridItem8 control-gridColor">&#8595</div>
                 </div>
-            </div>
-            <div id="Teamspace-Settings" style="display: none">
-
-            </div>
+            </section>
+            <section id="Teamspace-ControlPage-2" style="display: none">
+                <h2>Settings</h2>
+                <div class="Teamspace-Control-Settings" id="Teamspace-Control-Settings-1">
+                    <a class="Teamspace-Control-Text">Live Cam</a>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <hr>
+                <div class="Teamspace-Control-Settings" id="Teamspace-Control-Settings-2">
+                    <a class="Teamspace-Control-Text">Downloads</a>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <hr>
+                <div class="Teamspace-Control-Settings" id="Teamspace-Control-Settings-3">
+                    <a class="Teamspace-Control-Text">Contact</a>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <hr>
+                <div class="Teamspace-Control-Settings" id="Teamspace-Control-Settings-4">
+                    <a class="Teamspace-Control-Text">Bauteile</a>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </section>
         </div>
         <div id="Control-Navigation">
             <button id="logoutButton" onclick="logout()">Log out</button>
             <button id="controlButton" onclick="toggle_Teamspace()">Diary</button>
+        </div>
+        <div id="control-buttonHolder">
+            <button id="control-BottomButton-1" class="controlButtons underlined" onclick="change_control_info(1)"></button>
+            <button id="control-BottomButton-2" class="controlButtons" onclick="change_control_info(2)"></button>
         </div>
     </div>
 </div>

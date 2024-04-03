@@ -8,13 +8,12 @@
 </div>
 <script src="../funktionen.js"></script>
 <script src="Home/home_script.js"></script>
-<script src="home_script.js"></script>
-
+<script src="home_script.js"></script> <!-- damit lokal die Klassen gefunden werden, beim öffnen mit Localhost wird alles über Index.php geladen, sprich der Pfad ist ein anderer -->
 <div class="fade-in" id="home_informationsContainer">
     <input style="display: none" id="home_pageHolder" value=1>
     <button class="home-side-Button" id="home-right-button" onclick="change_home_info_sideButton('next')">></button>
     <button class="home-side-Button" id="home-left-button" onclick="change_home_info_sideButton('prev')"><</button>
-    <section id="home-info-1">
+    <section id="home-info-1" class="home-info">
         <h2>Allgemeine Informationen</h2>
         <a>Unser Ziel ist klar: ein selbstfahrendes Auto zu entwickeln, das Golfbälle aufspürt und einsammelt. <br>
             Dieses Fahrzeug soll selbstständig navigieren, Hindernisse erkennen und den kürzesten Weg zum Ziel finden. <br>
@@ -22,7 +21,7 @@
             um diese Aufgaben unter verschiedenen Bedingungen zuverlässig zu <erfüllen class=""></erfüllen>
         </a>
     </section>
-    <section style="display: none" id="home-info-2">
+    <section style="display: none" id="home-info-2" class="home-info">
         <a>Wir haben ein Miniatur-Golfcar entworfen, das mit einem einfachen, aber cleveren Mechanismus ausgestattet ist: <br>
             Einem Greifarm, der Golfbälle aufspürt, aufnimmt und sie zielgenau in einen Karton befördert. <br>
             Dieses kleine Fahrzeug kann sowohl automatisch als auch manuell über eine einfache Websteuerung gefahren werden,<br>
