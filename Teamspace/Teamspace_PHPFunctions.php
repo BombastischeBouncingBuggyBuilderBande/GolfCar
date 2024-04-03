@@ -52,6 +52,14 @@ function createTeamspacePartTable($entries, $page, $shownPerPage, $username = fa
     $end = $start + $shownPerPage;
     // Initialisierung des Zählers
     $count = 0;
+    $entry_in_Table_count = 0;
+
+
+    // Wenn Seite leer, dann soll die vorherige angezeigt werden
+    if($count >= $end){
+        $page -= 1;
+        $start = ($page - 1) * $shownPerPage;
+    }   $end = $start + $shownPerPage;
 
     // Aufbau des Tabellenkopfes abhängig von der Sicht (Admin/Nutzer)
     if($username !== false){
@@ -63,6 +71,7 @@ function createTeamspacePartTable($entries, $page, $shownPerPage, $username = fa
     // Durchlaufen der Einträge und Hinzufügen zur Tabelle
     foreach($entries as $entry){
         if($count >= $start && $count < $end) {
+            $entry_in_Table_count += 1;
             // Extrahieren der Eintragsdaten
             $as = $entry['arbeitsstunden'];
             $beschreibung = $entry['beschreibung'];
@@ -97,7 +106,11 @@ function createTeamspacePartTable($entries, $page, $shownPerPage, $username = fa
         $count++;
     }
     $entriesHtml .= "</table>";
-    return $entriesHtml;
+    if($entry_in_Table_count > 0) {
+        return $entriesHtml;
+    }else {
+        return "page empty";
+    }
 }
 
 /**

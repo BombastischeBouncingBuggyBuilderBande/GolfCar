@@ -4,7 +4,8 @@
  *
  * @author René
  */
-class Datenbank {
+class Datenbank extends \PDO
+{
     private $host = 'localhost';
     private $db   = 'Tagebuch';
     private $user = 'root';
