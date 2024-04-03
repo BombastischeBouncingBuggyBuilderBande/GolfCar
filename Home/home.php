@@ -8,8 +8,7 @@
 </div>
 <script src="../funktionen.js"></script>
 <script src="Home/home_script.js"></script>
-<script src="home_script.js"></script>
-
+<script src="home_script.js"></script> <!-- damit lokal die Klassen gefunden werden, beim öffnen mit Localhost wird alles über Index.php geladen, sprich der Pfad ist ein anderer -->
 <div class="fade-in" id="home_informationsContainer">
     <input style="display: none" id="home_pageHolder" value=1>
     <button class="home-side-Button" id="home-right-button" onclick="change_home_info_sideButton('next')">></button>

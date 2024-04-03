@@ -1,4 +1,19 @@
+//---------------------------- Control -------------------------------------------------------------------------------
+function change_control_info(page){
+    document.getElementById("Teamspace-ControlPage-"+page).style.display = "block";
+    document.getElementById("control-BottomButton-"+page).classList.add('underlined');
+    if(page !== 1){
+        document.getElementById("Teamspace-ControlPage-1").style.display = "none";
+        document.getElementById("control-BottomButton-1").classList.remove('underlined');
+    }
+    if(page !== 2){
+        document.getElementById("Teamspace-ControlPage-2").style.display = "none";
+        document.getElementById("control-BottomButton-2").classList.remove('underlined');
+    }
+}
 
+
+//---------------------------- Diary ---------------------------------------------------------------------------------
 function openAddEntry(){
     document.getElementById('Teamspace_Base_View').style.display = 'none';
     document.getElementById('Teamspace_Entry_View').style.display = 'block';

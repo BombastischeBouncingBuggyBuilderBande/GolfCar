@@ -42,7 +42,7 @@ if(isset($_GET['page'])) {
     $getted = $_GET['page'];
     // Überprüft den Wert des 'page'-Parameters gegen eine Liste gültiger Seiten
     // Leitet den Benutzer um, falls der Wert nicht in der Liste ist
-    if (!($getted === "home" || $getted === "team" || $getted == "downloads" || $getted == "live" || $getted === "teamspace" || $getted === "bauteile")) {
+    if (!($getted === "home" || $getted === "team" || $getted == "downloads" || $getted == "live" || $getted === "teamspace" || $getted === "bauteile") || $getted === "contact") {
         header('Location: pageException.php');
         exit;
     }
@@ -84,11 +84,6 @@ ob_end_flush();
         <div id="teamspace-display" class="fade-in">
             <?php include("Teamspace/Teamspace.php"); ?>
         </div>
-        <!--
-        <div id="Contact" class="fade-in">
-            <?php include("Contact/Contact.php"); ?>
-        </div>
-        -->
     </div>
 </div>
 
