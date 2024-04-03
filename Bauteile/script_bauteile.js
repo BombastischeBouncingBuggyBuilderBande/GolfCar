@@ -96,15 +96,25 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentPage = 0;
 
     function displayProducts() {
-        productContainer.innerHTML = '';
-        const startIndex = currentPage * productsPerPage;
-        const endIndex = startIndex + productsPerPage;
-        const productsToDisplay = productData.slice(startIndex, endIndex);
+        // Fade out existing product cards
+        const existingCards = productContainer.querySelectorAll('.bauteile-product-card');
+        existingCards.forEach((card, index) => {
+            setTimeout(() => {
+                card.style.opacity = '0'; // Fade out effect
+            }, index * 150); // Delay each card's fade-out effect for smoother animation
+        });
 
-        productsToDisplay.forEach(product => {
-            const productCard = document.createElement('div');
-            productCard.classList.add('bauteile-product-card');
-            productCard.innerHTML = `
+        setTimeout(() => {
+            productContainer.innerHTML = ''; // Clear the container after fade-out animation
+            const startIndex = currentPage * productsPerPage;
+            const endIndex = startIndex + productsPerPage;
+            const productsToDisplay = productData.slice(startIndex, endIndex);
+
+            productsToDisplay.forEach((product, index) => {
+                const productCard = document.createElement('div');
+                productCard.classList.add('bauteile-product-card');
+                productCard.style.opacity = '0'; // Set initial opacity to 0 for fade-in effect
+                productCard.innerHTML = `
                 <img id="bauteile-product-img" src="${product.img}" alt="${product.name}">
                 <div class="bauteile-product-info">
                     <h2 class="bauteile-product-header">${product.name}</h2>
@@ -113,14 +123,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     <a class="bauteile-product-link" href="${product.link}" target="_blank">Kaufen</a>
                 </div>
             `;
-            productCard.addEventListener('click', () => {
-                window.open(product.link, '_blank');
-            });
-            productContainer.appendChild(productCard);
-        });
-    }
+                productCard.addEventListener('click', () => {
+                    window.open(product.link, '_blank');
+                });
+                productContainer.appendChild(productCard);
 
-    prevBtn.style.visibility = "hidden";
+                // Triggering fade-in effect
+                setTimeout(() => {
+                    productCard.style.opacity = '1';
+                }, index * 150); // Delay each card's fade-in effect for smoother animation
+            });
+        }, 1000);// Delay before clearing the container and adding new cards (adjust as needed)
+    }
 
     prevBtn.addEventListener('click', () => {
         if (currentPage > 0) {
@@ -145,28 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Initial display of products
+    prevBtn.style.visibility = "hidden";
     displayProducts();
 
 });
-
-
-
-function toggleFadeIn(element) {
-    // Ursprünglich dazu gedacht, das Element-Display auf 'block' zu setzen, bevor die Klasse hinzugefügt wird.
-    // Auskommentiert aufgrund von Layout-Problemen, die dadurch verursacht wurden.
-    console.log("fade-in"); // Loggen des Fade-In Vorgangs für Debugging-Zwecke.
-    requestAnimationFrame(() => {
-        element.classList.add('visible'); // Hinzufügen der Klasse 'visible' für den Fade-In-Effekt.
-    });
-}
-
-function toggleFadeOut(element) {
-    requestAnimationFrame(() => {
-        element.classList.remove('visible'); // Entfernen der Klasse 'visible' für den Fade-Out-Effekt.
-    });
-    // Hinzufügen eines EventListeners für das Ende der Transition.
-    element.addEventListener('transitionend', function handleTransitionEnd() {
-        // Entfernen des EventListeners, um sauberes Garbage Collection zu gewährleisten.
-        element.removeEventListener('transitionend', handleTransitionEnd);
-    });
-}

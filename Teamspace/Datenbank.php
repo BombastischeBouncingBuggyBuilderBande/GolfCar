@@ -5,10 +5,11 @@
      * @author René
      */
     class Datenbank {
-        private $host = 'localhost';
+        private $host = 'baller';
         private $db   = 'Tagebuch';
+
         private $user = 'root';
-        private $pass = '';
+        private $pass = 'pegging';
         private $charset = 'utf8mb4';
         private $pdo;
 
