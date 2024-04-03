@@ -11,13 +11,14 @@ require 'Teamspace_PHPFunctions.php'; // Bindet dateiübergreifende Funktionen e
 $db = new Datenbank();
 
 // Überprüft, ob alle notwendigen Daten über POST gesendet wurden.
-if(isset($_POST['name']) && isset($_POST['datum']) && isset($_POST['as']) && isset($_POST['beschreibung']) && isset($_POST['ID'])){
+if(isset($_POST['name']) && isset($_POST['datum']) && isset($_POST['as']) && isset($_POST['beschreibung']) && isset($_POST['ID']) && isset($_POST['currentPage'])){
     // Speichert die übergebenen Daten in Variablen.
     $name = $_POST['name'];
     $datum = $_POST['datum'];
     $beschreibung = $_POST['beschreibung'];
     $as = $_POST['as'];
     $id = $_POST['ID'];
+    $currentpage = $_POST['currentPage'];
 
     // Löscht den Eintrag mit der gegebenen ID.
     $db->deleteEintrag($id);
@@ -25,7 +26,7 @@ if(isset($_POST['name']) && isset($_POST['datum']) && isset($_POST['as']) && iss
     $db->addEintrag($name, $beschreibung, $as, $datum);
 
     // Gibt ein JSON-Objekt zurück, das den Erfolg der Operation anzeigt und die aktualisierte Eintragsansicht enthält.
-    echo json_encode(array('success' => 1, 'entries' => createInformationBox(createTeamspaceTable($db, $name, 1), $name)));
+    echo json_encode(array('success' => 1, 'entries' => createInformationBox(createTeamspaceTable($db, $name, $currentpage), $name, $currentpage)));
 } else {
     // Gibt Fehlerinformationen zurück, falls nicht alle Daten übermittelt wurden.
     $resultString = "name: " . isset($_POST['name']) . " datum: " . isset($_POST['datum']) . " as: " . isset($_POST['as']) . " beschreibung:" . isset($_POST['beschreibung']);
