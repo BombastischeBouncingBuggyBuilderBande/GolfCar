@@ -419,3 +419,25 @@ input:checked + .slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
+@media (max-width: 600px) {
+    #TeamspaceContainer{
+        width: 90vw;
+    }
+    #loginForm{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    #formLogin{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    #formLogin > *{
+        width: 80%;
+    }
+}
