@@ -1,44 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- TODO: Ensure the title accurately reflects the content of your website. -->
     <title>Bombastic</title>
     <!-- Verknüpft ein externes CSS-Stylesheet für das Styling der Webseite -->
     <link rel="stylesheet" href="style.css">
     <!-- Meta Tags -->
     <meta charset="UTF-8">
-    <!-- TODO: Customize the description meta tag to better suit your site's content. -->
     <meta name="description"
           content="Schulprojekt Golfcar der Gruppe 6B-Engineering. Das Ziel: Ein selbstfahrendes Auto zu bauen, das einen Golfball automatisch in eine Box befördert">
-    <!-- TODO: Review and adjust the keywords meta tag to include relevant keywords for your site. -->
-    <meta name="keywords" content="Golfcar, Car, Automatic Driving, School Project, 6B-Engineering">
+    <meta name="keywords"
+          content="Golfcar, Autonomous Car, Automatic Driving, School Project, 6B-Engineering, Autonomous Vehicles, Engineering Education, Student Project, Innovation, Technology, Robotics, Golfball Transporter, Engineering Design, Team Project, Raspberry Pi, Ultrasonic Sensor, DIY Electronics, Microcontroller Projects, Robotics Engineering, Programming, Sensor Technology, Motor Control, Embedded Systems, AI, Artificial Intelligence, Machine Learning, Project-Based Learning, STEM Education, Coding for Kids, Educational Robotics, Open Source Hardware, IoT, Internet of Things, Maker Movement, Tech DIY, Electronic Components, Coding, Software Development, Hardware Programming">
     <meta name="robots" content="index, follow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- TODO: Change the author to the name of the actual author or organization responsible for the website. -->
-    <meta name="author" content="Patrick Priller">
+    <meta name="author" content="6B Engineering">
 
     <!-- Open Graph Tags (Facebook und andere Social media) -->
-    <!-- TODO: Update the og:title to more accurately represent your site. -->
     <meta property="og:title" content="6B-Engineering">
-    <!-- TODO: Ensure the og:description accurately describes your site. -->
     <meta property="og:description"
           content="Schulprojekt Golfcar der Gruppe 6B-Engineering. Das Ziel: Ein selbstfahrendes Auto zu bauen, das einen Golfball automatisch in eine Box befördert">
-    <!-- TODO: Replace "icon.jpg" with the path to an image more representative of your site. -->
-    <meta property="og:image" content="icon.jpg">
-    <!-- TODO: Replace "http://example.com" with the actual URL of your website. -->
-    <meta property="og:url" content="http://example.com">
-
+    <meta property="og:image" content="Resources\company_logo.png">
+    <!-- TODO: Replace "https://example.com" with the actual URL of your website. -->
+    <meta property="og:url" content="https://example.com">
     <!-- Twitter Cards -->
-    <!-- TODO: Similar to Open Graph tags, ensure these Twitter card tags accurately represent your site. -->
     <meta name="twitter:title" content="6B-Engineering">
     <meta name="twitter:description"
           content="Schulprojekt Golfcar der Gruppe 6B-Engineering. Das Ziel: Ein selbstfahrendes Auto zu bauen, das einen Golfball automatisch in eine Box befördert">
-    <meta name="twitter:image" content="icon.jpg">
-    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="Resources\favicon.ico">
+    <meta name="twitter:card" content="Resources\twitter_logo_banner_12.jpg">
 
     <!-- Google Analytics -->
-    <!-- TODO: Replace "G-YOUR_TRACKING_ID" with your actual Google Analytics tracking ID. -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR_TRACKING_ID"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MY_TRACKING_ID"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -47,7 +38,7 @@
         }
 
         gtag('js', new Date());
-        gtag('config', 'G-YOUR_TRACKING_ID');
+        gtag('config', 'G-MY_TRACKING_ID');
     </script>
     <!-- End Google Analytics -->
 </head>
@@ -76,7 +67,6 @@ ob_end_flush();
 
 <div id="mainContainer">
     <ul id="menuContainer">
-        <!-- TODO: Ensure the links and onclick handlers are correctly set up for your site's navigation. -->
         <li><a class="nav-link" id="Home" onclick="deactivate_all_but('home-display')" data-text="Home">Home</a></li>
         <li><a class="nav-link" id="Team" onclick="deactivate_all_but('team-display')" data-text="Team">Team</a></li>
         <li><a class="nav-link" id="Downloads" onclick="deactivate_all_but('downloads-display')" data-text="Downloads">Downloads</a></li>
@@ -91,7 +81,6 @@ ob_end_flush();
         <img id="profile-icon" onclick="openTeamspace_Phone()" src="resources/profile-icon.svg" alt="profile-icon" width="50" height="50">
     </div>
     <div id="informationsContainer">
-        <!-- TODO: Verify and potentially update the included PHP files to ensure they match the content structure of your site. -->
         <div id="home-display" class="fade-in">
             <?php include("Home/home.php"); ?>
         </div>
@@ -114,6 +103,7 @@ ob_end_flush();
 </div>
 
 <a href="https://www.ris.bz.it/de/" target="_blank"><img id="sponsorImg" class="animate-image" src="resources/ris_logo.png" alt="Our Sponsor"></a>
+
 
 <?php
 if (isset($_GET['page'])) {
