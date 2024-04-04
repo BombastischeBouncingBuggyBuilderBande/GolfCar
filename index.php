@@ -67,13 +67,13 @@ ob_end_flush();
 
 <div id="mainContainer">
     <ul id="menuContainer">
-        <li><a class="nav-link" id="Home" onclick="deactivate_all_but('home-display')" data-text="Home">Home</a></li>
-        <li><a class="nav-link" id="Team" onclick="deactivate_all_but('team-display')" data-text="Team">Team</a></li>
-        <li><a class="nav-link" id="Downloads" onclick="deactivate_all_but('downloads-display')" data-text="Downloads">Downloads</a></li>
-        <li><a class="nav-link" id="Bauteile" onclick="deactivate_all_but('bauteile-display')" data-text="Bauteile">Bauteile</a></li>
-        <li><a class="nav-link" id="Live" onclick="deactivate_all_but('live-display')" data-text="Live">Live</a></li>
-        <li><a class="nav-link" id="Teamspace" onclick="deactivate_all_but('teamspace-display')" data-text="Teamspace">Teamspace</a></li>
-        <li><a class="nav-link" id="Contact" onclick="deactivate_split_mode()" href="mailto:stweiren@bx.fallmerayer.it?subject=Contact" data-text="Contact">Contact</a></li>
+        <li><a class="nav-link" id="Home" onclick="deactivate_all_but('home-display')" data-text="Home" background-text="Home">Home</a></li>
+        <li><a class="nav-link" id="Team" onclick="deactivate_all_but('team-display')" data-text="Team" background-text="Team">Team</a></li>
+        <li><a class="nav-link" id="Downloads" onclick="deactivate_all_but('downloads-display')" data-text="Downloads" background-text="Downloads">Downloads</a></li>
+        <li><a class="nav-link" id="Bauteile" onclick="deactivate_all_but('bauteile-display')" data-text="Bauteile" background-text="Bauteile">Bauteile</a></li>
+        <li><a class="nav-link" id="Live" onclick="deactivate_all_but('live-display')" data-text="Live" background-text="Live">Live</a></li>
+        <li><a class="nav-link" id="Teamspace" onclick="deactivate_all_but('teamspace-display')" data-text="Teamspace" background-text="Teamspace">Teamspace</a></li>
+        <li><a class="nav-link" id="Contact" onclick="deactivate_split_mode()" href="mailto:stweiren@bx.fallmerayer.it?subject=Contact" data-text="Contact" background-text="Contact">Contact</a></li>
     </ul>
     <div id="manuBar_phone">
         <img id="hamburger-icon" onclick="openHamburger_Phone()" src="resources/Hamburger_icon.png" alt="Hamburger-Menu" width="50" height="50">
