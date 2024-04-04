@@ -69,17 +69,17 @@ ob_end_flush();
     <ul id="menuContainer">
         <li><a class="nav-link" id="Home" onclick="deactivate_all_but('home-display')" data-text="Home">Home</a></li>
         <li><a class="nav-link" id="Team" onclick="deactivate_all_but('team-display')" data-text="Team">Team</a></li>
-        <li><a class="nav-link" id="Downloads" onclick="deactivate_all_but('downloads-display')" data-text="Downloads">Downloads</a>
-        </li>
-        <li><a class="nav-link" id="Bauteile" onclick="deactivate_all_but('bauteile-display')" data-text="Bauteile">Bauteile</a>
-        </li>
+        <li><a class="nav-link" id="Downloads" onclick="deactivate_all_but('downloads-display')" data-text="Downloads">Downloads</a></li>
+        <li><a class="nav-link" id="Bauteile" onclick="deactivate_all_but('bauteile-display')" data-text="Bauteile">Bauteile</a></li>
         <li><a class="nav-link" id="Live" onclick="deactivate_all_but('live-display')" data-text="Live">Live</a></li>
-        <li><a class="nav-link" id="Teamspace" onclick="deactivate_all_but('teamspace-display')" data-text="Teamspace">Teamspace</a>
-        </li>
-        <li><a class="nav-link" id="Contact" onclick="deactivate_split_mode()"
-               href="mailto:6bengineering.fallmerayer@gmail.com?subject=Contact" data-text="Contact">Contact</a></li>
+        <li><a class="nav-link" id="Teamspace" onclick="deactivate_all_but('teamspace-display')" data-text="Teamspace">Teamspace</a></li>
+        <li><a class="nav-link" id="Contact" onclick="deactivate_split_mode()" href="mailto:stweiren@bx.fallmerayer.it?subject=Contact" data-text="Contact">Contact</a></li>
     </ul>
-
+    <div id="manuBar_phone">
+        <img id="hamburger-icon" onclick="openHamburger_Phone()" src="resources/Hamburger_icon.png" alt="Hamburger-Menu" width="50" height="50">
+        <h2 id="NavbarText-phone">6B-Engineering</h2>
+        <img id="profile-icon" onclick="openTeamspace_Phone()" src="resources/profile-icon.svg" alt="profile-icon" width="50" height="50">
+    </div>
     <div id="informationsContainer">
         <div id="home-display" class="fade-in">
             <?php include("Home/home.php"); ?>
@@ -102,8 +102,8 @@ ob_end_flush();
     </div>
 </div>
 
-<a href="https://www.ris.bz.it/de/" target="_blank"><img id="sponsorImg" class="animate-image"
-                                                         src="Resources/ris_logo.png" alt="Our Sponsor"></a>
+<a href="https://www.ris.bz.it/de/" target="_blank"><img id="sponsorImg" class="animate-image" src="resources/ris_logo.png" alt="Our Sponsor"></a>
+
 
 <?php
 if (isset($_GET['page'])) {

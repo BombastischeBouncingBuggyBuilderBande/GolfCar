@@ -53,3 +53,8 @@ p.team_rolle {
 .team_image{
     overflow: hidden;
 }
+@media (max-width: 600px) {
+    .team_main{
+        place-items: center;  /* Zentriert Inhalte sowohl horizontal als auch vertikal */
+    }
+}

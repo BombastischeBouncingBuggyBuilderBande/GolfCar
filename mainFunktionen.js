@@ -1,5 +1,5 @@
 // Definiert ein Array mit den Namen der Hauptnavigationselemente der Website.
-let background_text = ["Home", "Team", "Downloads", "Bauteile", "Live", "Teamspace", "Contact"];
+let background_text = ["Home", "Team", "Downloads", "Bauteile", "Live", "Teamspace"];
 
 /**
  * Deaktiviert den Hintergrundtext der Navbar-Links.
@@ -35,6 +35,12 @@ function activate_background_text() {
  * Deaktiviert alle Infotext-Elemente und aktiviert dann nur den spezifizierten Infotext.
  */
 function deactivate_all_but(but) {
+    if (window.matchMedia("(max-width: 600px)").matches) {
+        document.getElementById("menuContainer").style.display = "none";
+        document.getElementById("informationsContainer").style.display = "block";
+
+        console.log("phone mode");
+    }
     // Überprüft, ob das ausgewählte Element bereits angezeigt wird, und beendet die Funktion frühzeitig, falls ja.
     if (document.getElementById(but).style.display === "flex") {
         deactivate_split_mode();
@@ -74,6 +80,21 @@ function activate_split_mode() {
     sponsorImg.classList.remove("start-animation-reverse");
 }
 
+function activate_split_mode_phone() {
+    document.getElementById("informationsContainer").style.display = "flex";
+    document.getElementById("mainContainer").style.gridTemplateColumns = "auto";
+    document.getElementById("mainContainer").style.gridTemplateRows = "10vh 90vh";
+
+    console.log("seitenverhältnis geändert");
+    deactivate_background_text();
+
+    // Startet eine Animation für das Sponsor-Image.
+    let sponsorImg = document.getElementById("sponsorImg");
+    sponsorImg.style.left = "0";
+    sponsorImg.classList.add("start-animation");
+    sponsorImg.classList.remove("start-animation-reverse");
+}
+
 /**
  * Deaktiviert den Split-Modus und stellt das ursprüngliche Layout der Website wieder her.
  * Diese Funktion wird aufgerufen, um zum ursprünglichen Layout zurückzukehren,
@@ -103,10 +124,7 @@ function deactivate_split_mode() {
  */
 function deactivate_all_display() {
     for (let i = 0; i < background_text.length; i++) {
-        toggleFadeOut(document.getElementById((background_text[i].toLowerCase() + "-display").toString()));
-        setTimeout(function() {
             document.getElementById((background_text[i].toLowerCase() + "-display").toString()).style.display = "none";
-        }, 1000);
     }
 }
 
@@ -116,4 +134,55 @@ function deactivate_all_display() {
  */
 function hideSponsor() {
     document.getElementById("SponsorContainer").style.display = "none";
+}
+
+/* Responsive für Handy */
+function checkWidth() {
+    let menucontainer = document.getElementById("menuContainer");
+    let infocontainer = document.getElementById("informationsContainer");
+    if (window.innerWidth > 600) {
+        console.log("Viewport is more than 600px wide");
+        menucontainer.style.display = "block";
+    }else{
+        if(infocontainer.style.display === "none"){
+            menucontainer.style.display = "block";
+        }else{
+            menucontainer.style.display = "none";
+        }
+    }
+
+}
+
+// Listen for the window resize event
+window.addEventListener('resize', checkWidth);
+
+// Run the function initially to check the current window size
+checkWidth();
+function openHamburger_Phone(){
+    let menucontainer = document.getElementById("menuContainer");
+    let infocontainer = document.getElementById("informationsContainer");
+    if(infocontainer.style.display === "none") {
+        menucontainer.style.display = "none";
+        toggleFadeOut(menucontainer);
+        infocontainer.style.display = "block";
+        deactivate_background_text()
+    }
+    else{
+        menucontainer.style.display = "block";
+        toggleFadeIn(menucontainer);
+        infocontainer.style.display = "none";
+        deactivate_all_display()
+        deactivate_background_text()
+    }
+}
+function closeHamburger_Phone(){
+    activate_split_mode_phone()
+}
+function openTeamspace_Phone(){
+    if(document.getElementById("teamspace-display").style.display === "none") {
+        deactivate_all_but("teamspace-display");
+        document.getElementById("informationsContainer").style.display = "block"
+        document.getElementById("menuContainer").style.display = "none"
+    }
+
 }

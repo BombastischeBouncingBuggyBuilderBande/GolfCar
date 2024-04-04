@@ -96,7 +96,6 @@
     </div>
 </div>
 <script>
-
     function toggle_Teamspace() {
         let diary = document.getElementById("Diary-part");
         let control = document.getElementById("Control-part");
@@ -109,8 +108,6 @@
             control.style.display = "flex";
         }
     }
-
-
     function logout(){
         if(document.getElementById("Diary-part").style.display === "none"){
             toggle_Teamspace();
