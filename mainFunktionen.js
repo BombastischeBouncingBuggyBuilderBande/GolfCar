@@ -141,10 +141,9 @@ function checkWidth() {
     let menucontainer = document.getElementById("menuContainer");
     let infocontainer = document.getElementById("informationsContainer");
     if (window.innerWidth > 600) {
-        console.log("Viewport is more than 600px wide");
         menucontainer.style.display = "block";
     }else{
-        if(infocontainer.style.display === "none"){
+        if(infocontainer.style.display === "" || infocontainer.style.display === "none"){
             menucontainer.style.display = "block";
         }else{
             menucontainer.style.display = "none";
