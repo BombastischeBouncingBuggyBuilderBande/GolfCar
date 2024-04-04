@@ -55,7 +55,6 @@ p.team_rolle {
 }
 @media (max-width: 600px) {
     .team_main{
-        align-items: center;
-        justify-content: center;
+        place-items: center;  /* Zentriert Inhalte sowohl horizontal als auch vertikal */
     }
 }
