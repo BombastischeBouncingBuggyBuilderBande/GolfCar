@@ -82,8 +82,8 @@ body {
   width: 70vw;
   height: 70vh;
 }#menuContainerSmall {
-  position: relative;
-}
+   position: relative;
+ }
 #menuContainerSmall  li {
   list-style: none;
   text-align: center;
@@ -254,12 +254,12 @@ body {
     padding: 0;
   }
   #informationsContainer{
-      width: 100vw;
-      height: 90vh;
-      position: absolute;
-      right: 0;
-      bottom: 0;
-    }
+    width: 100vw;
+    height: 90vh;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
   #menuContainer li a{
     font-size: 10vw;
   }
