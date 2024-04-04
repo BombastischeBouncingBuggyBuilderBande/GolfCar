@@ -214,3 +214,53 @@ body {
   height: 100%;
   width: 100%;
 }
+#manuBar_phone{
+  display: none;
+}
+#hamburger-icon{
+  cursor: pointer;
+}
+#profile-icon{
+  cursor: pointer;
+}
+#NavbarText-phone{
+  margin: 0;
+  padding: 0;
+}
+/* Responsiveness for phone */
+@media (max-width: 600px) {
+  #mainContainer{
+    grid-template-rows: 10vh 90vh;
+    grid-template-columns: 100vw;
+  }
+  #menuContainer{
+    display: block;
+    width: 100vw;
+    height: 90vh;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top: 20%;
+  }
+  #manuBar_phone{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+  }
+  #informationsContainer{
+      width: 100vw;
+      height: 90vh;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+  #menuContainer li a{
+    font-size: 10vw;
+  }
+}

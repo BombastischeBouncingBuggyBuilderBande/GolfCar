@@ -53,3 +53,9 @@ p.team_rolle {
 .team_image{
     overflow: hidden;
 }
+@media (max-width: 600px) {
+    .team_main{
+        align-items: center;
+        justify-content: center;
+    }
+}
