@@ -147,3 +147,38 @@ $(document).ready(function(){
         });
     });
 });
+
+//---------------------------- Settings ---------------------------------------------------------------------------------
+
+async function handleCheckbox(checkbox) {
+    const response = await fetch('Teamspace/state.json');
+    const jsonData = await response.json();
+
+    const statesArray = jsonData.States;
+
+    statesArray.forEach(item => {
+        let name = item.name;
+        if (name === checkbox){
+            item.name = "Test";
+            console.log(`Changed name from ${name} to ${item.name}`);
+        }
+    });
+
+    const updatedJson = JSON.stringify(jsonData);
+
+    const writeResponse = await fetch('Teamspace/write_to_json.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: updatedJson
+    });
+
+    if (writeResponse.ok) {
+        console.log('JSON file updated successfully!');
+    } else {
+        console.error('Failed to update JSON file');
+    }
+
+}
+
