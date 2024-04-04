@@ -7,11 +7,13 @@ let background_text = ["Home", "Team", "Downloads", "Bauteile", "Live", "Teamspa
  * die normalerweise beim Hover über Navbar-Elementen erscheinen.
  */
 function deactivate_background_text() {
-    // Holt alle Navbar-Links durch ihre gemeinsame Klasse.
-    let allmenu = document.getElementsByClassName("nav-link");
-    // Durchläuft alle gefundenen Navbar-Links, um deren Hintergrundtext zu löschen.
-    for (let i = 0; i < allmenu.length; i++) {
-        allmenu[i].setAttribute('background-text', "");
+    if (window.innerWidth > 600) {
+        // Holt alle Navbar-Links durch ihre gemeinsame Klasse.
+        let allmenu = document.getElementsByClassName("nav-link");
+        // Durchläuft alle gefundenen Navbar-Links, um deren Hintergrundtext zu löschen.
+        for (let i = 0; i < allmenu.length; i++) {
+            allmenu[i].setAttribute('background-text', "");
+        }
     }
 }
 
@@ -143,6 +145,7 @@ function checkWidth() {
     if (window.innerWidth > 600) {
         menucontainer.style.display = "block";
     }else{
+        deactivate_background_text();
         if(infocontainer.style.display === "" || infocontainer.style.display === "none"){
             menucontainer.style.display = "block";
         }else{
