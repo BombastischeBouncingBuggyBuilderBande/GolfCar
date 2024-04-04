@@ -1,0 +1,16 @@
+{
+  "States": [
+    {
+      "name": "liveCam",
+      "state": false
+    },
+    {
+      "name": "downloads",
+      "state": false
+    },
+    {
+      "name": "bauteile",
+      "state": false
+    }
+  ]
+}
