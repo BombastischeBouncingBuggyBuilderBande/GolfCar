@@ -137,25 +137,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     prevBtn.addEventListener('click', () => {
+        setTimeout(() => {
+            nextBtn.style.visibility = "visible";
+        }, 1200);
+        prevBtn.style.visibility = "hidden";
+
         if (currentPage > 0) {
             currentPage--;
             displayProducts();
         }
 
-        prevBtn.style.visibility = "hidden";
-        nextBtn.style.visibility = "visible";
+
 
     });
 
     nextBtn.addEventListener('click', () => {
+        setTimeout(() => {
+            prevBtn.style.visibility = "visible";
+        }, 1000);
+        nextBtn.style.visibility = "hidden";
+
         if (currentPage < Math.floor(productData.length / productsPerPage)) {
             currentPage++;
             displayProducts();
         }
-
-        nextBtn.style.visibility = "hidden";
-        prevBtn.style.visibility = "visible";
-
     });
 
     // Initial display of products
