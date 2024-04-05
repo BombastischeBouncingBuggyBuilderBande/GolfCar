@@ -477,4 +477,7 @@ input:checked + .slider:before {
     #button-input-modern{
         width: 90%;
     }
+    #input-modern{
+        width: 50%;
+    }
 }
