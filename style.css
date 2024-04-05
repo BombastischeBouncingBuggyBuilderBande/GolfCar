@@ -227,6 +227,32 @@ body {
   margin: 0;
   padding: 0;
 }
+#impressum-display{
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  margin: auto;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  background-color: #eae8df;
+  width: 90vw;
+  height: 80vh;
+}
+#impressum-button{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 10px;
+  padding: 10px;
+}
+#closeImpressum{
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 10px;
+  padding: 10px;
+  cursor: pointer;
+}
 /* Responsiveness for phone */
 @media (max-width: 600px) {
   #mainContainer{
@@ -277,5 +303,8 @@ body {
     align-items: center;
     height: 100%;
     bottom: 10px;
+  }
+  #TeamspaceLi{
+    display: none;
   }
 }

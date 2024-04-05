@@ -72,6 +72,7 @@ function activate_split_mode() {
     if(window.innerWidth > 600) {
         document.getElementById("mainContainer").style.gridTemplateColumns = "20vw 70vw";
     }
+    document.getElementById("impressum-button").style.display = "block"
     console.log("seitenverhältnis geändert");
     deactivate_background_text();
 
@@ -107,6 +108,7 @@ function deactivate_split_mode() {
     document.getElementById("informationsContainer").style.display = "none";
     document.getElementById("mainContainer").style.gridTemplateColumns = "100vw 0";
     document.getElementById("menuContainer").style.display = "block";
+    document.getElementById("impressum-button").style.display = "none"
 
 
     deactivate_all_display();
@@ -232,3 +234,14 @@ document.addEventListener('DOMContentLoaded', function() {
     profileIcon.addEventListener('click', openTeamspace_Phone);
 });
 
+// Impressum
+function openImpressum(){
+    let impressum = document.getElementById("impressum-display");
+    /*impressum.style.display = "block"*/
+    toggleFadeIn(impressum)
+}
+function closeImpressum(){
+    let impressum = document.getElementById("impressum-display");
+    /*impressum.style.display = "none"*/
+    toggleFadeOut(impressum)
+}
