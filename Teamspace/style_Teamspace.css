@@ -440,4 +440,41 @@ input:checked + .slider:before {
     #formLogin > *{
         width: 80%;
     }
+    #editbutton{
+        width: 7vw;
+        height: 4.3vw;
+        font-size: 3vw;
+    }
+    #deletebutton{
+        width: 4.3vw;
+        height: 4.3vw;
+        font-size: 3vw;
+    }
+    .Diarytable{
+        font-size: 3vw;
+    }
+    .Diarytable th{
+        font-size: 3vw;
+    }
+    .leftText{
+        font-size: 3vw;
+    }
+    #welcomeText{
+        font-size: 4vw;
+        margin-top: 3vh;
+    }
+    #logoutButton, #controlButton, #Teamspace-openaddentry, .Teamspace-Buttons{
+        width: 20vw;
+        height: 3vh;
+        font-size: 3vw;
+    }
+    #Teamspace_addEntry{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    #button-input-modern{
+        width: 90%;
+    }
 }
