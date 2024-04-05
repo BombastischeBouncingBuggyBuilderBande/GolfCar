@@ -194,6 +194,7 @@ h1#quote:after {
 @media (max-width: 600px) {
     #home_informationsContainer{
         width: 90vw;
+        margin-top: 0;
     }
     #wave_holder{
         width: 100vw;

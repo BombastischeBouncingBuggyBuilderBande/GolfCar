@@ -58,5 +58,6 @@ p.team_rolle {
         place-items: center;  /* Zentriert Inhalte sowohl horizontal als auch vertikal */
         bottom: 10vh;
         height: 80%;
+        margin-top: 0;
     }
 }

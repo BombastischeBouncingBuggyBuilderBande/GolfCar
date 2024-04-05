@@ -137,4 +137,26 @@
         grid-template-columns: auto auto;
         grid-template-rows: auto auto auto;
     }
+    .bauteile-product-card .bauteile-product-info {
+        opacity: 0.7;
+        cursor:pointer
+    }
+    .bauteile-product-card img {
+        opacity: 0.3;
+    }
+    .bauteile-product-header{
+        font-size: 4vw;
+    }
+    .bauteile-price {
+        font-size: 3vw;
+    }
+    .bauteile-description {
+        font-size: 2.5vw;
+    }
+    .bauteile-bauteile a {
+        font-size: 3vw;
+    }
+    .bauteile-product-link{
+        font-size: 3vw;
+    }
 }

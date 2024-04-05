@@ -255,10 +255,11 @@ body {
   }
   #informationsContainer{
     width: 100vw;
-    height: 95vh;
+    height: 90vh;
     position: absolute;
     right: 0;
     bottom: 0;
+    justify-content: flex-start;
   }
   #menuContainer li a{
     font-size: 10vw;
@@ -269,5 +270,11 @@ body {
     bottom: 5px;
     width: 40%;
     left: calc(50% - (40%/2));
+  }
+  #home-display{
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+    bottom: 10px;
   }
 }
