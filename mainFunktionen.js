@@ -7,7 +7,6 @@ let background_text = ["Home", "Team", "Downloads", "Bauteile", "Live", "Teamspa
  * die normalerweise beim Hover über Navbar-Elementen erscheinen.
  */
 function deactivate_background_text() {
-    console.log("background deactivate!");
     // Holt alle Navbar-Links durch ihre gemeinsame Klasse.
     let allmenu = document.getElementsByClassName("nav-link");
     // Durchläuft alle gefundenen Navbar-Links, um deren Hintergrundtext zu löschen.
@@ -40,10 +39,10 @@ function activate_background_text() {
 function deactivate_all_but(but) {
     if (window.matchMedia("(max-width: 600px)").matches) {
         document.getElementById("menuContainer").style.display = "none";
-        document.getElementById("informationsContainer").style.display = "block";
+        document.getElementById("informationsContainer").style.display = "flex";
     }
     // Überprüft, ob das ausgewählte Element bereits angezeigt wird, und beendet die Funktion frühzeitig, falls ja.
-    if (document.getElementById(but).style.display === "flex") {
+    if (document.getElementById(but).style.display === "flex" && window.innerWidth > 600) {
         deactivate_split_mode();
         return 0;
     } else {
@@ -58,7 +57,6 @@ function deactivate_all_but(but) {
             toggleFadeOut(document.getElementById(textPart));
         } else {
             document.getElementById(textPart).style.display = "flex";
-            console.log(textPart);
             toggleFadeIn(document.getElementById(textPart));
         }
     }
@@ -73,7 +71,6 @@ function activate_split_mode() {
     document.getElementById("mainContainer").style.gridTemplateColumns = "20vw 70vw";
     console.log("seitenverhältnis geändert");
     deactivate_background_text();
-    console.log("background deactivate!!!!!! 4");
 
     // Startet eine Animation für das Sponsor-Image.
     let sponsorImg = document.getElementById("sponsorImg");
@@ -89,7 +86,6 @@ function activate_split_mode_phone() {
 
     console.log("seitenverhältnis geändert");
     deactivate_background_text();
-    console.log("background deactivate!!!!!! 3");
 
     // Startet eine Animation für das Sponsor-Image.
     let sponsorImg = document.getElementById("sponsorImg");
@@ -107,7 +103,9 @@ function deactivate_split_mode() {
     console.log("deactivating split mode");
     document.getElementById("informationsContainer").style.display = "none";
     document.getElementById("mainContainer").style.gridTemplateColumns = "100vw 0";
-    console.log("seitenverhältnis geändert");
+    document.getElementById("menuContainer").style.display = "block";
+
+
     deactivate_all_display();
     setTimeout(function() {
         activate_background_text();
@@ -153,7 +151,6 @@ function checkWidth() {
             menucontainer.style.display = "none";
         }
     }
-
 }
 
 // Listen for the window resize event
@@ -169,7 +166,7 @@ function openHamburger_Phone(){
     if(infocontainer.style.display === "none") {
         menucontainer.style.display = "none";
         toggleFadeOut(menucontainer);
-        infocontainer.style.display = "block";
+        infocontainer.style.display = "flex";
         deactivate_background_text()
     }
     else{
@@ -190,7 +187,7 @@ function openTeamspace_Phone(){
     if(infocontainer.style.display === "none" || teamspace.style.display === "none") {
         menucontainer.style.display = "none";
         toggleFadeOut(menucontainer);
-        infocontainer.style.display = "block";
+        infocontainer.style.display = "flex";
         deactivate_background_text()
         deactivate_all_but("teamspace-display")
     }
@@ -198,7 +195,7 @@ function openTeamspace_Phone(){
         menucontainer.style.display = "block";
         toggleFadeIn(menucontainer);
         infocontainer.style.display = "none";
-        deactivate_all_display()
+        //deactivate_all_display()
         deactivate_background_text()
     }
 }
