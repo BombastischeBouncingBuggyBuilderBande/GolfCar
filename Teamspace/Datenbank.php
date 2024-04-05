@@ -6,10 +6,10 @@
  */
 class Datenbank extends \PDO
 {
-    private $host = 'baller';
+    private $host = '5.231.1.40';
     private $db   = 'Tagebuch';
     private $user = 'root';
-    private $pass = 'pegging';
+    private $pass = '';
     private $charset = 'utf8mb4';
     private $pdo;
 
