@@ -9,7 +9,7 @@ class Datenbank extends \PDO
     private $host = '5.231.1.40';
     private $db   = 'Tagebuch';
     private $user = 'root';
-    private $pass = '';
+    private $pass = 'ipfm6wtdxrb3zqav';
     private $charset = 'utf8mb4';
     private $pdo;
 
