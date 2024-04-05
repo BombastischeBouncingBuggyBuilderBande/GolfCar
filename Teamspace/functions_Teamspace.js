@@ -182,3 +182,12 @@ async function handleCheckbox(checkbox) {
 
 }
 
+//---------------------------- Settings ---------------------------------------------------------------------------------
+
+function showFallbackMessage() {
+    console.log("A")
+    const videoFrame = document.getElementById('videoFrame_control');
+    const fallbackMessage = document.getElementById('fallbackMessage_control');
+    fallbackMessage.style.display = 'flex'; // Show the fallback message
+    videoFrame.style.display = 'none'; // Hide the video player
+}

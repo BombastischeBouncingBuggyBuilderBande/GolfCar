@@ -30,6 +30,7 @@ class Datenbank extends \PDO
         }
     }
 
+
     /**
      * Fügt eine neue Person hinzu oder aktualisiert sie.
      *
