@@ -2,30 +2,16 @@
 
 <div>
     <div id="videoContainer">
-        <video id="videoPlayer" controls>
-            <source src="Live/video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div id="fallbackMessage">Cam not currently available</div>
+        <iframe id="videoFrame" onload="showFallbackMessage()" src="http://bombastisch:5000" width="640" height="480" frameborder="0"></iframe>
+        <div id="fallbackMessage">Streaming not available</div>
     </div>
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const videoPlayer = document.getElementById('videoPlayer');
+    function showFallbackMessage() {
+        const videoFrame = document.getElementById('videoFrame');
         const fallbackMessage = document.getElementById('fallbackMessage');
-
-        // Check if the video can be played
-        setTimeout( function(){
-            console.log(videoPlayer.readyState)
-            if (videoPlayer.readyState === 0) {
-                showFallbackMessage();
-            }
-        }, 5000);
-        function showFallbackMessage() {
-            fallbackMessage.style.display = 'flex'; // Show the fallback message
-            videoPlayer.style.display = 'none'; // Hide the video player
-        }
-
-    });
+        fallbackMessage.style.display = 'flex'; // Show the fallback message
+        videoFrame.style.display = 'none'; // Hide the video player
+    }
 </script>
