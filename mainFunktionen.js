@@ -23,7 +23,7 @@ function deactivate_background_text() {
  */
 function activate_background_text() {
     // Holt alle Navbar-Links durch ihre gemeinsame Klasse.
-    let background_text_temp = background_text;
+    let background_text_temp = [...background_text];
     background_text_temp.push("Contact")
     let allmenu = document.getElementsByClassName("nav-link");
     // Durchläuft alle gefundenen Navbar-Links und setzt deren Hintergrundtext.
@@ -41,8 +41,6 @@ function deactivate_all_but(but) {
     if (window.matchMedia("(max-width: 600px)").matches) {
         document.getElementById("menuContainer").style.display = "none";
         document.getElementById("informationsContainer").style.display = "block";
-
-        console.log("phone mode");
     }
     // Überprüft, ob das ausgewählte Element bereits angezeigt wird, und beendet die Funktion frühzeitig, falls ja.
     if (document.getElementById(but).style.display === "flex") {
@@ -185,10 +183,24 @@ function closeHamburger_Phone(){
     activate_split_mode_phone()
 }
 function openTeamspace_Phone(){
-    if(document.getElementById("teamspace-display").style.display === "none") {
-        deactivate_all_but("teamspace-display");
-        document.getElementById("informationsContainer").style.display = "block"
-        document.getElementById("menuContainer").style.display = "none"
+    let menucontainer = document.getElementById("menuContainer");
+    let infocontainer = document.getElementById("informationsContainer");
+    let teamspace = document.getElementById("teamspace-display");
+    if(infocontainer.style.display === "none" || teamspace.style.display === "none") {
+        menucontainer.style.display = "none";
+        toggleFadeOut(menucontainer);
+        infocontainer.style.display = "block";
+        deactivate_background_text()
+        console.log("background deactivate!!!!!! 1");
+        deactivate_all_but("teamspace-display")
+    }
+    else{
+        menucontainer.style.display = "block";
+        toggleFadeIn(menucontainer);
+        infocontainer.style.display = "none";
+        deactivate_all_display()
+        deactivate_background_text()
+        console.log("background deactivate!!!!!! 2");
     }
 }
 
