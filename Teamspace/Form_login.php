@@ -3,7 +3,7 @@
  * Verarbeitet die Anmeldung eines Nutzers im Teamspace-Tagebuch.
  * Überprüft die Anmeldedaten gegen die in der Datenbank gespeicherten Informationen.
  *
- * Verwendet jetzt eine sichere Methode zur Passwortüberprüfung mittels
+ * Verwendet jetzt eine sichere Methode zur Passwortüberprüfung mitte<<ls
  * password_hash() und password_verify().
  */
 
@@ -25,7 +25,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
         echo json_encode(array('success' => 1, 'entries' => createInformationBox(createTeamspaceTable($db, $username, 1), $username)));
     } else {
         // Das Passwort ist inkorrekt. Anmeldung fehlgeschlagen.
-        echo json_encode(array('success' => 0));
+        echo json_encode(array('success' => 0, 'entries' => $user['passwort']));
     }
 } else {
     // Falls nicht alle Anmeldedaten gesendet wurden, erfolgt eine Fehlermeldung.
