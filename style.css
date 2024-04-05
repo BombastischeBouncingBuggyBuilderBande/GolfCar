@@ -227,39 +227,66 @@ body {
   margin: 0;
   padding: 0;
 }
+#impressum-display{
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  margin: auto;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  background-color: #eae8df;
+  width: 90vw;
+  height: 80vh;
+}
+#impressum-button{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 10px;
+  padding: 10px;
+}
+#closeImpressum{
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 10px;
+  padding: 10px;
+  cursor: pointer;
+}
 /* Responsiveness for phone */
 @media (max-width: 600px) {
   #mainContainer{
     grid-template-rows: 10vh 90vh;
     grid-template-columns: 100vw;
+    margin-top: 0;
   }
   #menuContainer{
     display: block;
     width: 100vw;
-    height: 90vh;
+    height: 90%;
     position: absolute;
     right: 0;
     bottom: 0;
     top: 20%;
   }
   #manuBar_phone{
-    position: absolute;
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     top: 0;
     width: 100vw;
-    height: 5vh;
     margin: 0;
     padding: 0;
   }
   #informationsContainer{
     width: 100vw;
-    height: 95vh;
-    position: absolute;
+    height: 90vh;
+    position: relative;
     right: 0;
     bottom: 0;
+    justify-content: flex-start;
   }
   #menuContainer li a{
     font-size: 10vw;
@@ -270,5 +297,14 @@ body {
     bottom: 5px;
     width: 40%;
     left: calc(50% - (40%/2));
+  }
+  #home-display{
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+    bottom: 10px;
+  }
+  #TeamspaceLi{
+    display: none;
   }
 }

@@ -33,8 +33,6 @@ class Datenbank
         }
     }
 
-    // Other methods remain unchanged
-
     /**
      * Fügt eine neue Person hinzu oder aktualisiert sie.
      *

@@ -72,7 +72,7 @@ ob_end_flush();
         <li><a class="nav-link" id="Downloads" onclick="deactivate_all_but('downloads-display')" data-text="Downloads" background-text="Downloads">Downloads</a></li>
         <li><a class="nav-link" id="Bauteile" onclick="deactivate_all_but('bauteile-display')" data-text="Bauteile" background-text="Bauteile">Bauteile</a></li>
         <li><a class="nav-link" id="Live" onclick="deactivate_all_but('live-display')" data-text="Live" background-text="Live">Live</a></li>
-        <li><a class="nav-link" id="Teamspace" onclick="deactivate_all_but('teamspace-display')" data-text="Teamspace" background-text="Teamspace">Teamspace</a></li>
+        <li id="TeamspaceLi"><a class="nav-link" id="Teamspace" onclick="deactivate_all_but('teamspace-display')" data-text="Teamspace" background-text="Teamspace">Teamspace</a></li>
         <li><a class="nav-link" id="Contact" onclick="deactivate_split_mode()" href="mailto:stweiren@bx.fallmerayer.it?subject=Contact" data-text="Contact" background-text="Contact">Contact</a></li>
     </ul>
     <div id="manuBar_phone">
@@ -103,7 +103,13 @@ ob_end_flush();
 </div>
 
 <a href="https://www.ris.bz.it/de/" target="_blank"><img id="sponsorImg" class="animate-image" src="resources/ris_logo.png" alt="Our Sponsor"></a>
-
+<div onclick="openImpressum()" id="impressum-button" style="display: none;">
+    <a>Impressum</a>
+</div>
+<div id="impressum-display" class="fade-in">
+    <div id="closeImpressum" onclick="closeImpressum()"><a>X</a></div>
+    <?php include("Impressum/impressum.php"); ?>
+</div>
 
 <?php
 if (isset($_GET['page'])) {
