@@ -10,7 +10,7 @@
  * @author René
  */
 
-require_once __DIR__ . '/var/www/config.php'; // Adjust the path as necessary.
+require_once '/var/www/config.php'; // Use the absolute path directly.
 
 class Datenbank
 {
