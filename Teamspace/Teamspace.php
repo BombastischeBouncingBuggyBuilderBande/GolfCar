@@ -33,11 +33,10 @@
             <section id="Teamspace-ControlPage-1">
                 <h2>Car Control</h2>
                 <div id="Control-Car-VideoContainer">
-                    <video id="Teamspace-videoPlayer" controls>
-                        <source src="Live/video.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <div id="fallbackMessage">Cam not currently available</div>
+                    <div id="videoContainer">
+                        <iframe id="videoFrame_control" onload="showFallbackMessage()" src="http://bombastisch:5000"></iframe>
+                        <div id="fallbackMessage_control">Streaming not available</div>
+                    </div>
                 </div>
                 <div class="Teamspace-Car-Control">
                     <div class="control-GridItem1 control-gridSpecial">grab</div>
@@ -88,6 +87,9 @@
     </div>
 </div>
 <script>
+
+
+
     function toggle_Teamspace() {
         let diary = document.getElementById("Diary-part");
         let control = document.getElementById("Control-part");
