@@ -127,7 +127,7 @@ function deactivate_split_mode() {
  */
 function deactivate_all_display() {
     for (let i = 0; i < background_text.length; i++) {
-            document.getElementById((background_text[i].toLowerCase() + "-display").toString()).style.display = "none";
+        document.getElementById((background_text[i].toLowerCase() + "-display").toString()).style.display = "none";
     }
 }
 
@@ -146,6 +146,7 @@ function checkWidth() {
     if (window.innerWidth > 600) {
         menucontainer.style.display = "block";
     }else{
+        deactivate_background_text();
         if(infocontainer.style.display === "" || infocontainer.style.display === "none"){
             menucontainer.style.display = "block";
         }else{
@@ -157,9 +158,11 @@ function checkWidth() {
 
 // Listen for the window resize event
 window.addEventListener('resize', checkWidth);
+document.addEventListener('DOMContentLoaded', function() {
+    checkWidth();
+});
 
-// Run the function initially to check the current window size
-checkWidth();
+
 function openHamburger_Phone(){
     let menucontainer = document.getElementById("menuContainer");
     let infocontainer = document.getElementById("informationsContainer");
@@ -168,15 +171,13 @@ function openHamburger_Phone(){
         toggleFadeOut(menucontainer);
         infocontainer.style.display = "block";
         deactivate_background_text()
-        console.log("background deactivate!!!!!! 1");
     }
     else{
         menucontainer.style.display = "block";
         toggleFadeIn(menucontainer);
         infocontainer.style.display = "none";
-        deactivate_all_display()
+        //deactivate_all_display()
         deactivate_background_text()
-        console.log("background deactivate!!!!!! 2");
     }
 }
 function closeHamburger_Phone(){
@@ -191,7 +192,6 @@ function openTeamspace_Phone(){
         toggleFadeOut(menucontainer);
         infocontainer.style.display = "block";
         deactivate_background_text()
-        console.log("background deactivate!!!!!! 1");
         deactivate_all_but("teamspace-display")
     }
     else{
@@ -200,7 +200,6 @@ function openTeamspace_Phone(){
         infocontainer.style.display = "none";
         deactivate_all_display()
         deactivate_background_text()
-        console.log("background deactivate!!!!!! 2");
     }
 }
 
