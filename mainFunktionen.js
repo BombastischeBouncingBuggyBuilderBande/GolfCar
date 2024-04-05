@@ -7,6 +7,7 @@ let background_text = ["Home", "Team", "Downloads", "Bauteile", "Live", "Teamspa
  * die normalerweise beim Hover über Navbar-Elementen erscheinen.
  */
 function deactivate_background_text() {
+    console.log("deactivating background text");
     // Holt alle Navbar-Links durch ihre gemeinsame Klasse.
     let allmenu = document.getElementsByClassName("nav-link");
     // Durchläuft alle gefundenen Navbar-Links, um deren Hintergrundtext zu löschen.
@@ -143,6 +144,9 @@ function checkWidth() {
     let infocontainer = document.getElementById("informationsContainer");
     if (window.innerWidth > 600) {
         menucontainer.style.display = "block";
+        if(infocontainer.style.display === "none"){
+            deactivate_split_mode();
+        }
     }else{
         deactivate_background_text();
         if(infocontainer.style.display === "" || infocontainer.style.display === "none"){
@@ -150,6 +154,9 @@ function checkWidth() {
         }else{
             menucontainer.style.display = "none";
         }
+        setTimeout(function() {
+            deactivate_background_text();
+        }, 500);
     }
 }
 
@@ -200,4 +207,11 @@ function openTeamspace_Phone(){
     }
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const profileIcon = document.getElementById('profile-icon');
+
+    hamburgerIcon.addEventListener('click', openHamburger_Phone);
+    profileIcon.addEventListener('click', openTeamspace_Phone);
+});
 

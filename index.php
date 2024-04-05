@@ -76,9 +76,9 @@ ob_end_flush();
         <li><a class="nav-link" id="Contact" onclick="deactivate_split_mode()" href="mailto:stweiren@bx.fallmerayer.it?subject=Contact" data-text="Contact" background-text="Contact">Contact</a></li>
     </ul>
     <div id="manuBar_phone">
-        <img id="hamburger-icon" onclick="openHamburger_Phone()" src="resources/Hamburger_icon.png" alt="Hamburger-Menu" width="50" height="50">
+        <img id="hamburger-icon" src="resources/Hamburger_icon.png" alt="Hamburger-Menu" width="50" height="50">
         <h2 id="NavbarText-phone">6B-Engineering</h2>
-        <img id="profile-icon" onclick="openTeamspace_Phone()" src="resources/profile-icon.svg" alt="profile-icon" width="50" height="50">
+        <img id="profile-icon" src="resources/profile-icon.svg" alt="profile-icon" width="50" height="50">
     </div>
     <div id="informationsContainer" style="display: none;">
         <div id="home-display" class="fade-in">
