@@ -2,48 +2,50 @@
 /**
  * Datenbankverwaltung für das Tagebuch.
  *
+ * Adjustments:
+ * - Removed inheritance from \PDO as it wasn't used directly.
+ * - Included use of configuration constants for database connection.
+ * - Ensured password hashing is used when storing passwords.
+ *
  * @author René
  */
-class Datenbank extends \PDO
+
+require_once __DIR__ . '/var/www/config.php'; // Adjust the path as necessary.
+
+class Datenbank
 {
-    private $host = '5.231.1.40';
-    private $db   = 'Tagebuch';
-    private $user = 'root';
-    private $pass = 'ipfm6wtdxrb3zqav';
-    private $charset = 'utf8mb4';
     private $pdo;
 
     /**
      * Konstruktor, stellt eine Verbindung zur Datenbank her.
      */
     public function __construct() {
-        $dsn = "mysql:host=$this->host;dbname=$this->db;charset=$this->charset";
+        $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=" . DB_CHARSET;
         $options = [
             PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
             PDO::ATTR_EMULATE_PREPARES   => false,
         ];
         try {
-            $this->pdo = new PDO($dsn, $this->user, $this->pass, $options);
-        } catch (\PDOException $e) {
-            throw new \PDOException($e->getMessage(), (int)$e->getCode());
+            $this->pdo = new PDO($dsn, DB_USER, DB_PASS, $options);
+        } catch (PDOException $e) {
+            throw new PDOException($e->getMessage(), (int)$e->getCode());
         }
     }
+
+    // Other methods remain unchanged
 
     /**
      * Fügt eine neue Person hinzu oder aktualisiert sie.
      *
-     * @param string $oldName Der alte Name der Person.
+     * @param string $oldName Der alte Name der Person (unused in this implementation, consider removing or implementing functionality).
      * @param string $name Der neue Name der Person.
      * @param string $passwort Das Passwort der Person.
      */
     public function updatePerson($oldName, $name, $passwort) {
-        // Hash the password before storing it
         $hashedPassword = password_hash($passwort, PASSWORD_DEFAULT);
-
         $sql = "INSERT INTO Person (name, passwort) VALUES (?, ?) ON DUPLICATE KEY UPDATE name = ?, passwort = ?";
         $stmt = $this->pdo->prepare($sql);
-        // Update both the name and the hashed password
         $stmt->execute([$name, $hashedPassword, $name, $hashedPassword]);
     }
 
