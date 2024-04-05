@@ -69,7 +69,9 @@ function deactivate_all_but(but) {
  */
 function activate_split_mode() {
     document.getElementById("informationsContainer").style.display = "flex";
-    document.getElementById("mainContainer").style.gridTemplateColumns = "20vw 70vw";
+    if(window.innerWidth > 600) {
+        document.getElementById("mainContainer").style.gridTemplateColumns = "20vw 70vw";
+    }
     console.log("seitenverhältnis geändert");
     deactivate_background_text();
 

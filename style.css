@@ -232,18 +232,19 @@ body {
   #mainContainer{
     grid-template-rows: 10vh 90vh;
     grid-template-columns: 100vw;
+    margin-top: 0;
   }
   #menuContainer{
     display: block;
     width: 100vw;
-    height: 90vh;
+    height: 90%;
     position: absolute;
     right: 0;
     bottom: 0;
     top: 20%;
   }
   #manuBar_phone{
-    position: absolute;
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -256,7 +257,7 @@ body {
   #informationsContainer{
     width: 100vw;
     height: 90vh;
-    position: absolute;
+    position: relative;
     right: 0;
     bottom: 0;
     justify-content: flex-start;
