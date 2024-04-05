@@ -80,7 +80,7 @@ ob_end_flush();
         <h2 id="NavbarText-phone">6B-Engineering</h2>
         <img id="profile-icon" onclick="openTeamspace_Phone()" src="resources/profile-icon.svg" alt="profile-icon" width="50" height="50">
     </div>
-    <div id="informationsContainer">
+    <div id="informationsContainer" style="display: none;">
         <div id="home-display" class="fade-in">
             <?php include("Home/home.php"); ?>
         </div>
