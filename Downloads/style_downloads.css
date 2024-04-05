@@ -40,3 +40,8 @@
     width: 20px; /* Adjust the width as needed */
     height: auto;
 }
+@media (max-width: 600px) {
+    .download_container {
+        width: 90vw;
+    }
+}

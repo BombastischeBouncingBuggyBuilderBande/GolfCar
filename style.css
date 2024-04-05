@@ -255,12 +255,19 @@ body {
   }
   #informationsContainer{
     width: 100vw;
-    height: 90vh;
+    height: 95vh;
     position: absolute;
     right: 0;
     bottom: 0;
   }
   #menuContainer li a{
     font-size: 10vw;
+  }
+  #sponsorImg{
+    position: absolute;
+    padding: 20px;
+    bottom: 5px;
+    width: 40%;
+    left: calc(50% - (40%/2));
   }
 }
