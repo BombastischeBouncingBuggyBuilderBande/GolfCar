@@ -38,9 +38,13 @@ class Datenbank extends \PDO
      * @param string $passwort Das Passwort der Person.
      */
     public function updatePerson($oldName, $name, $passwort) {
-        $sql = "INSERT INTO Person (name, passwort) VALUES (?, ?) ON DUPLICATE KEY UPDATE, passwort = ?";
+        // Hash the password before storing it
+        $hashedPassword = password_hash($passwort, PASSWORD_DEFAULT);
+
+        $sql = "INSERT INTO Person (name, passwort) VALUES (?, ?) ON DUPLICATE KEY UPDATE name = ?, passwort = ?";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$name, $passwort, $passwort]);
+        // Update both the name and the hashed password
+        $stmt->execute([$name, $hashedPassword, $name, $hashedPassword]);
     }
 
     /**
@@ -101,9 +105,12 @@ class Datenbank extends \PDO
      * @param string $passwort Das Passwort der Person.
      */
     public function addPerson($name, $passwort) {
+        // Hash the password before storing it
+        $hashedPassword = password_hash($passwort, PASSWORD_DEFAULT);
+
         $sql = "INSERT INTO Person (name, passwort) VALUES (?, ?)";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$name, $passwort]);
+        $stmt->execute([$name, $hashedPassword]);
     }
 
     /**
