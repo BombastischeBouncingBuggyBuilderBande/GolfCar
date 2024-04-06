@@ -129,22 +129,25 @@ $(document).ready(function(){
 $(document).ready(function(){
     $('.deleteForm').on('submit', function(e){
         e.preventDefault(); // Verhindert das Neuladen der Seite
-        $.ajax({
-            type: 'POST',
-            url: 'Teamspace/Form_deleteEntry.php', // Der Pfad zum PHP-Skript, das die Anmeldung verarbeitet
-            data: $(this).serialize(),
-            success: function(response){
-                // Die Antwort des Servers verarbeiten
+        var confirmation = confirm('Sind Sie sicher, dass Sie diesen Eintrag löschen möchten?');
+        if (confirmation) {
+            $.ajax({
+                type: 'POST',
+                url: 'Teamspace/Form_deleteEntry.php', // Der Pfad zum PHP-Skript, das die Anmeldung verarbeitet
+                data: $(this).serialize(),
+                success: function (response) {
+                    // Die Antwort des Servers verarbeiten
 
-                var jsonData = JSON.parse(response);
+                    var jsonData = JSON.parse(response);
 
-                if (jsonData.success === 1) {
-                    $('#entries').html(jsonData.entries);
-                } else {
-                    alert('Fehler im DeleteEntry Form');
+                    if (jsonData.success === 1) {
+                        $('#entries').html(jsonData.entries);
+                    } else {
+                        alert('Fehler im DeleteEntry Form');
+                    }
                 }
-            }
-        });
+            });
+        }
     });
 });
 
