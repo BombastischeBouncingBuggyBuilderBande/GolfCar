@@ -9,7 +9,13 @@
  *
  * @author René
  */
+if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+    header("Access-Control-Allow-Methods: POST, OPTIONS");
+    header("Access-Control-Allow-Headers: Content-Type");
+    exit(0);
+}
 
+header("Access-Control-Allow-Origin: " . (isset($_SERVER['HTTPS']) ? "https" : "http") . "://golfcar.space");
 require 'Datenbank.php'; // Bindet die Datenbankklasse ein.
 require 'Teamspace_PHPFunctions.php'; // Bindet dateiübergreifende Funktionen ein.
 $db = new Datenbank();
@@ -21,7 +27,6 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     // Überprüft die Nutzerdaten.
     $user = $db->getPersonByName($username);
     if($user && $user['passwort'] === $password){
-        // An dieser Stelle sollte ein sichereres Verfahren zur Passwortüberprüfung eingesetzt werden.
         // Bei Erfolg wird ein JSON-Objekt mit Erfolgsmeldung und Benutzerdaten zurückgegeben.
         echo json_encode(array('success' => 1, 'entries' => createInformationBox(createTeamspaceTable($db, $username, 1), $username)));
     } else {
