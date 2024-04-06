@@ -276,3 +276,5 @@ class Datenbank
         $stmt->execute([$eintragID]);
     }
 }
+
+$db = new Datenbank();
