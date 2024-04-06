@@ -152,7 +152,6 @@ $(document).ready(function(){
 });
 
 //---------------------------- Settings ---------------------------------------------------------------------------------
-
 async function handleCheckbox(checkbox) {
     const response = await fetch('Teamspace/state.json');
     const jsonData = await response.json();
