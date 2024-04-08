@@ -49,7 +49,56 @@ function change_home_info_sideButton(pre_next){
         change_home_info(current_page+1);
     }if(pre_next !== "next" && current_page !== 1){
         change_home_info(current_page-1);
-
     }
 }
+// Scroll event listeners --------------------------------------------------------------------------------------------\
+
+// Für Maus und Touchpad
+let lastEventTime = 0;
+const eventThreshold = 300; // Millisekunden
+
+// Für Maus und Touchpad
+document.addEventListener('wheel', function(event) {
+    if(window.innerWidth < 600) {
+        let currentPage = document.getElementById("home_pageHolder").value;
+        const now = Date.now();
+        if (now - lastEventTime < eventThreshold) return; // Ignoriere Events, die zu schnell aufeinanderfolgen
+        lastEventTime = now;
+
+        if (document.getElementById("home-display").style.display === "flex" &&
+            document.getElementById("home_informationsContainer").style.display === "grid") {
+            if (event.deltaY < 0) {
+                if (parseInt(currentPage) === 3) {
+                    currentPage = 0;
+                }
+                console.log('Scrolling up ' + currentPage);
+                change_home_info(parseInt(currentPage) + 1);
+            } else if (event.deltaY > 0) {
+                if (parseInt(currentPage) === 1) {
+                    currentPage = 4;
+                }
+                console.log('Scrolling down ' + currentPage);
+                change_home_info(parseInt(currentPage) - 1);
+            }
+        }
+    }
+});
+
+// Für Touch-Geräte
+let startY;
+document.addEventListener('touchstart', function(event) {
+    let currentPage = document.getElementById("home_pageHolder").value;
+    startY = event.touches[0].clientY;
+}, false);
+document.addEventListener('touchend', function(event) {
+    let currentPage = document.getElementById("home_pageHolder").value;
+    var touchY = event.touches[0].clientY;
+    if (startY > touchY) {
+        console.log('Scrolling down (touch)');
+    } else if (startY < touchY) {
+        console.log('Scrolling up (touch)');
+    }
+    // Aktualisieren des Startpunkts für den Fall, dass das Scrollen fortgesetzt wird
+    startY = touchY;
+}, false);
 

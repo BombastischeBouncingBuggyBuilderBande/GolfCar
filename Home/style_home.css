@@ -199,4 +199,10 @@ h1#quote:after {
     #wave_holder{
         width: 100vw;
     }
+    #home-right-button{
+        display: none;
+    }
+    #home-left-button{
+        display: none;
+    }
 }

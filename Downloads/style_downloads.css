@@ -1,9 +1,9 @@
 .download_container {
     width: 50vw;
     margin: 0 auto;
-    padding: 20px;
+    padding: 2vw;
     background-color: #eae8df;
-    border-radius: 10px;
+    border-radius: 1vw;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
