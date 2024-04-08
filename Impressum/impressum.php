@@ -13,6 +13,7 @@
             align-items: center; /* Zentriert die Inhalte horizontal */
             justify-content: center; /* Zentriert die Inhalte vertikal */
         }
+
         .content {
             /* Der eigentliche Inhalt beginnt im vertikalen Zentrum und expandiert von dort */
             margin-top: auto; /* Schiebt den Inhalt nach oben, startend vom Zentrum */
@@ -20,6 +21,7 @@
             text-align: center; /* Zentriert den Text innerhalb des .content Divs */
             font-size: x-large;
         }
+
         h1, p {
             margin-top: auto;
             margin-bottom: auto;
