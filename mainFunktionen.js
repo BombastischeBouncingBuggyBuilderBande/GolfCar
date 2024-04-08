@@ -72,6 +72,7 @@ function activate_split_mode() {
     if(window.innerWidth > 600) {
         document.getElementById("mainContainer").style.gridTemplateColumns = "20vw 70vw";
     }
+    document.getElementById("impressum-button").style.display = "block"
     console.log("seitenverhältnis geändert");
     deactivate_background_text();
 
@@ -107,6 +108,7 @@ function deactivate_split_mode() {
     document.getElementById("informationsContainer").style.display = "none";
     document.getElementById("mainContainer").style.gridTemplateColumns = "100vw 0";
     document.getElementById("menuContainer").style.display = "block";
+    document.getElementById("impressum-button").style.display = "none"
 
 
     deactivate_all_display();
@@ -146,11 +148,16 @@ function checkWidth() {
     let infocontainer = document.getElementById("informationsContainer");
     if (window.innerWidth > 600) {
         menucontainer.style.display = "block";
-        if(infocontainer.style.display === "none"){
+        if(infocontainer.style.display === "none" || infocontainer.style.display === ""){
             deactivate_split_mode();
+        }else{
+            activate_split_mode()
         }
     }else{
         deactivate_background_text();
+        document.getElementById("mainContainer").style.gridTemplateColumns = "auto";
+        //document.getElementById("mainContainer").style.gridTemplateRows = "10vw 90vw";
+
         if(infocontainer.style.display === "" || infocontainer.style.display === "none"){
             menucontainer.style.display = "block";
         }else{
@@ -179,6 +186,10 @@ function openHamburger_Phone(){
         toggleFadeOut(menucontainer);
         infocontainer.style.display = "flex";
         deactivate_background_text()
+        if(nodisplay() === 0){
+            console.log(nodisplay() + "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+            deactivate_all_but("home-display");
+        }
     }
     else{
         menucontainer.style.display = "block";
@@ -188,8 +199,14 @@ function openHamburger_Phone(){
         deactivate_background_text()
     }
 }
-function closeHamburger_Phone(){
-    activate_split_mode_phone()
+function nodisplay(){
+    for (let i = 0; i < background_text.length; i++) {
+        console.log(background_text[i].toLowerCase() + "-display");
+        if(document.getElementById((background_text[i].toLowerCase() + "-display")).style.display === "flex"){
+            return 1;
+        }
+    }
+    return 0;
 }
 function openTeamspace_Phone(){
     let menucontainer = document.getElementById("menuContainer");
@@ -219,4 +236,14 @@ document.addEventListener('DOMContentLoaded', function() {
     profileIcon.addEventListener('click', openTeamspace_Phone);
 });
 
-
+// Impressum
+function openImpressum(){
+    let impressum = document.getElementById("impressum-display");
+    /*impressum.style.display = "block"*/
+    toggleFadeIn(impressum)
+}
+function closeImpressum(){
+    let impressum = document.getElementById("impressum-display");
+    /*impressum.style.display = "none"*/
+    toggleFadeOut(impressum)
+}
