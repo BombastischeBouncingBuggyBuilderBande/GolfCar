@@ -26,11 +26,42 @@
             margin-top: auto;
             margin-bottom: auto;
         }
+
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+            .content {
+                width: 90%; /* Increases width on smaller screens for better readability */
+                font-size: medium; /* Adjusts font size for smaller screens */
+            }
+
+            h1 {
+                font-size: 1.5em; /* Larger header font size for small screens */
+            }
+
+            p {
+                font-size: 1em; /* Adjusts paragraph font size for small screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .content {
+                width: 95%; /* Even wider on very small screens */
+            }
+
+            h1 {
+                font-size: 1.3em; /* Slightly smaller header font size for very small screens */
+            }
+
+            p {
+                font-size: 0.9em; /* Slightly smaller paragraph font size for very small screens */
+            }
+        }
     </style>
 </head>
 <body>
 <div class="content">
     <h1>Impressum</h1>
+    <br>
     <p>Angaben gemäß § 5 TMG:</p>
     <p><strong>Firmenname:</strong> 6B Engineering Unternehmergesellschaft (haftungsbeschränkt)</p>
     <p><strong>Adresse:</strong> Dantestraße 39e, 39042 Brixen, Provinz Bozen, Italien</p>
