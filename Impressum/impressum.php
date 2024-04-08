@@ -30,20 +30,21 @@
 <div class="content">
     <h1>Impressum</h1>
     <p>Angaben gemäß § 5 TMG:</p>
-    <p><strong>Firmenname:</strong> Musterfirma GmbH</p>
-    <p><strong>Adresse:</strong> Musterstraße 1, 12345 Musterstadt</p>
-    <p><strong>Vertreten durch:</strong> Max Mustermann</p>
+    <p><strong>Firmenname:</strong> 6B Engineering Unternehmergesellschaft (haftungsbeschränkt)</p>
+    <p><strong>Adresse:</strong> Dantestraße 39e, 39042 Brixen, Provinz Bozen, Italien</p>
+    <p><strong>Vertreten durch:</strong> Patrick Priller</p>
     <p><strong>Kontakt:</strong><br>
-        Telefon: 01234 56789<br>
-        E-Mail: info@musterfirma.de</p>
+        Telefon: +39 345 468 6425<br>
+        E-Mail: 6bengineering.fallmerayer@gmail.com</p>
     <p><strong>Registereintrag:</strong><br>
-        Eintragung im Handelsregister.<br>
-        Registergericht: Amtsgericht Musterstadt<br>
-        Registernummer: HRB 12345</p>
+        Eintragung im Handelsregister wird noch durchgeführt.<br>
+        Registergericht: Amtsgericht Bozen<br>
+        Registernummer: Wird nachgereicht</p>
     <p><strong>Umsatzsteuer-ID:</strong><br>
-        Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz: DE 123 456 789</p>
+        Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz: Wird nachgereicht</p>
     <p><strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br>
-        Max Mustermann, Musterstraße 1, 12345 Musterstadt</p>
+        Patrick Priller, Schwesternau, 4, 39042 Brixen</p>
+    <p><strong>Website:</strong> <a href="https://golfcar.space/">golfcar.space</a></p>
     <!-- Weitere relevante Informationen wie Berufsbezeichnung, zuständige Kammer, etc. können hier hinzugefügt werden -->
 </div>
 </body>
