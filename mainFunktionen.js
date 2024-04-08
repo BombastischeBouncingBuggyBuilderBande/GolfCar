@@ -173,6 +173,8 @@ function checkWidth() {
 window.addEventListener('resize', checkWidth);
 document.addEventListener('DOMContentLoaded', function() {
     checkWidth();
+    readJson();
+    
 });
 
 

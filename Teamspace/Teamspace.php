@@ -54,7 +54,7 @@
                 <div class="Teamspace-Control-Settings" id="Teamspace-Control-Settings-1">
                     <a class="Teamspace-Control-Text">Live Cam</a>
                     <label class="switch">
-                        <input onclick="handleCheckbox('liveCam')" type="checkbox">
+                        <input onclick="handleCheckbox('live')" type="checkbox">
                         <span class="slider round"></span>
                     </label>
                 </div>
@@ -70,7 +70,7 @@
                 <div class="Teamspace-Control-Settings" id="Teamspace-Control-Settings-4">
                     <a class="Teamspace-Control-Text">Bauteile</a>
                     <label class="switch">
-                        <input onclick="random('bauteile')" type="checkbox">
+                        <input onclick="handleCheckbox('bauteile')" type="checkbox">
                         <span class="slider round"></span>
                     </label>
                 </div>
@@ -85,6 +85,7 @@
             <button id="control-BottomButton-2" class="controlButtons" onclick="change_control_info(2)"></button>
         </div>
     </div>
+
 </div>
 <script>
 
