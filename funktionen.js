@@ -59,5 +59,6 @@ async function readJson() {
                 bauteile.style.display = "flex";
             }
         }
+
     });
 }

@@ -85,6 +85,7 @@
             <button id="control-BottomButton-2" class="controlButtons" onclick="change_control_info(2)"></button>
         </div>
     </div>
+
 </div>
 <script>
 
