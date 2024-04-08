@@ -2,7 +2,7 @@
 
 <div>
     <div id="videoContainer">
-        <iframe id="videoFrame" onload="showFallbackMessage()" src="http://bombastisch:5000" width="640" height="480" frameborder="0"></iframe>
+        <iframe id="videoFrame" onload="showFallbackMessage()" src="http://bombastisch:5000"></iframe>
         <div id="fallbackMessage">Streaming not available</div>
     </div>
 </div>

@@ -28,3 +28,36 @@ function toggleFadeOut(element) {
         element.removeEventListener('transitionend', handleTransitionEnd);
     });
 }
+
+
+async function readJson() {
+    const response = await fetch('Teamspace/state.json');
+    const jsonData = await response.json();
+
+
+    let live = document.getElementById("Live");
+    let downloads = document.getElementById("Downloads")
+    let bauteile = document.getElementById("Bauteile");
+    const statesArray = jsonData.States;
+
+    statesArray.forEach(item => {
+        console.log(item.name, item.state);
+        if (item.state === false){
+            if (item.name === "live"){
+                live.style.display = "none";
+            } else if (item.name === "downloads"){
+                downloads.style.display = "none";
+            } else {
+                bauteile.style.display = "none";
+            }
+        } else {
+            if (item.name === "live"){
+                live.style.display = "flex";
+            } else if (item.name === "downloads"){
+                downloads.style.display = "flex";
+            } else {
+                bauteile.style.display = "flex";
+            }
+        }
+    });
+}

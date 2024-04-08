@@ -166,6 +166,7 @@ function checkWidth() {
 window.addEventListener('resize', checkWidth);
 document.addEventListener('DOMContentLoaded', function() {
     checkWidth();
+    readJson();
 });
 
 
@@ -216,4 +217,5 @@ document.addEventListener('DOMContentLoaded', function() {
     hamburgerIcon.addEventListener('click', openHamburger_Phone);
     profileIcon.addEventListener('click', openTeamspace_Phone);
 });
+
 

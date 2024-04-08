@@ -151,16 +151,21 @@ $(document).ready(function(){
 //---------------------------- Settings ---------------------------------------------------------------------------------
 
 async function handleCheckbox(checkbox) {
+    await readJson();
     const response = await fetch('Teamspace/state.json');
     const jsonData = await response.json();
 
     const statesArray = jsonData.States;
 
     statesArray.forEach(item => {
-        let name = item.name;
-        if (name === checkbox){
-            item.name = "Test";
-            console.log(`Changed name from ${name} to ${item.name}`);
+        if (item.name === checkbox){
+            if (item.state){
+                item.state = false;
+                console.log(item.name + " setted to " + item.state);
+            } else {
+                item.state = true;
+                console.log(item.name + " setted to " + item.state);
+            }
         }
     });
 
@@ -180,12 +185,12 @@ async function handleCheckbox(checkbox) {
         console.error('Failed to update JSON file');
     }
 
+
 }
 
-//---------------------------- Settings ---------------------------------------------------------------------------------
+//---------------------------- Live ---------------------------------------------------------------------------------
 
 function showFallbackMessage() {
-    console.log("A")
     const videoFrame = document.getElementById('videoFrame_control');
     const fallbackMessage = document.getElementById('fallbackMessage_control');
     fallbackMessage.style.display = 'flex'; // Show the fallback message
