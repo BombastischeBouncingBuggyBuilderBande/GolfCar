@@ -105,16 +105,22 @@ function activate_split_mode_phone() {
  */
 function deactivate_split_mode() {
     console.log("deactivating split mode");
+    if(window.innerWidth > 600) { // Desktop sicht
+        document.getElementById("mainContainer").style.gridTemplateRows = "auto";
+        document.getElementById("mainContainer").style.gridTemplateColumns = "100vw 0";
+        setTimeout(function() {
+            activate_background_text();
+        }, 500);
+    }else{ // Handy view
+        document.getElementById("mainContainer").style.gridTemplateRows = "10vh 90vh";
+        document.getElementById("mainContainer").style.gridTemplateColumns = "auto";
+    }
+
     document.getElementById("informationsContainer").style.display = "none";
-    document.getElementById("mainContainer").style.gridTemplateColumns = "100vw 0";
     document.getElementById("menuContainer").style.display = "block";
     document.getElementById("impressum-button").style.display = "none"
 
-
     deactivate_all_display();
-    setTimeout(function() {
-        activate_background_text();
-    }, 500);
 
     // Reversiert die Animation für das Sponsor-Image.
     let sponsorImg = document.getElementById("sponsorImg");
@@ -146,7 +152,16 @@ function hideSponsor() {
 function checkWidth() {
     let menucontainer = document.getElementById("menuContainer");
     let infocontainer = document.getElementById("informationsContainer");
+    if(window.innerWidth > 600) { // Desktop sicht
+        document.getElementById("mainContainer").style.gridTemplateRows = "auto";
+        document.getElementById("mainContainer").style.gridTemplateColumns = "100vw 0";
+    }else{ // Handy view
+        document.getElementById("mainContainer").style.gridTemplateRows = "10vh 90vh";
+        document.getElementById("mainContainer").style.gridTemplateColumns = "auto";
+    }
     if (window.innerWidth > 600) {
+        document.getElementById("mainContainer").style.gridTemplateRows = "auto";
+        document.getElementById("mainContainer").style.gridTemplateColumns = "100vw 0";
         menucontainer.style.display = "block";
         if(infocontainer.style.display === "none" || infocontainer.style.display === ""){
             deactivate_split_mode();
@@ -155,6 +170,7 @@ function checkWidth() {
         }
     }else{
         deactivate_background_text();
+        document.getElementById("mainContainer").style.gridTemplateRows = "10vh 90vh";
         document.getElementById("mainContainer").style.gridTemplateColumns = "auto";
         //document.getElementById("mainContainer").style.gridTemplateRows = "10vw 90vw";
 

@@ -160,7 +160,6 @@ async function handleCheckbox(checkbox) {
     const statesArray = jsonData.States;
 
     statesArray.forEach(item => {
-
         if (item.name === checkbox){
             if (item.state){
                 item.state = false;
