@@ -94,9 +94,17 @@ document.addEventListener('touchend', function(event) {
     let currentPage = document.getElementById("home_pageHolder").value;
     var touchY = event.touches[0].clientY;
     if (startY > touchY) {
-        console.log('Scrolling down (touch)');
+        if (parseInt(currentPage) === 1) {
+            currentPage = 4;
+        }
+        console.log('Scrolling down ' + currentPage);
+        change_home_info(parseInt(currentPage) - 1);
     } else if (startY < touchY) {
-        console.log('Scrolling up (touch)');
+        if (parseInt(currentPage) === 3) {
+            currentPage = 0;
+        }
+        console.log('Scrolling up ' + currentPage);
+        change_home_info(parseInt(currentPage) + 1);
     }
     // Aktualisieren des Startpunkts für den Fall, dass das Scrollen fortgesetzt wird
     startY = touchY;
