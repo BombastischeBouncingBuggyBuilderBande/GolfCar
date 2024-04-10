@@ -27,9 +27,9 @@ class Datenbank extends \PDO
         $this->user = $db_user;
         $this->port = $db_port;
         $this->pass = $db_pass;
-        $this->charset = 'utf8mb4'; // Define charset here
+        $this->charset = 'utf8mb4';
 
-        $dsn = "mysql:host=$this->host;dbname=$this->db;port=$this->port;charset=$this->charset";
+        $dsn = "mysql:host=$this->host;dbname=$this->db;port=$this->port;charset=utf8mb4";
         $options = [
             PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
