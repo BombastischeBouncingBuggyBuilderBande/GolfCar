@@ -123,7 +123,7 @@
                 data: $(this).serialize(),
                 success: function(response){
                     // Die Antwort des Servers verarbeiten
-                    var jsonData = JSON.parse(response);
+                    var jsonData = response;
 
                     if (jsonData.success === 1) {
                         $("#loginForm").hide();
