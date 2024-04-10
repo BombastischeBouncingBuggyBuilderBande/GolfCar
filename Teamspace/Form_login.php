@@ -16,6 +16,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 }
 
 header("Access-Control-Allow-Origin: " . (isset($_SERVER['HTTPS']) ? "https" : "http") . "://golfcar.space");
+header('Content-Type: application/json;'); // Add this line
+
 require 'Datenbank.php'; // Bindet die Datenbankklasse ein.
 require 'Teamspace_PHPFunctions.php'; // Bindet dateiübergreifende Funktionen ein.
 $db = new Datenbank();
