@@ -1,0 +1,58 @@
+.content {
+    margin: auto;
+    margin-top: 10vh;
+    text-align: left;
+    font-size: 1vw;
+    display: flex;
+    flex-direction: column;
+}
+
+h1, p {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.impressum-h1{
+    font-size: 2.5vw;
+    margin-left: 1vw;
+}
+.impressum-h2{
+    font-size: 2vw;
+    margin: 0;
+    margin-bottom: 0.5vw;
+}
+.impressum-block{
+    margin: 1vw;
+}
+.impressum-block p{
+    margin-left: 1.5vw;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .content {
+        width: 90%; /* Increases width on smaller screens for better readability */
+        font-size: medium; /* Adjusts font size for smaller screens */
+    }
+
+    h1 {
+        font-size: 1.5em; /* Larger header font size for small screens */
+    }
+
+    p {
+        font-size: 1em; /* Adjusts paragraph font size for small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .content {
+        width: 95%; /* Even wider on very small screens */
+    }
+
+    h1 {
+        font-size: 1.3em; /* Slightly smaller header font size for very small screens */
+    }
+
+    p {
+        font-size: 0.9em; /* Slightly smaller paragraph font size for very small screens */
+    }
+}

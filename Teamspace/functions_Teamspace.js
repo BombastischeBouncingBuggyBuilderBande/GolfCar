@@ -12,7 +12,6 @@ function change_control_info(page){
     }
 }
 
-
 //---------------------------- Diary ---------------------------------------------------------------------------------
 function openAddEntry(){
     document.getElementById('Teamspace_Base_View').style.display = 'none';
@@ -237,13 +236,11 @@ document.addEventListener('DOMContentLoaded', function() {
     function handleKeyPressed(key) {
         console.log(`${key} pressed and released`);
     }
-
     document.addEventListener('keydown', function(event) {
-        if (keyPressedState.hasOwnProperty(event.code)) {
+        if (keyPressedState.hasOwnProperty(event.code) && !alreadypressed[keyPressedState[event.code]]) {
             sendCommand("press", keyPressedState[event.code])
         }
     });
-
     document.addEventListener('keyup', function(event) {
         if (keyPressedState[event.code]) {
             sendCommand("release", keyPressedState[event.code])
@@ -254,31 +251,25 @@ document.addEventListener('DOMContentLoaded', function() {
         let teamspacedisplay = document.getElementById("teamspace-display");
         let diarypart = document.getElementById("Diary-part");
 
-        if(status === "press") {
-            if (!alreadypressed[command]) {
-                alreadypressed[command] = true;
-            }
-            if (alreadypressed[command]) {
-                console.log("didnt activate");
-                return 0;
-            }
+        if (status === "press" && !alreadypressed[command]) {
+            alreadypressed[command] = true;
         }
         if (status === "release") {
             alreadypressed[command] = false;
         }
         if (TeamspaceControlPage1.style.display !== "none" && teamspacedisplay.style.display !== "none" && diarypart.style.display === "none") {
-            console.log(`Status ${status} Command ${command} sent successfully.`);
-            /*
-            // Example: http://raspberrypi.local:5000/command/W
+            console.log(`Status ${status} Command ${command} sending`);
             const url = `http://raspberrypi.bombastisch:5000/${status}/${command}`;
+
             fetch(url).then(response => {
                 if (response.ok) {
-                    console.log(`Status ${status} Command ${command} sent successfully.`);
+                    console.log(`Status ${response.status} Command ${command} sent successfully.`);
                 } else {
-                    console.error(`Failed to send command ${command}, status ${status}.`);
+                    console.error(`Failed to send command ${command}, status ${response.status}.`);
                 }
+            }).catch(error => {
+                console.error("Failed to fetch", error);
             });
-            */
         }
     }
 });
