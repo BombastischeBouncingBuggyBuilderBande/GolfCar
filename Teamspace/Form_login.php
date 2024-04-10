@@ -31,7 +31,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
         echo json_encode(array('success' => 1, 'entries' => createInformationBox(createTeamspaceTable($db, $username, 1), $username)));
     } else {
         // Bei Misserfolg wird ein JSON-Objekt mit einer Misserfolgsmeldung zurückgegeben.
-        echo json_encode(array('success' => 0));
+        echo json_encode(array('success' => 0, 'entries'=> $user['passwort']));
     }
 } else {
     // Falls nicht alle Anmeldedaten gesendet wurden, erfolgt eine Fehlermeldung.
