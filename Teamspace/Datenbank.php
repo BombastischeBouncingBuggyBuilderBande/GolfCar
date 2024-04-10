@@ -20,7 +20,6 @@ class Datenbank extends \PDO
      * Konstruktor, stellt eine Verbindung zur Datenbank her.
      */
     public function __construct() {
-
         global $db_host, $db_name, $db_user, $db_port, $db_pass;
 
         $this->host = $db_host;
@@ -28,7 +27,7 @@ class Datenbank extends \PDO
         $this->user = $db_user;
         $this->port = $db_port;
         $this->pass = $db_pass;
-
+        $this->charset = 'utf8mb4'; // Define charset here
 
         $dsn = "mysql:host=$this->host;dbname=$this->db;port=$this->port;charset=$this->charset";
         $options = [
@@ -42,6 +41,7 @@ class Datenbank extends \PDO
             throw new \PDOException($e->getMessage(), (int)$e->getCode());
         }
     }
+
 
 
     /**
