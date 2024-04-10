@@ -153,11 +153,11 @@ $(document).ready(function(){
 
 //---------------------------- Settings ---------------------------------------------------------------------------------
 async function handleCheckbox(checkbox) {
-    await readJson();
     const response = await fetch('Teamspace/state.json');
     const jsonData = await response.json();
 
     const statesArray = jsonData.States;
+
 
     statesArray.forEach(item => {
         if (item.name === checkbox){
@@ -186,6 +186,9 @@ async function handleCheckbox(checkbox) {
     } else {
         console.error('Failed to update JSON file');
     }
+
+    await readJson();
+
 
 
 }

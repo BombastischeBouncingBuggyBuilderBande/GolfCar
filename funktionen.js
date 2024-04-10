@@ -35,30 +35,43 @@ async function readJson() {
     const jsonData = await response.json();
 
 
-    let live = document.getElementById("Live");
-    let downloads = document.getElementById("Downloads")
-    let bauteile = document.getElementById("Bauteile");
+    let live = document.getElementById("LiveLi");
+    let downloads = document.getElementById("DownloadsLi")
+    let bauteile = document.getElementById("BauteileLi");
+
+    const liveCheckbox = document.getElementById("liveCheckbox");
+    const bauteileCheckbox = document.getElementById("bauteileCheckbox");
+    const downloadsCheckbox = document.getElementById("downloadsCheckbox");
     const statesArray = jsonData.States;
 
     statesArray.forEach(item => {
         console.log(item.name, item.state);
-        if (item.state === false){
-            if (item.name === "live"){
-                live.style.display = "none";
-            } else if (item.name === "downloads"){
-                downloads.style.display = "none";
-            } else {
-                bauteile.style.display = "none";
-            }
+        if (item.name === "live") {
+            live.style.display = item.state ? "block" : "none";
+            liveCheckbox.checked = item.state;
+        } else if (item.name === "downloads") {
+            downloads.style.display = item.state ? "block" : "none";
+            downloadsCheckbox.checked = item.state;
         } else {
-            if (item.name === "live"){
-                live.style.display = "flex";
-            } else if (item.name === "downloads"){
-                downloads.style.display = "flex";
-            } else {
-                bauteile.style.display = "flex";
-            }
+            bauteile.style.display = item.state ? "block" : "none";
+            bauteileCheckbox.checked = item.state;
         }
 
     });
 }
+
+function easterEgg(){
+    let clickCount = 0;
+
+    // Return a function that increments the counter and checks if it reaches 2 (for double click)
+    return function() {
+        clickCount++;
+        if (clickCount === 2) {
+            window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley";
+            // Reset the counter after double click
+            clickCount = 0;
+        }
+    };
+}
+
+document.body.addEventListener("dblclick", easterEgg());
