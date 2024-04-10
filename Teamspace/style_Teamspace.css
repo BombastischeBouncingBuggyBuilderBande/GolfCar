@@ -261,10 +261,9 @@ input.input-modern:focus {
 .Teamspace-Car-Control {
     display: grid;
     grid-template-areas:
-            'p1 up p2'
-            'left up right'
-            'left down right'
-            'p3 down p4';
+            'grab grab release release'
+            'left up up right'
+            'left down down right';
     column-gap: 4px;
     row-gap: 4px;
     width: 100%;
@@ -282,6 +281,8 @@ input.input-modern:focus {
 .control-gridSpecial{
     height: 100%;
     width: 100%;
+    margin: 5px;
+    padding: 0;
     background-color: var(--ts_buttoncolor);
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
@@ -289,26 +290,19 @@ input.input-modern:focus {
     background-color: var(--ts_buttoncolor);
     text-align: center;
     padding: 0;
+    margin: 5px;
     font-size: 20px;
     height: 100%;
     width: 100%;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
-.control-GridItem1 { grid-area: p1; }
-.control-GridItem2 { grid-area: p2; }
-.control-GridItem3 { grid-area: p3; }
-.control-GridItem4 { grid-area: p4; }
-.control-GridItem5 {
-    grid-area: left;
-    width: 100%;
-}
-.control-GridItem6 {
-    grid-area: right;
-    width: 100%;
-}
-.control-GridItem7 { grid-area: up; }
-.control-GridItem8 { grid-area: down; }
+.control-GridItem-R { grid-area: release; }
+.control-GridItem-G { grid-area: grab; }
+.control-GridItem-A { grid-area: left; }
+.control-GridItem-D { grid-area: right; }
+.control-GridItem-W { grid-area: up; }
+.control-GridItem-S { grid-area: down; }
 
 /* Buttons on buttom */
 .controlButtons{
@@ -337,6 +331,9 @@ input.input-modern:focus {
     padding: 0;
     margin: 0;
 }
+#fallbackMessage_control{
+    padding: 10px;
+}
 .Teamspace-Control-Settings{
     display: flex;
     flex-direction: row;
@@ -351,6 +348,9 @@ input.input-modern:focus {
     justify-content: center;
     width: 100%;
     height: 30%;
+    margin: auto;
+    padding-bottom: 10px;
+    padding-top: 10px;
 }
 .Teamspace-Control-Text{
     width: 10vw;

@@ -8,7 +8,7 @@
 <body>
 <div class="content">
     <h1 class="impressum-h1">Impressum</h1>
-    <br>
+    <hr>
     <div class="impressum-block">
         <h2 class="impressum-h2">Angaben gemäß § 5 TMG:</h2>
         <p><strong>Firmenname:</strong> 6B Engineering Unternehmergesellschaft (haftungsbeschränkt)</p>
@@ -32,7 +32,6 @@
         <p><strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong> Patrick Priller, Schwesternau, 4, 39042 Brixen</p>
         <p><strong>Website:</strong> <a href="https://golfcar.space/">golfcar.space</a></p>
     </div>
-    <!-- Weitere relevante Informationen wie Berufsbezeichnung, zuständige Kammer, etc. können hier hinzugefügt werden -->
 </div>
 </body>
 </html>
