@@ -272,7 +272,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     console.error(`Failed to send command ${command}, status ${response.status}.`);
                 }
             }).catch(error => {
-                console.error("Failed to fetch", error);
+                alert("Das Fahrzeug ist zurzeit nicht erreichbar");
             });
         }
     }

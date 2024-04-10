@@ -56,3 +56,19 @@ h1, p {
         font-size: 0.9em; /* Slightly smaller paragraph font size for very small screens */
     }
 }
+@media(min-width: 1250px){
+    .impressum-h1{
+        font-size: 25px;
+        margin-left: 13px;
+    }
+    .impressum-h2{
+        font-size: 25px;
+        margin-bottom: 8px;
+    }
+    .impressum-block{
+        margin: 15px;
+    }
+    .impressum-block p{
+        margin-left: 20px;
+    }
+}
