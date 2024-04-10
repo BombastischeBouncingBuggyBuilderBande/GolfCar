@@ -19,6 +19,7 @@ header("Access-Control-Allow-Origin: " . (isset($_SERVER['HTTPS']) ? "https" : "
 require 'Datenbank.php'; // Bindet die Datenbankklasse ein.
 require 'Teamspace_PHPFunctions.php'; // Bindet dateiübergreifende Funktionen ein.
 $db = new Datenbank();
+
 // Überprüft, ob die Anmeldedaten gesendet wurden.
 if(isset($_POST['username']) && isset($_POST['password'])){
     $username = $_POST['username'];
@@ -28,9 +29,8 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     $user = $db->getPersonByName($username);
     if($user && $user['passwort'] === $password){
         // Bei Erfolg wird ein JSON-Objekt mit Erfolgsmeldung und Benutzerdaten zurückgegeben.
-        $entries = createTeamspaceTable($db, $username, 1);
-        $informationBox = createInformationBox($entries, $username);
-        echo json_encode(array('success' => 1, 'entries' => $informationBox));
+        $entries = $db->getEintraegeByPerson($username);
+        echo json_encode(array('success' => 1, 'entries' => $entries));
     } else {
         // Bei Misserfolg wird ein JSON-Objekt mit einer Misserfolgsmeldung zurückgegeben.
         echo json_encode(array('success' => 0));
