@@ -28,7 +28,9 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     $user = $db->getPersonByName($username);
     if($user && $user['passwort'] === $password){
         // Bei Erfolg wird ein JSON-Objekt mit Erfolgsmeldung und Benutzerdaten zurückgegeben.
-        echo json_encode(array('success' => 1, 'entries' => createInformationBox(createTeamspaceTable($db, $username, 1), $username)));
+        $entries = createTeamspaceTable($db, $username, 1);
+        $informationBox = createInformationBox($entries, $username);
+        echo json_encode(array('success' => 1, 'entries' => $informationBox));
     } else {
         // Bei Misserfolg wird ein JSON-Objekt mit einer Misserfolgsmeldung zurückgegeben.
         echo json_encode(array('success' => 0));
