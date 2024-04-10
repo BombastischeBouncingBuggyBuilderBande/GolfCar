@@ -44,6 +44,7 @@ async function readJson() {
     const downloadsCheckbox = document.getElementById("downloadsCheckbox");
     const statesArray = jsonData.States;
 
+
     statesArray.forEach(item => {
         console.log(item.name, item.state);
         if (item.name === "live") {

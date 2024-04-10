@@ -51,6 +51,7 @@
             </section>
             <section id="Teamspace-ControlPage-2" style="display: none">
                 <h2>Settings</h2>
+                
                 <div class="Teamspace-Control-Settings" id="Teamspace-Control-Settings-1">
                     <a class="Teamspace-Control-Text">Live Cam</a>
                     <label class="switch">
