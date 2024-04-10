@@ -164,6 +164,7 @@ h1#quote:after {
     position: absolute;
     height: 70%;
     width: 1vw;
+    min-width: 12px;
 }
 .home-side-Button:hover{
     background-color: #333333;

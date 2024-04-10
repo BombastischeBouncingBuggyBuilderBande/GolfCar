@@ -7,7 +7,7 @@
 
 require_once 'config.php';
 class Datenbank extends \PDO
-{
+
     private $host;
     private $db;
     private $user;
@@ -20,6 +20,7 @@ class Datenbank extends \PDO
      * Konstruktor, stellt eine Verbindung zur Datenbank her.
      */
     public function __construct() {
+      
         global $db_host, $db_name, $db_user, $db_port, $db_pass;
 
         $this->host = $db_host;
@@ -28,7 +29,7 @@ class Datenbank extends \PDO
         $this->port = $db_port;
         $this->pass = $db_pass;
         $this->charset = 'utf8mb4';
-
+      
         $dsn = "mysql:host=$this->host;dbname=$this->db;port=$this->port;charset=utf8mb4";
         $options = [
             PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
