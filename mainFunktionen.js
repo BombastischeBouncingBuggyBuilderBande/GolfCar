@@ -124,7 +124,11 @@ function deactivate_split_mode() {
 
     // Reversiert die Animation für das Sponsor-Image.
     let sponsorImg = document.getElementById("sponsorImg");
-    sponsorImg.style.left = "calc(50% - (20%/2))";
+    if(window.innerWidth > 1250) {
+        sponsorImg.style.left = "calc(50% - 125px)";
+    }else{
+        sponsorImg.style.left = "calc(50% - 10%)";
+    }
     sponsorImg.classList.remove("start-animation");
     sponsorImg.classList.add("start-animation-reverse");
 }
