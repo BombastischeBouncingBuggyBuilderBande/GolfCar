@@ -132,7 +132,6 @@
                         document.getElementById("welcomeText").innerText = "Welcome, " + document.getElementById("username").value;
                     } else {
                         alert("Falsche Anmeldedaten.");
-                        console.log(jsonData.entries);
                     }
                 }
             });
