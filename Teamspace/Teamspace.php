@@ -5,7 +5,6 @@
     <title>Login</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
-    <script src="functions_Teamspace.js"></script>
     <script src="Teamspace/functions_Teamspace.js"></script>
     <link rel="stylesheet" href="Teamspace/style_Teamspace.css">
 </head>
