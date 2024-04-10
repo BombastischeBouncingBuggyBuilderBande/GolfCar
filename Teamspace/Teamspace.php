@@ -5,6 +5,7 @@
     <title>Login</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <script src="functions_Teamspace.js"></script>
     <script src="Teamspace/functions_Teamspace.js"></script>
     <link rel="stylesheet" href="Teamspace/style_Teamspace.css">
 </head>
@@ -33,28 +34,28 @@
                 <h2>Car Control</h2>
                 <div id="Control-Car-VideoContainer">
                     <div id="videoContainer">
-                        <iframe id="videoFrame_control" onload="showFallbackMessage()" src="http://bombastisch:5000"></iframe>
+                        <iframe id="videoFrame_control" onload="showFallbackMessage()"
+                                src="http://bombastisch:5000"></iframe>
                         <div id="fallbackMessage_control">Streaming not available</div>
                     </div>
                 </div>
                 <div class="Teamspace-Car-Control">
-                    <button class="control-GridItem1 control-gridSpecial" id="control-btn-grab">grab</button>
-                    <button class="control-GridItem2 control-gridSpecial" id="control-btn-release">release</button>
+                    <div class="control-GridItem1 control-gridSpecial">grab</div>
+                    <div class="control-GridItem2 control-gridSpecial">release</div>
                     <div class="control-GridItem3 control-gridPH" style="visibility: hidden;">a</div>
                     <div class="control-GridItem4 control-gridPH" style="visibility: hidden;">b</div>
-                    <button class="control-GridItem5 control-gridColor" id="control-btn-a">&#8592</button>
-                    <button class="control-GridItem6 control-gridColor" id="control-btn-d">&#8594</button>
-                    <button class="control-GridItem7 control-gridColor" id="control-btn-w">&#8593</button>
-                    <button class="control-GridItem8 control-gridColor" id="control-btn-s">&#8595</button>
+                    <div class="control-GridItem5 control-gridColor">&#8592</div>
+                    <div class="control-GridItem6 control-gridColor">&#8594</div>
+                    <div class="control-GridItem7 control-gridColor">&#8593</div>
+                    <div class="control-GridItem8 control-gridColor">&#8595</div>
                 </div>
             </section>
             <section id="Teamspace-ControlPage-2" style="display: none">
                 <h2>Settings</h2>
-                
                 <div class="Teamspace-Control-Settings" id="Teamspace-Control-Settings-1">
                     <a class="Teamspace-Control-Text">Live Cam</a>
                     <label class="switch">
-                        <input id="liveCheckbox" onclick="handleCheckbox('live')" type="checkbox">
+                        <input onclick="handleCheckbox('live')" type="checkbox">
                         <span class="slider round"></span>
                     </label>
                 </div>
@@ -62,7 +63,7 @@
                 <div class="Teamspace-Control-Settings" id="Teamspace-Control-Settings-2">
                     <a class="Teamspace-Control-Text">Downloads</a>
                     <label class="switch">
-                        <input id="downloadsCheckbox" onclick="handleCheckbox('downloads')" type="checkbox">
+                        <input onclick="handleCheckbox('downloads')" type="checkbox">
                         <span class="slider round"></span>
                     </label>
                 </div>
@@ -70,7 +71,7 @@
                 <div class="Teamspace-Control-Settings" id="Teamspace-Control-Settings-4">
                     <a class="Teamspace-Control-Text">Bauteile</a>
                     <label class="switch">
-                        <input id="bauteileCheckbox" onclick="handleCheckbox('bauteile')" type="checkbox">
+                        <input onclick="handleCheckbox('bauteile')" type="checkbox">
                         <span class="slider round"></span>
                     </label>
                 </div>
@@ -81,7 +82,8 @@
             <button id="controlButton" onclick="toggle_Teamspace()">Diary</button>
         </div>
         <div id="control-buttonHolder">
-            <button id="control-BottomButton-1" class="controlButtons underlined" onclick="change_control_info(1)"></button>
+            <button id="control-BottomButton-1" class="controlButtons underlined"
+                    onclick="change_control_info(1)"></button>
             <button id="control-BottomButton-2" class="controlButtons" onclick="change_control_info(2)"></button>
         </div>
     </div>
@@ -90,21 +92,21 @@
 <script>
 
 
-
     function toggle_Teamspace() {
         let diary = document.getElementById("Diary-part");
         let control = document.getElementById("Control-part");
 
-        if(diary.style.display === "none"){
+        if (diary.style.display === "none") {
             diary.style.display = "block";
             control.style.display = "none";
-        }else{
+        } else {
             diary.style.display = "none";
             control.style.display = "flex";
         }
     }
-    function logout(){
-        if(document.getElementById("Diary-part").style.display === "none"){
+
+    function logout() {
+        if (document.getElementById("Diary-part").style.display === "none") {
             toggle_Teamspace();
         }
         console.log("log out");
@@ -113,16 +115,17 @@
         document.getElementById("username").value = "";
         document.getElementById("password").value = "";
     }
-    $(document).ready(function(){
-        $("#formLogin").on('submit', function(e){
+
+    $(document).ready(function () {
+        $("#formLogin").on('submit', function (e) {
             e.preventDefault(); // Verhindert das Neuladen der Seite
             $.ajax({
                 type: "POST",
                 url: "Teamspace/Form_login.php", // Der Pfad zum PHP-Skript, das die Anmeldung verarbeitet
                 data: $(this).serialize(),
-                success: function(response){
+                success: function (response) {
                     // Die Antwort des Servers verarbeiten
-                    var jsonData = response;
+                    var jsonData = JSON.parse(response);
 
                     if (jsonData.success === 1) {
                         $("#loginForm").hide();
@@ -131,7 +134,7 @@
                         document.getElementById("welcomeText").innerText = "Welcome, " + document.getElementById("username").value;
                     } else {
                         alert("Falsche Anmeldedaten.");
-                        console.log(jsonData.entries);
+                        console.log(jsonData.entries());
                     }
                 }
             });

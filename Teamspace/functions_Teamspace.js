@@ -12,6 +12,7 @@ function change_control_info(page){
     }
 }
 
+
 //---------------------------- Diary ---------------------------------------------------------------------------------
 function openAddEntry(){
     document.getElementById('Teamspace_Base_View').style.display = 'none';
@@ -152,11 +153,11 @@ $(document).ready(function(){
 
 //---------------------------- Settings ---------------------------------------------------------------------------------
 async function handleCheckbox(checkbox) {
+    await readJson();
     const response = await fetch('Teamspace/state.json');
     const jsonData = await response.json();
 
     const statesArray = jsonData.States;
-
 
     statesArray.forEach(item => {
         if (item.name === checkbox){
@@ -186,10 +187,6 @@ async function handleCheckbox(checkbox) {
         console.error('Failed to update JSON file');
     }
 
-    await readJson();
-
-
-
 
 }
 
@@ -201,79 +198,3 @@ function showFallbackMessage() {
     fallbackMessage.style.display = 'flex'; // Show the fallback message
     videoFrame.style.display = 'none'; // Hide the video player
 }
-//---------------------------- Car ---------------------------------------------------------------------------------
-document.addEventListener('DOMContentLoaded', function() {
-// pressed Event listeners
-    document.getElementById('control-btn-w').addEventListener('mousedown', () => sendCommand('press', 'W'));
-    document.getElementById('control-btn-a').addEventListener('mousedown', () => sendCommand('press', 'A'));
-    document.getElementById('control-btn-s').addEventListener('mousedown', () => sendCommand('press', 'S'));
-    document.getElementById('control-btn-d').addEventListener('mousedown', () => sendCommand('press', 'D'));
-    document.getElementById('control-btn-grab').addEventListener('mousedown', () => sendCommand('press', 'grab'));
-    document.getElementById('control-btn-release').addEventListener('mousedown', () => sendCommand('press', 'release'));
-
-    // released Event listeners
-    document.getElementById('control-btn-w').addEventListener('mouseup', () => sendCommand('release', 'W'));
-    document.getElementById('control-btn-a').addEventListener('mouseup', () => sendCommand('release', 'A'));
-    document.getElementById('control-btn-s').addEventListener('mouseup', () => sendCommand('release', 'S'));
-    document.getElementById('control-btn-d').addEventListener('mouseup', () => sendCommand('release', 'D'));
-    document.getElementById('control-btn-grab').addEventListener('mouseup', () => sendCommand('release', 'grab'));
-    document.getElementById('control-btn-release').addEventListener('mouseup', () => sendCommand('release', 'release'));
-
-    const keyPressedState = {
-        'KeyW': "W",
-        'KeyA': "A",
-        'KeyS': "S",
-        'KeyD': "D",
-        'KeyQ': "grab",
-        'KeyE': "release"
-    };
-    const alreadypressed = {
-        'W': false,
-        'A': false,
-        'S': false,
-        'D': false,
-        'grab': false,
-        'release': false,
-    };
-
-    // Funktion, die aufgerufen wird, wenn eine relevante Taste gedrückt und dann losgelassen wird
-    function handleKeyPressed(key) {
-        console.log(`${key} pressed and released`);
-    }
-    document.addEventListener('keydown', function(event) {
-        if (keyPressedState.hasOwnProperty(event.code) && !alreadypressed[keyPressedState[event.code]]) {
-            sendCommand("press", keyPressedState[event.code])
-        }
-    });
-    document.addEventListener('keyup', function(event) {
-        if (keyPressedState[event.code]) {
-            sendCommand("release", keyPressedState[event.code])
-        }
-    });
-    function sendCommand(status, command) {
-        let TeamspaceControlPage1 = document.getElementById("Teamspace-ControlPage-1");
-        let teamspacedisplay = document.getElementById("teamspace-display");
-        let diarypart = document.getElementById("Diary-part");
-
-        if (status === "press" && !alreadypressed[command]) {
-            alreadypressed[command] = true;
-        }
-        if (status === "release") {
-            alreadypressed[command] = false;
-        }
-        if (TeamspaceControlPage1.style.display !== "none" && teamspacedisplay.style.display !== "none" && diarypart.style.display === "none") {
-            console.log(`Status ${status} Command ${command} sending`);
-            const url = `http://raspberrypi.bombastisch:5000/${status}/${command}`;
-
-            fetch(url).then(response => {
-                if (response.ok) {
-                    console.log(`Status ${response.status} Command ${command} sent successfully.`);
-                } else {
-                    console.error(`Failed to send command ${command}, status ${response.status}.`);
-                }
-            }).catch(error => {
-                console.error("Failed to fetch", error);
-            });
-        }
-    }
-});

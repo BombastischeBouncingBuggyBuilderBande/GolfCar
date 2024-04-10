@@ -6,12 +6,12 @@
  */
 
 require_once 'config.php';
+
 class Datenbank extends \PDO
 {
     private $host;
     private $db;
     private $user;
-    private $port;
     private $pass;
     private $charset = 'utf8mb4';
     private $pdo;
@@ -19,21 +19,22 @@ class Datenbank extends \PDO
     /**
      * Konstruktor, stellt eine Verbindung zur Datenbank her.
      */
-    public function __construct() {
-        global $db_host, $db_name, $db_user, $db_port, $db_pass;
+    public function __construct()
+    {
+
+        global $db_host, $db_name, $db_user, $db_pass;
 
         $this->host = $db_host;
-        $this->db   = $db_name;
+        $this->db = $db_name;
         $this->user = $db_user;
-        $this->port = $db_port;
         $this->pass = $db_pass;
-        $this->charset = 'utf8mb4';
 
-        $dsn = "mysql:host=$this->host;dbname=$this->db;port=$this->port;charset=utf8mb4";
+
+        $dsn = "mysql:host=$this->host;dbname=$this->db;charset=$this->charset";
         $options = [
-            PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-            PDO::ATTR_EMULATE_PREPARES   => false,
+            PDO::ATTR_EMULATE_PREPARES => false,
         ];
         try {
             $this->pdo = new PDO($dsn, $this->user, $this->pass, $options);
@@ -43,7 +44,6 @@ class Datenbank extends \PDO
     }
 
 
-
     /**
      * Fügt eine neue Person hinzu oder aktualisiert sie.
      *
@@ -51,7 +51,8 @@ class Datenbank extends \PDO
      * @param string $name Der neue Name der Person.
      * @param string $passwort Das Passwort der Person.
      */
-    public function updatePerson($oldName, $name, $passwort) {
+    public function updatePerson($oldName, $name, $passwort)
+    {
         $sql = "INSERT INTO Person (name, passwort) VALUES (?, ?) ON DUPLICATE KEY UPDATE, passwort = ?";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$name, $passwort, $passwort]);
@@ -63,30 +64,34 @@ class Datenbank extends \PDO
      * @param string $name Der Name der Person.
      * @return array|null Die Daten der Person oder null, falls nicht gefunden.
      */
-    public function getPersonByName($name) {
+    public function getPersonByName($name)
+    {
         $sql = "SELECT * FROM Person WHERE name = ?";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$name]);
         return $stmt->fetch();
     }
+
     /**
      * Lädt alle Einträge einer bestimmten Person.
      *
      * @param string $name Der Name der Person.
      * @return array Die Einträge der Person.
      */
-    public function getEintraegeByPerson($name) {
-        if($name !== "admin") {
+    public function getEintraegeByPerson($name)
+    {
+        if ($name !== "admin") {
             $sql = "SELECT * FROM Eintrag WHERE Name = ? ORDER BY Datum DESC";
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute([$name]);
-        }else{
+        } else {
             $sql = "SELECT * FROM Eintrag ORDER BY Datum DESC";
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute(); // Keine Parameter erforderlich, da wir keine spezifischen Einträge filtern
         }
         return $stmt->fetchAll();
     }
+
     /**
      * Fügt einen neuen Tagebucheintrag hinzu.
      *
@@ -95,20 +100,23 @@ class Datenbank extends \PDO
      * @param int $arbeitsstunden Die Arbeitsstunden.
      * @param string $datum Das Datum des Eintrags.
      */
-    public function addEintrag($name, $beschreibung, $arbeitsstunden, $datum) {
+    public function addEintrag($name, $beschreibung, $arbeitsstunden, $datum)
+    {
         $beschreibung = str_replace("'", "", $beschreibung);
         $beschreibung = str_replace('"', '', $beschreibung);
         $sql = "INSERT INTO Eintrag (Name, beschreibung, arbeitsstunden, Datum) VALUES (?, ?, ?, ?)";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$name, $beschreibung, $arbeitsstunden, $datum]);
     }
+
     /**
      * Fügt eine neue Person hinzu.
      *
      * @param string $name Der Name der Person.
      * @param string $passwort Das Passwort der Person.
      */
-    public function addPerson($name, $passwort) {
+    public function addPerson($name, $passwort)
+    {
         $sql = "INSERT INTO Person (name, passwort) VALUES (?, ?)";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$name, $passwort]);
@@ -133,6 +141,7 @@ class Datenbank extends \PDO
             return false;
         }
     }
+
     /**
      * Holt einen Eintrag aus der Datenbank anhand seiner EintragID.
      *
@@ -168,6 +177,7 @@ class Datenbank extends \PDO
             return null;
         }
     }
+
     /**
      * Funktion zum Bearbeiten eines Eintrags in der Datenbank.
      *
@@ -180,7 +190,7 @@ class Datenbank extends \PDO
      */
     function editEintrag($eintragId, $arbeitsstunden = null, $datum = null, $beschreibung = null)
     {
-        if ($beschreibung !== null){
+        if ($beschreibung !== null) {
             $beschreibung = str_replace("'", "", $beschreibung);
             $beschreibung = str_replace('"', '', $beschreibung);
         }
@@ -189,19 +199,19 @@ class Datenbank extends \PDO
         $oldParams = $this->getEintragByID($eintragId);
         try {
             $stmt = $this->pdo->prepare($query);
-            if($arbeitsstunden != null) {
+            if ($arbeitsstunden != null) {
                 $stmt->bindParam(':arbeitsstunden', $arbeitsstunden, PDO::PARAM_INT);
-            }else{
+            } else {
                 $stmt->bindParam(':arbeitsstunden', $oldParams['arbeitsstunden']);
             }
-            if($datum != null) {
+            if ($datum != null) {
                 $stmt->bindParam(':datum', $datum);
-            }else{
+            } else {
                 $stmt->bindParam(':datum', $oldParams['Datum']);
             }
-            if($beschreibung != null) {
+            if ($beschreibung != null) {
                 $stmt->bindParam(':beschreibung', $beschreibung);
-            }else{
+            } else {
                 $stmt->bindParam(':beschreibung', $oldParams['beschreibung']);
             }
             $stmt->bindParam(':eintragId', $eintragId, PDO::PARAM_INT);
@@ -212,6 +222,7 @@ class Datenbank extends \PDO
             return false;
         }
     }
+
     /**
      * Funktion zum Bearbeiten einer Person in der Datenbank.
      *
@@ -227,9 +238,9 @@ class Datenbank extends \PDO
         $oldParams = $this->getPersonByName($name);
         try {
             $stmt = $this->pdo->prepare($query);
-            if($neuesPasswort != null) {
+            if ($neuesPasswort != null) {
                 $stmt->bindParam(':neuesPasswort', $neuesPasswort);
-            }else{
+            } else {
                 $stmt->bindParam(':neuesPasswort', $oldParams['passwort']);
             }
             $stmt->bindParam(':name', $name);
@@ -240,24 +251,28 @@ class Datenbank extends \PDO
             return false;
         }
     }
+
     /**
      * Löscht eine Person anhand des Namens.
      *
      * @param string $name Der Name der Person.
      */
-    public function deletePerson($name) {
+    public function deletePerson($name)
+    {
         $sql = "DELETE FROM Person WHERE name = ?";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$name]);
     }
+
     /**
      * Löscht einen Eintrag anhand der EintragID.
      *
      * @param int $eintragID Die ID des Eintrags.
      */
-    public function deleteEintrag($eintragID) {
+    public function deleteEintrag($eintragID)
+    {
         $sql = "DELETE FROM Eintrag WHERE EintragID = ?";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$eintragID]);
-        }
+    }
 }
