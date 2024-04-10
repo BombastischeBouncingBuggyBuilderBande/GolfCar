@@ -5,12 +5,14 @@
  * @author René
  */
 
+require_once 'config.php';
 class Datenbank extends \PDO
 {
-    private $host = 'localhost';
-    private $db = 'Tagebuch';
-    private $user = 'root';
-    private $pass = '';
+    private $host;
+    private $db;
+    private $user;
+    private $port;
+    private $pass;
     private $charset = 'utf8mb4';
     private $pdo;
 
@@ -18,6 +20,14 @@ class Datenbank extends \PDO
      * Konstruktor, stellt eine Verbindung zur Datenbank her.
      */
     public function __construct() {
+
+        global $db_host, $db_name, $db_user, $db_port, $db_pass;
+
+        $this->host = $db_host;
+        $this->db   = $db_name;
+        $this->user = $db_user;
+        $this->port = $db_port;
+        $this->pass = $db_pass;
 
 
         $dsn = "mysql:host=$this->host;dbname=$this->db;charset=$this->charset";
@@ -249,5 +259,5 @@ class Datenbank extends \PDO
         $sql = "DELETE FROM Eintrag WHERE EintragID = ?";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$eintragID]);
-    }
+        }
 }
