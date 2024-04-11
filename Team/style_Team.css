@@ -30,7 +30,7 @@
     width: 80%;
 }
 .team_container > *{
-    margin: 1vh 3vw;
+    margin: 1vh 1vw;
 }
 p.team_rolle {
     padding: 0;
@@ -45,12 +45,17 @@ p.team_rolle {
 }
 .team_image_container{
     height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
 }
 .team_image{
+    margin: 0;
+    padding: 0;
     width: 100%;
     height: 100%;
 }

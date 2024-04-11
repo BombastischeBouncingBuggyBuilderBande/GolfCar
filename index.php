@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <title>Bombastic</title>
+    <link rel="icon" type="image/x-icon" href="resources/favicon.ico">
+
     <!-- Verknüpft ein externes CSS-Stylesheet für das Styling der Webseite -->
     <link rel="stylesheet" href="style.css">
     <!-- Meta Tags -->
@@ -25,7 +27,7 @@
     <meta name="twitter:title" content="6B-Engineering">
     <meta name="twitter:description"
           content="Schulprojekt Golfcar der Gruppe 6B-Engineering. Das Ziel: Ein selbstfahrendes Auto zu bauen, das einen Golfball automatisch in eine Box befördert">
-    <meta name="twitter:image" content="Resources\favicon.ico">
+    <meta name="twitter:image" content="resources\favicon.ico">
     <meta name="twitter:card" content="Resources\twitter_logo_banner_12.jpg">
 
     <!-- Google Analytics -->
