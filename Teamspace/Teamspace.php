@@ -78,8 +78,8 @@
             </section>
         </div>
         <div id="Control-Navigation">
-            <button id="logoutButton" onclick="logout()">Log out</button>
-            <button id="controlButton" onclick="toggle_Teamspace()">Diary</button>
+            <button id="logoutButton" onclick="logout()">↩Log out</button>
+            <button id="controlButton" onclick="toggle_Teamspace()">🗒Diary</button>
         </div>
         <div id="control-buttonHolder">
             <button id="control-BottomButton-1" class="controlButtons underlined"
