@@ -137,6 +137,9 @@
                         console.log(jsonData.entries());
                     }
                 }
+                fail: function ( jqXHR, textStatus) {
+                    alert("Request failed: " + textStatus);
+                }
             });
         });
     });
