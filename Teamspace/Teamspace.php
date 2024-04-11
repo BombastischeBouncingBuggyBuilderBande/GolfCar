@@ -125,6 +125,7 @@
                 data: $(this).serialize(),
                 success: function (response) {
                     // Die Antwort des Servers verarbeiten
+                    console.log(response);
                     var jsonData = JSON.parse(response);
 
                     if (jsonData.success === 1) {
