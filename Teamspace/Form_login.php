@@ -22,14 +22,10 @@ require 'Datenbank.php'; // Bindet die Datenbankklasse ein.
 require 'Teamspace_PHPFunctions.php'; // Bindet dateiübergreifende Funktionen ein.
 $db = new Datenbank();
 
-echo $_POST['username'],"---",$_POST['password'];
-
 // Überprüft, ob die Anmeldedaten gesendet wurden.
 if(isset($_POST['username']) && isset($_POST['password'])){
     $username = $_POST['username'];
     $password = $_POST['password'];
-
-    echo "OK";
 
     // Überprüft die Nutzerdaten.
     $user = $db->getPersonByName($username);

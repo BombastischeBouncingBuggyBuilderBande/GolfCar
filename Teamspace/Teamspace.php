@@ -14,7 +14,7 @@
     <div id="Diary-part">
         <div id="loginForm">
             <h2>Login</h2>
-            <form id="formLogin">
+            <form id="formLogin" method="POST">
                 <input type="text" id="username" name="username" placeholder="Benutzername">
                 <input type="password" id="password" name="password" placeholder="Passwort">
                 <button type="submit">Anmelden</button>
