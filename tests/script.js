@@ -90,6 +90,7 @@ async function updateUiOnJson() {
         checkbox.checked = data[key];
         console.log(`${key} set to ${data[key]}`);
     });
+    updateUiOnChecked();
 }
 
 // Start load
