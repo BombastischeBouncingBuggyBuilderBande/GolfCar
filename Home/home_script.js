@@ -52,7 +52,7 @@ function change_home_info_sideButton(pre_next){
     }
 }
 // Scroll event listeners --------------------------------------------------------------------------------------------\
-
+/*
 // Für Maus und Touchpad
 let lastEventTime = 0;
 const eventThreshold = 300; // Millisekunden
@@ -109,4 +109,4 @@ document.addEventListener('touchend', function(event) {
     // Aktualisieren des Startpunkts für den Fall, dass das Scrollen fortgesetzt wird
     startY = touchY;
 }, false);
-
+*/

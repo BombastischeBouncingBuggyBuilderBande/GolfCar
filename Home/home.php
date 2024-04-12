@@ -14,22 +14,43 @@
     <button class="home-side-Button" id="home-right-button" onclick="change_home_info_sideButton('next')">></button>
     <button class="home-side-Button" id="home-left-button" onclick="change_home_info_sideButton('prev')"><</button>
     <section id="home-info-1" class="home-info">
-        <h2>Allgemeine Informationen</h2>
-        <a>Unser Ziel ist klar: ein selbstfahrendes Auto zu entwickeln, das Golfbälle aufspürt und einsammelt. <br>
-            Dieses Fahrzeug soll selbstständig navigieren, Hindernisse erkennen und den kürzesten Weg zum Ziel finden. <br>
-            Die Herausforderung liegt darin, präzise Sensoren und intelligente Algorithmen zu kombinieren, <br>
-            um diese Aufgaben unter verschiedenen Bedingungen zuverlässig zu <erfüllen class=""></erfüllen>
-        </a>
+        <h2>Schulprojekt Golfcar</h2>
+        <div id="home-info-1-part1">
+            <div>
+                sind das Team 6B-Engineering aus der 5AT der <a target="_blank" href="https://www.fallmerayer.it/">J. PH. Fallmerayer</a>.
+                Wie jedes Jahr gibt es in den fünften Klassen zum Abschluss des Jahres ein großes Projekt. <br>
+                Es teilen sich die Schüler in 4-6er Gruppen und bekommen die selbe Problemstellung. Am 9. Mai wird das Projekt in der Aula der Fallmerayer sein Ende finden
+                und alle Gruppen treten gegeneinander an um zu sehen wer das Projekt am besten umsetzen konnte.
+            </div>
+            <div>
+                <img src="">
+            </div>
+        </div>
+        <div>
+
+        </div>
     </section>
     <section style="display: none" id="home-info-2" class="home-info">
-        <a>Wir haben ein Miniatur-Golfcar entworfen, das mit einem einfachen, aber cleveren Mechanismus ausgestattet ist: <br>
-            Einem Greifarm, der Golfbälle aufspürt, aufnimmt und sie zielgenau in einen Karton befördert. <br>
-            Dieses kleine Fahrzeug kann sowohl automatisch als auch manuell über eine einfache Websteuerung gefahren werden,<br>
-            was es zu einem vielseitigen Tool auf dem Miniatur-Golfplatz macht.<br>
-        </a>
+        <h2>Ziel des Projektes</h2>
+        <div id="home-info-2-part1">
+            <div>
+            Dieses Jahr bekamen wir die Aufgabe ein Golfauto zu bauen, welches einen Golfball findet und diesen in eine Box befördert.
+            Dabei soll das Auto vollkommen autonom fahren und trotz verschiedener Hindernisse, die auf dem Parkour platziert werden, sein Ziel finden.
+            Es soll auch eine responsive Website gebaut werden, wo das Projekt vorgestellt wird, das ist die Website, die sie gerade sehen.
+            Auf dieser Website wir auch die Kamera des Golfautos übertragen und man kann es darüber auch manuell steuern.
+            </div>
+            <div>
+                <img src="">
+            </div>
+        </div>
+        <h3>Fahrbahn</h3>
+        <div>
+
+        </div>
     </section>
     <section style="display: none" id="home-info-3">
-        <a>asaabbaaa</a>
+        <h2></h2>
+        <a>Unser Ansatz</a>
     </section>
     <div id="buttonHolder">
         <button id="home-BottomButton-1" class="homeButtons underlined" onclick="change_home_info(1)"></button>
