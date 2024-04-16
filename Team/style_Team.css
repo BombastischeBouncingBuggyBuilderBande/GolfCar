@@ -1,4 +1,4 @@
-.team_main{
+.team_main {
     display: grid;
     grid-template-columns: auto auto;
     grid-template-rows: auto auto;
@@ -8,7 +8,8 @@
     width: auto;
     margin: auto;
 }
-.team_container{
+
+.team_container {
     display: grid;
     overflow: hidden;
     grid-template-rows: 5% 10% 10% 65% 5%;
@@ -20,18 +21,22 @@
     font-size: 16px; /* Setzt die Schriftgröße */
     color: #333;
     line-height: 1.5;
-    margin: 0;
     padding: 0;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #eae8df;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     height: 80%;
-    width: 80%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow here */
+    width: 80%; /* Adjust width as necessary */
+    max-width: 300px; /* You can set a max-width to control the size */
+    margin: 20px; /* This margin will help to center the containers */
+
 }
-.team_container > *{
+
+.team_container > * {
     margin: 1vh 1vw;
 }
+
 p.team_rolle {
     padding: 0;
     margin: 0;
@@ -40,29 +45,32 @@ p.team_rolle {
     font-family: Arial, sans-serif;
     background-color: transparent;
 }
-.team_name{
+
+.team_name {
     padding-bottom: 0;
 }
-.team_image_container{
+
+.team_image_container {
     height: 100%;
     width: 100%;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     overflow: hidden;
+    display: flex; /* Using flex to center the image */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
 }
-.team_image{
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
+
+.team_image {
+    max-width: 90%; /* Makes sure the image is not wider than its container */
+    height: auto; /* Adjusts the height to maintain aspect ratio */
     border-radius: 5px;
+    object-fit: contain; /* This ensures the image is scaled properly within its container */
 }
+
 @media (max-width: 600px) {
-    .team_main{
-        place-items: center;  /* Zentriert Inhalte sowohl horizontal als auch vertikal */
+    .team_main {
+        place-items: center; /* Zentriert Inhalte sowohl horizontal als auch vertikal */
         bottom: 10vh;
         height: 80%;
         margin-top: 0;
