@@ -23,7 +23,7 @@
                 und alle Gruppen treten gegeneinander an um zu sehen wer das Projekt am besten umsetzen konnte.
             </div>
             <div>
-                <img src="">
+                <img src="/resources/resources_home/picture_home_1">
             </div>
         </div>
         <div>
