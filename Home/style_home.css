@@ -106,6 +106,8 @@ h1#quote:after {
     margin-left: 1vw;
     margin-right: 1vw;
     overflow: scroll;
+    align-items: center;
+    justify-content: center;
     height: 100%;
 }
 /* new Styles------------------------------------------------------------------- */
@@ -186,10 +188,50 @@ h1#quote:after {
     border-right: 0;
     left: 0;
 }
+#home-info-1-part1{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+}
 
 .homeButtons.underlined{
     box-shadow: 0 13px 1px -6px var(--buttoncolor);
 }
+.homepics{
+    width: 50%;
+    margin: auto;
+}
+.homepics-bahn{
+    width: 30%;
+    margin: auto;
+}
+.home-centeringDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.h2-Home{
+    font-size: 3vw;
+}
+ul.elegant-list {
+    list-style-type: none; /* Keine Listensymbole */
+    padding: 0; /* Kein Abstand innen am Rand der Liste */
+    margin: 20px 0; /* Vertikaler Abstand zur umgebenden Inhalte */
+}
+
+ul.elegant-list li {
+    padding: 8px 16px; /* Polsterung um den Text */
+    border-bottom: 1px solid #ccc; /* Graue Linie unter jedem Eintrag */
+    font-family: 'Arial', sans-serif; /* Schriftart der Einträge */
+    font-size: 16px; /* Schriftgröße */
+    color: #333; /* Farbe des Textes */
+}
+
+ul.elegant-list li:last-child {
+    border-bottom: none; /* Letzter Eintrag ohne untere Linie */
+}
+
 
 @keyframes FadeOut {
     0%{ opacity: inherit;}
@@ -204,6 +246,9 @@ h1#quote:after {
         width: 90vw;
         margin-top: 0;
     }
+    .h2-Home{
+        font-size: 30px;
+    }
     #wave_holder{
         width: 100vw;
     }
@@ -212,8 +257,5 @@ h1#quote:after {
     }
     #home-left-button{
         display: none;
-    }
-    #home-info-1-part1{
-        flex-direction: column;
     }
 }

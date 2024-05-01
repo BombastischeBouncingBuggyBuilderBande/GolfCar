@@ -23,7 +23,7 @@
     <div class="team_container">
         <div style="visibility: hidden"></div>
         <h1 class="team_name">Alex</h1>
-        <p class="team_rolle">Planung</p>
+        <p class="team_rolle">Lead planner</p>
         <div class="team_image_container">
             <img class="team_image" src="resources/resources_team/alex.png" alt="Person">
         </div>
@@ -32,7 +32,7 @@
     <div class="team_container">
         <div style="visibility: hidden"></div>
         <h1 class="team_name">René</h1>
-        <p class="team_rolle">Website</p>
+        <p class="team_rolle">Lead Website Programmer</p>
         <div class="team_image_container">
             <img class="team_image" src="resources/resources_team/rene.png" alt="Person">
         </div>

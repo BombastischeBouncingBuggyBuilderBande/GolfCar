@@ -258,11 +258,14 @@ document.addEventListener('DOMContentLoaded', function() {
 // Impressum
 function openImpressum(){
     let impressum = document.getElementById("impressum-display");
+    document.getElementById("mainContainer").classList.add("impresumbackground");
     /*impressum.style.display = "block"*/
     toggleFadeIn(impressum)
 }
 function closeImpressum(){
     let impressum = document.getElementById("impressum-display");
+    document.getElementById("mainContainer").classList.remove("impresumbackground");
+
     /*impressum.style.display = "none"*/
     toggleFadeOut(impressum)
 }
