@@ -75,7 +75,7 @@ ob_end_flush();
         <li id="BauteileLi"><a class="nav-link" onclick="deactivate_all_but('bauteile-display')" data-text="Bauteile" background-text="Bauteile">Bauteile</a></li>
         <li id="LiveLi"><a class="nav-link" onclick="deactivate_all_but('live-display')" data-text="Live" background-text="Live">Live</a></li>
         <li id="TeamspaceLi"><a class="nav-link" id="Teamspace" onclick="deactivate_all_but('teamspace-display')" data-text="Teamspace" background-text="Teamspace">Teamspace</a></li>
-        <li><a class="nav-link" id="Contact" onclick="deactivate_split_mode()" href="mailto:stweiren@bx.fallmerayer.it?subject=Contact" data-text="Contact" background-text="Contact">Contact</a></li>
+        <li><a class="nav-link" id="Contact" onclick="deactivate_split_mode()" href="mailto:6bengineering.fallmerayer@gmail.com?subject=Contact" data-text="Contact" background-text="Contact">Contact</a></li>
     </ul>
     <div id="manuBar_phone">
         <img id="hamburger-icon" src="resources/Hamburger_icon.png" alt="Hamburger-Menu" width="50" height="50">

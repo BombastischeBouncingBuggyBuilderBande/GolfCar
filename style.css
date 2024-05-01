@@ -294,32 +294,37 @@ body {
     cursor: pointer;
     z-index: 10;
 }
-
-/* Anpassung des Scrollbars für WebKit-Browser */
+/*
+// altes design
 ::-webkit-scrollbar {
-    width: 12px; /* Breite des Scrollbars */
+    width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-    background: transparent; /* Transparenter Hintergrund */
+    background: #f4f4f4;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #888; /* Graue Farbe des Scroll-Handles */
-    border-radius: 6px; /* Abgerundete Ecken */
+    background: #888;
+    border-radius: 6px;
 }
 
-/* Ändern der Farbe beim Hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #555; /* Dunklere Graufarbe beim Darüberfahren */
+    background: #555;
     cursor: all-scroll;
 }
 
-/* Anpassung für Firefox */
 * {
-    scrollbar-width: thin; /* Schlanker Scrollbar */
-    scrollbar-color: #888 transparent; /* Grauer Scrollbar auf transparentem Hintergrund */
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f4f4f4;
 }
+*/
+/* Transparentes design */
+/* Versteckt den Scrollbar für WebKit-Browser, erlaubt aber das Scrollen */
+::-webkit-scrollbar {
+    display: none; /* Der Scrollbar wird nicht angezeigt, aber Scrollen ist möglich */
+}
+
 
 
 
@@ -388,6 +393,11 @@ body {
         display: none;
     }
 }
+.impresumbackground{
+    filter: blur(3px);
+}
+
+
 @media(min-width: 1250px){
     #sponsorImg {
         width: 250px;
