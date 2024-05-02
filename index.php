@@ -114,10 +114,28 @@ ob_end_flush();
 </div>
 
 <?php
+// Funktion zum Laden und Überprüfen des Zustands aus der JSON-Datei
+function checkState($component) {
+    $json = file_get_contents('path/to/state.json');  // Pfad zur JSON-Datei anpassen
+    $data = json_decode($json, true);
+    foreach ($data['States'] as $state) {
+        if ($state['name'] === $component) {
+            return $state['state'];
+        }
+    }
+    return false; // Rückgabe von false, falls die Komponente nicht gefunden wird
+}
+
 if (isset($_GET['page'])) {
     $getted = $_GET['page'];
     echo "<script>console.log('page Parameter: ' + '$getted')</script>";
-    if ($getted === "home" || $getted === "team" || $getted == "downloads" || $getted == "live" || $getted === "teamspace" || $getted === "bauteile") {
+
+    // Prüfung für spezifische Komponenten vor der Ausführung
+    if ($getted === "home" || $getted === "team" || $getted === "teamspace" ||
+        ($getted === "downloads" && checkState('downloads')) ||
+        ($getted === "live" && checkState('live')) ||
+        ($getted === "bauteile" && checkState('bauteile'))) {
+
         echo "<script>
         deactivate_all_but('$getted' + '-display');
         activate_split_mode();

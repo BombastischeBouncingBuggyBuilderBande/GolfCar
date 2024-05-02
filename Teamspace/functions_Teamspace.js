@@ -1,3 +1,8 @@
+//---------------------------- At the Beginning ----------------------------------------------------------------------
+updateUiByCheckbox().then(r => console.log("initial UI Checkbox-settings set"));
+updateCheckboxByCheckbox().then(r=> console.log("initial Checkbox-settings set"));
+
+
 //---------------------------- Control -------------------------------------------------------------------------------
 function change_control_info(page){
     document.getElementById("Teamspace-ControlPage-"+page).style.display = "block";
@@ -11,7 +16,6 @@ function change_control_info(page){
         document.getElementById("control-BottomButton-2").classList.remove('underlined');
     }
 }
-
 
 //---------------------------- Diary ---------------------------------------------------------------------------------
 function openAddEntry(){
@@ -152,44 +156,126 @@ $(document).ready(function(){
 });
 
 //---------------------------- Settings ---------------------------------------------------------------------------------
-async function handleCheckbox(checkbox) {
-    await readJson();
-    const response = await fetch('Teamspace/state.json');
-    const jsonData = await response.json();
-
-    const statesArray = jsonData.States;
-
-    statesArray.forEach(item => {
-        if (item.name === checkbox){
-            if (item.state){
-                item.state = false;
-                console.log(item.name + " setted to " + item.state);
-            } else {
-                item.state = true;
-                console.log(item.name + " setted to " + item.state);
+    async function handleCheckbox(checkbox) {
+        try {
+            // Fetching the current state from the server
+            const response = await fetch('Teamspace/state.json', {cache: "no-store"});
+            if (!response.ok) {
+                throw new Error('Failed to fetch the state.');
             }
+            const jsonData = await response.json();
+
+            // Updating the state based on the checkbox interaction
+            const statesArray = jsonData.States;
+            statesArray.forEach(item => {
+                if (item.name === checkbox) {
+                    if(item.state === false){
+                        item.state = true;
+                    }else{
+                        item.state = false;
+                    }
+                    console.log(item.state);
+                    console.log(`${item.name} set to ${item.state}`);
+                }
+            });
+
+            // Stringify the updated JSON
+            const updatedJson = JSON.stringify(jsonData);
+
+            // Writing the updated JSON back to the server
+            const writeResponse = await fetch('Teamspace/write_to_json.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: updatedJson
+            });
+
+            if (writeResponse.ok) {
+                updateUiByCheckbox();
+                updateCheckboxByCheckbox();
+
+
+                console.log('JSON file updated successfully!');
+            } else {
+                throw new Error('Failed to update JSON file');
+            }
+        } catch (error) {
+            console.error('Error occurred:', error);
         }
-    });
-
-    const updatedJson = JSON.stringify(jsonData);
-
-    const writeResponse = await fetch('Teamspace/write_to_json.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: updatedJson
-    });
-
-    if (writeResponse.ok) {
-        console.log('JSON file updated successfully!');
-    } else {
-        console.error('Failed to update JSON file');
     }
+async function updateUiByCheckbox(){
+    try {
+        // Fetching the current state from the server
+        const response = await fetch('Teamspace/state.json', {cache: "no-store"});
+        if (!response.ok) {
+            throw new Error('Failed to fetch the state.');
+        }
+        const jsonData = await response.json();
+        // Updating the state based on the checkbox interaction
+        const statesArray = jsonData.States;
+        statesArray.forEach(item => {
+            console.log(item.name + ": " + item.state);
+            if (item.name === "bauteile") {
+                if (item.state === false) {
+                    document.getElementById("BauteileLi").style.display = "none";
+                } else {
+                    document.getElementById("BauteileLi").style.display = "list-item";
 
+                }
+            }
+            if (item.name === "live") {
+                if (item.state === false) {
+                    document.getElementById("LiveLi").style.display = "none";
+                } else {
+                    document.getElementById("LiveLi").style.display = "list-item";
+                }
+            }
+            if (item.name === "downloads") {
+                if (item.state === false) {
+                    document.getElementById("DownloadsLi").style.display = "none";
+                } else {
+                    document.getElementById("DownloadsLi").style.display = "list-item";
 
+                }
+            }
+        });
+    }catch (error) {
+        console.error('Error occurred in updateUiByCheckbox:', error);
+    }
 }
-
+async function updateCheckboxByCheckbox(){
+    try {
+        // Fetching the current state from the server
+        const response = await fetch('Teamspace/state.json', {cache: "no-store"});
+        if (!response.ok) {
+            throw new Error('Failed to fetch the state.');
+        }
+        const jsonData = await response.json();
+        // Updating the state based on the checkbox interaction
+        const statesArray = jsonData.States;
+        statesArray.forEach(item => {
+            console.log(item.name + ": " + item.state);
+            if (item.name === "bauteile") {
+                if (item.state === true) {
+                    document.getElementById("CheckboxBauteile").checked = true;
+                }
+            }
+            if (item.name === "live") {
+                if (item.state === true) {
+                    document.getElementById("CheckboxLive").checked = true;
+                }
+            }
+            if (item.name === "downloads") {
+                if (item.state === true) {
+                    document.getElementById("CheckboxDownloads").checked = true;
+                }
+            }
+        });
+    }catch (error) {
+        console.error('Error occurred in updateUiByCheckbox:', error);
+    }
+}
 //---------------------------- Live ---------------------------------------------------------------------------------
 
 function showFallbackMessage() {
