@@ -40,14 +40,12 @@
                     </div>
                 </div>
                 <div class="Teamspace-Car-Control">
-                    <div class="control-GridItem1 control-gridSpecial">grab</div>
-                    <div class="control-GridItem2 control-gridSpecial">release</div>
-                    <div class="control-GridItem3 control-gridPH" style="visibility: hidden;">a</div>
-                    <div class="control-GridItem4 control-gridPH" style="visibility: hidden;">b</div>
-                    <div class="control-GridItem5 control-gridColor">&#8592</div>
-                    <div class="control-GridItem6 control-gridColor">&#8594</div>
-                    <div class="control-GridItem7 control-gridColor">&#8593</div>
-                    <div class="control-GridItem8 control-gridColor">&#8595</div>
+                    <button class="control-GridItem-G control-gridSpecial" id="control-btn-grab">grab</button>
+                    <button class="control-GridItem-R control-gridSpecial" id="control-btn-release">release</button>
+                    <button class="control-GridItem-A control-gridColor" id="control-btn-a">&#8592</button>
+                    <button class="control-GridItem-D control-gridColor" id="control-btn-d">&#8594</button>
+                    <button class="control-GridItem-W control-gridColor" id="control-btn-w">&#8593</button>
+                    <button class="control-GridItem-S control-gridColor" id="control-btn-s">&#8595</button>
                 </div>
             </section>
             <section id="Teamspace-ControlPage-2" style="display: none">
