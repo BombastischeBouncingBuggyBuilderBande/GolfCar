@@ -267,42 +267,32 @@ input.input-modern:focus {
     column-gap: 4px;
     row-gap: 4px;
     width: 100%;
-    height: 100%;
-    margin: auto;
-    text-align: center;
-}
-.Teamspace-Car-Control > div{;
-    margin: 0;
-}
-.control-gridPH{
-    height: 100%;
-    width: 100%;
-}
-.control-gridSpecial{
-    height: 100%;
-    width: 100%;
-    margin: 5px;
-    padding: 0;
-    background-color: var(--ts_buttoncolor);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-.control-gridColor {
-    background-color: var(--ts_buttoncolor);
-    text-align: center;
-    padding: 0;
-    margin: 5px;
-    font-size: 20px;
-    height: 100%;
-    width: 100%;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-.control-GridItem-R { grid-area: release; }
-.control-GridItem-G { grid-area: grab; }
-.control-GridItem-A { grid-area: left; }
-.control-GridItem-D { grid-area: right; }
-.control-GridItem-W { grid-area: up; }
-.control-GridItem-S { grid-area: down; }
+    }
+    .control-gridSpecial{
+        height: 100%;
+        width: 100%;
+        margin: 5px;
+        padding: 0;
+        background-color: var(--ts_buttoncolor);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .control-gridColor {
+        background-color: var(--ts_buttoncolor);
+        text-align: center;
+        padding: 0;
+        margin: 5px;
+        font-size: 20px;
+        height: 100%;
+        width: 100%;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .control-GridItem-R { grid-area: release; }
+    .control-GridItem-G { grid-area: grab; }
+    .control-GridItem-A { grid-area: left; }
+    .control-GridItem-D { grid-area: right; }
+    .control-GridItem-W { grid-area: up; }
+    .control-GridItem-S { grid-area: down; }
 
 /* Buttons on buttom */
 .controlButtons{
