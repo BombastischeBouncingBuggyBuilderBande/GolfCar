@@ -21,8 +21,7 @@
     <meta property="og:description"
           content="Schulprojekt Golfcar der Gruppe 6B-Engineering. Das Ziel: Ein selbstfahrendes Auto zu bauen, das einen Golfball automatisch in eine Box befördert">
     <meta property="og:image" content="Resources\company_logo.png">
-    <!-- TODO: Replace "https://example.com" with the actual URL of your website. -->
-    <meta property="og:url" content="https://example.com">
+    <meta property="og:url" content="https://golfcar.space/">
     <!-- Twitter Cards -->
     <meta name="twitter:title" content="6B-Engineering">
     <meta name="twitter:description"
@@ -31,16 +30,14 @@
     <meta name="twitter:card" content="Resources\twitter_logo_banner_12.jpg">
 
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MY_TRACKING_ID"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-27S75ZESPJ"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
+        function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-MY_TRACKING_ID');
+
+        gtag('config', 'G-27S75ZESPJ');
     </script>
     <!-- End Google Analytics -->
 </head>
