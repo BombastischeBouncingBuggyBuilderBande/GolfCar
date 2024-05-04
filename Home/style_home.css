@@ -1,19 +1,22 @@
 :root{
     --basecolor: #a6a1a1;
     --buttoncolor: #544f4f;
+    --buttonhovercolor: #333333 ;
+    --boxcolor:  #eae8df;
+    --textcolor: #333;;
 }
 
 h1#quote {
-    text-align: center; /* Centers the text */
-    font-style: italic; /* Makes the font italic */
-    padding: 20px 40px; /* Adds some padding for aesthetics */
+    text-align: center; /
+    font-style: italic;
+    padding: 20px 40px;
 }
 h1#quote:before, h1.quote:after {
-    content: open-quote; /* Uses the default quotation marks */
-    font-size: 2em; /* Adjusts the size of the quotes */
-    line-height: 0; /* Adjusts the line height to ensure alignment */
-    vertical-align: -0.4em; /* Aligns the quote marks */
-    color: #a6a1a1; /* Light color for the quotes */
+    content: open-quote;
+    font-size: 2em;
+    line-height: 0;
+    vertical-align: -0.4em;
+    color: var(--basecolor);
 }
 h1#quote:after {
     content: close-quote;
@@ -29,22 +32,19 @@ h1#quote:after {
     width: 80px;
     height: 80px;
     right: 7vw;
-    user-select: none; /* Disables text selection */
+    user-select: none;
 }
 /* Shadow and Scale on Hover */
 #home-1-button:hover {
-    transform: scale(1.1); /* Slightly enlarges the button */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Adds depth with shadow */
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 /* Optional: Press-down Animation */
 #home-1-button:active {
-    transform: scale(0.9); /* Mimics a press-down effect */
+    transform: scale(0.9);
 }
 #wave_CenterPixel{
     position: relative;
-    /*top: 50vh;
-    margin: 175px auto;*/
-
 }
 /* Wave-------------------------------------------------------------------------------------------------------------- */
 .wave {
@@ -78,7 +78,7 @@ h1#quote:after {
 .fade-in.visible {
     opacity: 1;
     visibility: visible;
-    transition: opacity 1s; /* Macht den Übergang sofort sichtbar */
+    transition: opacity 1s;
 }
 #home_informationsContainer{
     display: none;
@@ -93,7 +93,7 @@ h1#quote:after {
     padding-bottom: 5px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     border-radius: 8px;
-    background-color: #eae8df;
+    background-color: var(--boxcolor);
     overflow: hidden;
 }
 #home-info-1-part1{
@@ -115,13 +115,13 @@ h1#quote:after {
     width: 50vw;
     margin: 0 auto;
     padding: 20px;
-    background-color: #eae8df;
+    background-color: var(--boxcolor);
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .Home_h1 {
     text-align: center;
-    color: #333;
+    color: var(--textcolor);
     margin-bottom: 30px;
 }
 #firstview{
@@ -151,7 +151,7 @@ h1#quote:after {
     margin-top: 15px;
 }
 .homeButtons:hover{
-    background-color: #333333;
+    background-color: var(--buttonhovercolor);
 }
 #buttonHolder{
     display: flex;
@@ -176,7 +176,7 @@ h1#quote:after {
     min-width: 12px;
 }
 .home-side-Button:hover{
-    background-color: #333333;
+    background-color: var(--buttonhovercolor);
 }
 #home-right-button{
     border-right: 100px;
@@ -199,7 +199,7 @@ h1#quote:after {
     box-shadow: 0 13px 1px -6px var(--buttoncolor);
 }
 .homepics{
-    width: 50%;
+    width: 70%;
     margin: auto;
 }
 .homepics-bahn{
@@ -215,21 +215,21 @@ h1#quote:after {
     font-size: 3vw;
 }
 ul.elegant-list {
-    list-style-type: none; /* Keine Listensymbole */
-    padding: 0; /* Kein Abstand innen am Rand der Liste */
-    margin: 20px 0; /* Vertikaler Abstand zur umgebenden Inhalte */
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
 }
 
 ul.elegant-list li {
-    padding: 8px 16px; /* Polsterung um den Text */
-    border-bottom: 1px solid #ccc; /* Graue Linie unter jedem Eintrag */
-    font-family: 'Arial', sans-serif; /* Schriftart der Einträge */
-    font-size: 16px; /* Schriftgröße */
-    color: #333; /* Farbe des Textes */
+    padding: 8px 16px;
+    border-bottom: 1px solid #ccc;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    color: var(--textcolor);;
 }
 
 ul.elegant-list li:last-child {
-    border-bottom: none; /* Letzter Eintrag ohne untere Linie */
+    border-bottom: none;
 }
 
 
@@ -244,7 +244,8 @@ ul.elegant-list li:last-child {
 @media (max-width: 600px) {
     #home_informationsContainer{
         width: 90vw;
-        margin-top: 0;
+        height: 75vh;
+        margin-top: 10px;
     }
     .h2-Home{
         font-size: 30px;
@@ -257,5 +258,8 @@ ul.elegant-list li:last-child {
     }
     #home-left-button{
         display: none;
+    }
+    .homepics, .homepics-bahn{
+        width: 100%;
     }
 }
