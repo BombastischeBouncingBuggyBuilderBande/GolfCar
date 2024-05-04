@@ -381,38 +381,6 @@ document.addEventListener('DOMContentLoaded', function() {
             sendCommand("release", keyPressedState[event.code])
         }
     });
-    function sendCommand(status, command) {
-        let TeamspaceControlPage1 = document.getElementById("Teamspace-ControlPage-1");
-        let teamspacedisplay = document.getElementById("teamspace-display");
-        let diarypart = document.getElementById("Diary-part");
-
-        if(status === "press") {
-            if (!alreadypressed[command]) {
-                alreadypressed[command] = true;
-            }
-            if (alreadypressed[command]) {
-                console.log("didnt activate");
-                return 0;
-            }
-        }
-        if (status === "release") {
-            alreadypressed[command] = false;
-        }
-        if (TeamspaceControlPage1.style.display !== "none" && teamspacedisplay.style.display !== "none" && diarypart.style.display === "none") {
-            console.log(`Status ${status} Command ${command} sent successfully.`);
-            /*
-            // Example: http://raspberrypi.local:5000/command/W
-            const url = `http://raspberrypi.bombastisch:5000/${status}/${command}`;
-            fetch(url).then(response => {
-                if (response.ok) {
-                    console.log(`Status ${status} Command ${command} sent successfully.`);
-                } else {
-                    console.error(`Failed to send command ${command}, status ${status}.`);
-                }
-            });
-            */
-        }
-    }
 });
         if (keyPressedState[event.code]) {
             sendCommand("release", keyPressedState[event.code])
@@ -423,17 +391,18 @@ document.addEventListener('DOMContentLoaded', function() {
         let teamspacedisplay = document.getElementById("teamspace-display");
         let diarypart = document.getElementById("Diary-part");
 
-        if(status === "press") {
-            if (!alreadypressed[command]) {
-                alreadypressed[command] = true;
-            }
+        if(status === "press"){
             if (alreadypressed[command]) {
                 console.log("didnt activate");
                 return 0;
             }
+            if (!alreadypressed[command]) {
+                alreadypressed[command] = true;
+            }
         }
         if (status === "release") {
             alreadypressed[command] = false;
+            console.log("set " + command + " to false");
         }
         if (TeamspaceControlPage1.style.display !== "none" && teamspacedisplay.style.display !== "none" && diarypart.style.display === "none") {
             console.log(`Status ${status} Command ${command} sent successfully.`);

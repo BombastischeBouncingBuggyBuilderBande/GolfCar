@@ -465,7 +465,7 @@ input:checked + .slider:before {
         justify-content: center;
     }
     #button-input-modern{
-        width: 90%;
+        width: 100%;
     }
     #input-modern{
         width: 50%;
