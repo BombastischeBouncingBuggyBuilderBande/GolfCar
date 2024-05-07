@@ -409,9 +409,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
             let url;
             if(status === "release"){
-                url = `http://bombastisch/Motor/stop`;
+                url = `http://bombastisch:5000/Motor/stop`;
             }else {
-                url = `http://bombastisch/Motor/${command}`;
+                url = `http://bombastisch:5000/Motor/${command}`;
             }
 
             fetch(url).then(response => {
