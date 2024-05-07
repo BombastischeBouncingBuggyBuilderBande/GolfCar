@@ -98,7 +98,7 @@ function createTeamspacePartTable($entries, $page, $shownPerPage, $username = fa
                 </form>
                 </td>
                 <td>
-                    <button id='editbutton' onclick='openEditEntry(".$parameters.")'>edit</button>
+                    <button class='button_minsize' id='editbutton' onclick='openEditEntry(".$parameters.")'>edit</button>
                 </td>
                 </tr>";
         }
@@ -147,7 +147,7 @@ function createInformationBox($table, $username, $page = 1){
                     <input class='input-modern' id='addEntryAs' placeholder='Arbeitsstunden' name='as' min='0' type='number' step='0.1'>
                     <textarea class='input-modern' id='button-input-modern' placeholder='Beschreibung' name='beschreibung'></textarea>
                     <br>
-                    <button class='Teamspace-Buttons' type='submit'>add Entry</button>
+                    <button class='Teamspace-Buttons button_minsize' type='submit'>add Entry</button>
                 </form>
             </div>
             <div id='Teamspace_editEntry' style='display: none'> <!-- Add Entry View -->
@@ -160,7 +160,7 @@ function createInformationBox($table, $username, $page = 1){
                     <input class='input-modern' id='editEntryAs' placeholder='Arbeitsstunden' name='as' min='0' type='number' step='0.1'>
                     <textarea class='input-modern' id='editEntryBeschreibung' placeholder='Beschreibung' name='beschreibung'></textarea>
                     <br>
-                    <button class='Teamspace-Buttons' type='submit'>Save Entry</button>
+                    <button class='Teamspace-Buttons button_minsize' type='submit'>Save Entry</button>
                 </form>
             </div>
             ";
