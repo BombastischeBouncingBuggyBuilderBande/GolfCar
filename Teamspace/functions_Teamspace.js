@@ -299,8 +299,8 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('control-btn-a').addEventListener('mouseup', () => sendCommand('release', 'A'));
     document.getElementById('control-btn-s').addEventListener('mouseup', () => sendCommand('release', 'S'));
     document.getElementById('control-btn-d').addEventListener('mouseup', () => sendCommand('release', 'D'));
-    document.getElementById('control-btn-grab').addEventListener('mouseup', () => sendCommand('release', 'grab'));
-    document.getElementById('control-btn-release').addEventListener('mouseup', () => sendCommand('release', 'release'));
+    //document.getElementById('control-btn-grab').addEventListener('mouseup', () => sendCommand('release', 'grab'));
+    //document.getElementById('control-btn-release').addEventListener('mouseup', () => sendCommand('release', 'release'));
 
     const keyPressedState = {
         'KeyW': "W",
@@ -407,7 +407,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (TeamspaceControlPage1.style.display !== "none" && teamspacedisplay.style.display !== "none" && diarypart.style.display === "none") {
             console.log(`Status ${status} Command ${command} sent successfully.`);
 
-            // Example: http://raspberrypi.local:5000/command/W
             let url;
             if(status === "release"){
                 url = `http://bombastisch/Motor/stop`;
