@@ -32,6 +32,9 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     if($user && $user['passwort'] === $password){
         // Bei Erfolg wird ein JSON-Objekt mit Erfolgsmeldung und Benutzerdaten zurückgegeben.
         $entries = createInformationBox(createTeamspaceTable($db, $username, 1), $username);
+        $expireTime = time() + (7 * 24 * 60 * 60);
+        setcookie("login", $username, $expireTime, "/gitGolf");
+        setcookie("password", $password, $expireTime, "/gitGolf");
         echo json_encode(array('success' => 1, 'entries' => $entries));
     } else {
         // Bei Misserfolg wird ein JSON-Objekt mit einer Misserfolgsmeldung zurückgegeben.

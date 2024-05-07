@@ -17,7 +17,7 @@
         <h2 class="h2-Home">Schulprojekt Golfcar</h2>
         <div id="home-info-1-part1">
             <div>
-                sind das Team 6B-Engineering aus der 5AT der <a target="_blank" href="https://www.fallmerayer.it/">J. PH. Fallmerayer</a>.
+                Wir sind das Team 6B-Engineering aus der 5AT der <a target="_blank" href="https://www.fallmerayer.it/">J. PH. Fallmerayer</a>.
                 Wie jedes Jahr gibt es in den fünften Klassen zum Abschluss des Jahres ein großes Projekt. <br>
                 Es teilen sich die Schüler in 4-6er Gruppen und bekommen die selbe Problemstellung. Am 9. Mai wird das Projekt in der Aula der Fallmerayer sein Ende finden
                 und alle Gruppen treten gegeneinander an um zu sehen wer das Projekt am besten umsetzen konnte.

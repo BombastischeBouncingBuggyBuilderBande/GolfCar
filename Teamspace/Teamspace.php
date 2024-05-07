@@ -1,3 +1,12 @@
+<?php
+if(isset($_COOKIE['login']) and isset($_COOKIE['password'])){
+    $loginUsername = $_COOKIE['login'];
+    $loginPassword = $_COOKIE['password'];
+} else {
+    $loginUsername = '';
+    $loginPassword = '';
+}
+?>
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -15,9 +24,9 @@
         <div id="loginForm">
             <h2>Login</h2>
             <form id="formLogin" method="POST">
-                <input type="text" id="username" name="username" placeholder="Benutzername">
-                <input type="password" id="password" name="password" placeholder="Passwort">
-                <button type="submit">Anmelden</button>
+                <input type="text" id="username" name="username" placeholder="Benutzername" value="<?php echo htmlspecialchars($loginUsername); ?>">
+                <input type="password" id="password" name="password" placeholder="Passwort" value="<?php echo htmlspecialchars($loginPassword); ?>">
+                <button class="button_minsize" type="submit">Anmelden</button>
             </form>
         </div>
 
@@ -110,12 +119,15 @@
         console.log("log out");
         $("#loginForm").show();
         $("#userEntries").hide();
-        document.getElementById("username").value = "";
-        document.getElementById("password").value = "";
+
+        document.getElementById("username").value = "<?php echo htmlspecialchars($loginUsername); ?>";
+        document.getElementById("password").value = "<?php echo htmlspecialchars($loginPassword); ?>";
     }
 
     $(document).ready(function () {
         $("#formLogin").on('submit', function (e) {
+            //document.cookie("logn = "+document.getElementById("username").value);
+            //document.cookie("password = "+document.getElementById("password").value);
             e.preventDefault(); // Verhindert das Neuladen der Seite
             $.ajax({
                 type: "POST",
