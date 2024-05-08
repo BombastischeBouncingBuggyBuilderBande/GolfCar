@@ -134,8 +134,8 @@
 }
 @media (max-width: 600px) {
     .bauteile-product-scroll-container {
-        overflow: scroll;
-        height: 75vh;
+        overflow-y: scroll;
+        height: 100%;
         grid-template-columns: auto auto;
         grid-template-rows: auto auto auto;
     }
