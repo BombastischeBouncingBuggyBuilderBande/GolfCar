@@ -1,8 +1,8 @@
 <link rel="stylesheet" href="Live/style_live.css">
+<iframe id="videoFrame" onload="showFallbackMessage()" src="http://bombastisch:5000"></iframe>
 
 <div>
     <div id="videoContainer">
-        <iframe id="videoFrame" onload="showFallbackMessage()" src="http://bombastisch:5000"></iframe>
         <div id="fallbackMessage">Streaming not available</div>
     </div>
 </div>

@@ -279,8 +279,13 @@ async function updateCheckboxByCheckbox(){
 //---------------------------- Live ---------------------------------------------------------------------------------
 
 function showFallbackMessage() {
-    const videoFrame = document.getElementById('videoFrame_control');
-    const fallbackMessage = document.getElementById('fallbackMessage_control');
+    let videoFrame = document.getElementById('videoFrame');
+    let fallbackMessage = document.getElementById('fallbackMessage');
+    fallbackMessage.style.display = 'flex'; // Show the fallback message
+    videoFrame.style.display = 'none'; // Hide the video player
+
+    videoFrame = document.getElementById('videoFrame_control');
+    fallbackMessage = document.getElementById('fallbackMessage_control');
     fallbackMessage.style.display = 'flex'; // Show the fallback message
     videoFrame.style.display = 'none'; // Hide the video player
 }

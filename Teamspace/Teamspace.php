@@ -42,10 +42,9 @@ if(isset($_COOKIE['login']) and isset($_COOKIE['password'])){
             <section id="Teamspace-ControlPage-1">
                 <h2>Car Control</h2>
                 <div id="Control-Car-VideoContainer">
-                    <div id="videoContainer">
-                        <iframe id="videoFrame_control" onload="showFallbackMessage()"
-                                src="http://bombastisch:5000"></iframe>
-                        <div id="fallbackMessage_control">Streaming not available</div>
+                    <div id="videoContainer_control">
+                        <iframe id="videoFrame_control" onload="showFallbackMessage()" src="http://bombastisch:5000"></iframe>
+                        <div style="display: none" id="fallbackMessage_control">Streaming not available</div>
                     </div>
                 </div>
                 <div class="Teamspace-Car-Control">
