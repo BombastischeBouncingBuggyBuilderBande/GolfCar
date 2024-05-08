@@ -231,6 +231,12 @@ ul.elegant-list li {
 ul.elegant-list li:last-child {
     border-bottom: none;
 }
+.fancyText{
+    font-size: 18px; /* Bequeme Schriftgröße für Fließtext */
+    margin-bottom: 15px; /* Abstand zwischen den Absätzen */
+    text-align: justify; /* Blocksatz für eine elegante Darstellung*/
+    line-height: 25px;
+}
 
 
 @keyframes FadeOut {
