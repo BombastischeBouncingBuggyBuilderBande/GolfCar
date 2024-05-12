@@ -417,6 +417,8 @@ input:checked + .slider:before {
 @media (max-width: 600px) {
     #TeamspaceContainer{
         width: 90vw;
+        height: 75vh;
+        overflow-y: scroll;
     }
     #loginForm{
         width: 100%;
